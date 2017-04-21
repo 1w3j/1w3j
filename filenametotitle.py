@@ -9,6 +9,7 @@ parser = argparse.ArgumentParser(description='Converts the "Title" metadata attr
 parser.add_argument('-r','-R','--recursive', action='store_true', help='Make recursive the processing for all the files, directories, links, etc.')
 parser.add_argument('files', nargs='+', help='The list of files to be modified')
 parser.add_argument('--debug','-D',action="store_true",help="MAKES THE PROGRAM NOT TO CHANGE THE METADATA BUT prints out which commands are going to be used for updating the pdf")
+parser.add_argument('-o','--output', type=argparse.FileType('a'), help='Store the output in a file')
 
 args=parser.parse_args()
 selected_files=args.files[:]
@@ -35,6 +36,7 @@ if len(actual_files) == 0:
             print(colored(file+" is not a file","red"))
 
 count=0
+log=""
 for file in actual_files:
     count += 1
     filename = os.path.splitext(os.path.basename(file))[0]
@@ -43,11 +45,19 @@ for file in actual_files:
     if not args.debug:
         exiftool = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)#shell=True
         exiftout, exifterr = exiftool.communicate()
-        if len(exifterr) != 0 and not str(exifterr).startswith("Warning:"): print(colored(file + " " + str(exifterr),"red"))
+        had_warnings = bytes.decode(exifterr).startswith("Warning:")
+        rm = subprocess.Popen(['rm','-f',file + "_original"])#.pdf_original extension created by exiftool
+        if len(bytes.decode(exifterr)) != 0 and not had_warnings:
+            log = colored(str(count) + ") " + filename + ": " + bytes.decode(exifterr),"red")
+        elif had_warnings:
+            log = colored(str(count) + ") " + filename + ": " + bytes.decode(exifterr),"yellow")
         else:
-            rm = subprocess.Popen(['rm','-f',file + "_original"])
-            print(colored(str(count) + ") " + filename + " modified","green"))
+            log = colored(str(count) + ") " + filename + " modified","green")
+
+        if args.output is not None: args.output.write(log + "\n")
+        print(log)
     else:
         print('\'' + " ".join(command) + '\'')
         if len(actual_files) == count:
             print(colored(str(count) + " PDFs are going to be modified","green"))
+            if args.output is not None: print(colored("Output will be saved on "+args.output.name,"green"))
