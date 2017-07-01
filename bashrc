@@ -124,3 +124,7 @@ alias update='sudo apt update'
 alias upgrade='sudo apt full-upgrade'
 alias autoremove='sudo apt autoremove'
 alias translate='translate-bin -f en -t es -s google'
+if [$UID -ne 0]; then
+  alias reboot='sudo reboot'
+  alias resetx='sudo systemctl restart lightdm'
+fi
