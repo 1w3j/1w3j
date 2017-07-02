@@ -123,6 +123,10 @@ alias install='sudo apt install'
 alias update='sudo apt update'
 alias upgrade='sudo apt full-upgrade'
 alias autoremove='sudo apt autoremove'
-alias translate='translate-bin -f en -t es -s google'
+translation(){
+  echo $* | translate-bin -s google -f en -t es
+  echo -e '\n'
+}
+alias trns=translation
 alias resetx='sudo systemctl restart lightdm'
 alias reboot='sudo reboot'
