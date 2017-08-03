@@ -116,8 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 #added by me on 2016/12/25
-PATH="$HOME/.node_modules_global/bin:$PATH"
-export PATH
+export PATH=$PATH":/opt/gradle/gradle-4.0.2/bin:"$HOME"/.node_modules_global/bin"
+export GRADLE_HOME="/opt/gradle/gradle-4.0.2"
 
 alias install='sudo apt install'
 alias update='sudo apt update'
