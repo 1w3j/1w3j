@@ -23,10 +23,11 @@ autoload -Uz promptinit
 promptinit
 prompt agnoster
 
-export GRADLE_HOME=/opt/gradle/gradle-4.0.2
+export JAVA_HOME=/usr/lib/jvm/default
+export GRADLE_HOME=/opt/gradle/gradle-4.1
 export CATALINA_HOME=/usr/share/tomcat8
 export CATALINA_BASE=/var/lib/tomcat8
-export PATH=$PATH:~/.node_modules_global/bin:$GRADLE_HOME/bin
+export PATH=$PATH:~/bin:~/.node_modules_global/bin:$GRADLE_HOME/bin
 
 alias install='sudo apt install'
 alias update='sudo apt update'
