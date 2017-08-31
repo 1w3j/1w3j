@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Blizzard App
+Exec=env WINEPREFIX="/home/iqbal/.wine" /usr/bin/wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/iqbal/.wine/dosdevices/c:/users/Public/Desktop/Blizzard\\ App.lnk
+Type=Application
+StartupNotify=true
+Comment=Click here to launch the Blizzard app.
+Path=/home/iqbal/.wine/dosdevices/c:/Program Files (x86)/Blizzard App
+Icon=D644_Battle.net Launcher.0

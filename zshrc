@@ -29,7 +29,7 @@ export JDK_HOME=$JAVA_HOME
 export GRADLE_HOME=/opt/gradle/gradle-4.1
 export CATALINA_HOME=/usr/share/tomcat8
 export CATALINA_BASE=/var/lib/tomcat8
-export PATH=$PATH:~/bin:~/.node_modules_global/bin:$GRADLE_HOME/bin:$JAVA_HOME/bin
+export PATH=$PATH:~/bin:$GRADLE_HOME/bin:$JAVA_HOME/bin
 
 alias install='sudo apt install'
 alias update='sudo apt update'
