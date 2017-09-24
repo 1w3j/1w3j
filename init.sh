@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-REPO_PATH=~/j3w1;
+REPO_PATH=~/1w3j;
 BIN_PATH=~/bin;
 CONFIG_FILES=(bashrc gvimrc ideavimrc tmux.conf vimrc vimrc.after vimrc.before zshrc)
 
