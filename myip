@@ -4,7 +4,7 @@ if [ $# -eq 0 ]; then
     dig +short myip.opendns.com @resolver1.opendns.com;
     echo -e "ipinfo.io:\n";
     curl "ipinfo.io";
-    echo -e "\n"
+    echo -e "\r"
 else
     if [ $1 = "-s" -o $1 = "-short" ]; then
         curl "ipinfo.io/ip"
