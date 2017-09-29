@@ -42,6 +42,7 @@ translation(){
 alias trns=translation
 alias resetx='sudo systemctl restart lightdm'
 alias reboot='sudo reboot'
+alias nmcli='nmcli -p'
 
 #start highlighting files in terminal
 if [ -x /usr/bin/dircolors ]; then
