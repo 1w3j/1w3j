@@ -43,7 +43,7 @@ link_config_files() {
     echo -e "\033[32mStarting the link process:\033[m";
     for c in "${CONFIG_FILES[@]}"; do
         from=$CONFIGS_PATH/$c;
-	to=~/.$c;
+        to=~/.$c;
         echo -e "linking \033[31m$from\033[m to \033[31m$to\033[m";
         rm -f $to;
         ln -s $from $to;

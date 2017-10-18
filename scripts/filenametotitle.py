@@ -55,18 +55,20 @@ if len(actual_files) == 0:
     exit()
 else:
     print(colored(str(len(actual_files)) + " PDFs detected", "green"))
-    if (len(actual_files) <= 10 and args.recursive):
+    if (len(actual_files) >= 10 and args.recursive):
         print(colored("Showing first 10:", "green"))
         count=0
         for file in actual_files:
             count +=1 ;
             filename = os.path.splitext(os.path.basename(file))[0]
             print("\t" + str(count) + ") " + filename)
+            if count == 10:
+                break;
 
 
 # show recursive warning
 if (args.recursive):
-    input('Press any key to continue or Ctrl-C the shit out')
+    input('Press ENTER to continue or Ctrl-C the shit out')
 
 count=0
 log=""
