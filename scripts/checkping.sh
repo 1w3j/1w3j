@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# Check if ping can reach the specified host, if not NMCLI will reconnect to a specified network name (see 'nmcli connections')
+# Usage:
 # checkping [qbit]
 
 RED=$(tput sgr0 && tput setaf 1 && tput bold);
@@ -15,7 +17,7 @@ WIFI_NAME="1b";
 PING_EXIT_CODE_TRIGGER=0;
 PING_FAILED_COUNT=0;
 PING_FAILED_COUNT_TRIGGER=6;
-PING_SLEEP_TIME=3;
+PING_SLEEP_TIME=2;
 NMCLI_EXIT_CODE_TRIGGER=0;
 
 reconnect () {
