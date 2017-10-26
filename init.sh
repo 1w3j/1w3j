@@ -51,6 +51,7 @@ link_config_files() {
     echo -e "\r";
 }
 
+if [[ (! $SHELL = "/usr/bin/zsh") && (! $SHELL = "/bin/zsh") ]]; then chsh -s /usr/bin/zsh iqbal; fi;
 link_scripts "sh"
 link_scripts "py"
 link_config_files
