@@ -2,7 +2,7 @@
 
 # one background per workspace (supports 2 wrkspcs)
 
-BASE_DIR=~/1w3j/
+BASE_DIR=~/1w3j/wallpapers/
 
 IMAGE[0]=OMEN_by_HP.jpg
 IMAGE[1]=http-status-codes.png
