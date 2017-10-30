@@ -22,7 +22,7 @@ NMCLI_EXIT_CODE_TRIGGER=0;
 
 reconnect () {
   # do reconnect
-  NMCLI_EXIT_STDOUT=$( sh -c "nmcli c u $1 2>&1" );
+  NMCLI_EXIT_STDOUT=$( sh -c "nmcli -p c u $1 2>&1" );
   NMCLI_EXIT_CODE=$?;
   # if reconnection failed
   if [ $NMCLI_EXIT_CODE -ne $NMCLI_EXIT_CODE_TRIGGER ]; then
@@ -67,7 +67,7 @@ for (( ; ; )); do
     if [ "$1" == "qbit" ] ; then 
       if ! pidof qbittorrent 1>/dev/null; then
         echo $GREEN"Opening qbittorrent...";
-        nohup qbittorrent &
+        qbittorrent &>/dev/null &
       fi;
     fi;
     sleep $PING_SLEEP_TIME;
