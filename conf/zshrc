@@ -23,7 +23,7 @@ autoload -Uz promptinit
 promptinit
 prompt agnoster
 
-export JAVA_HOME=/usr/lib/jvm/default
+export JAVA_HOME=/usr/lib/jvm/default-runtime
 export IDEA_JDK=$JAVA_HOME
 export JDK_HOME=$JAVA_HOME
 export GRADLE_HOME=/opt/gradle/gradle-4.1

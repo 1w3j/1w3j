@@ -2,7 +2,7 @@
 
 hosts="/etc/hosts"
 
-echo "The following entries are going to be appended to /etc/hosts in order to block them all:\n"
+echo "The following entries are going to be appended to /etc/hosts in order to block them all:"
 for url in $*; do
     echo -e "\t$url"
 done;
