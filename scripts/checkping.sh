@@ -33,6 +33,8 @@ reconnect () {
   fi;
 }
 
+[[ -n "$*" ]] && [[ "$1" != "qbit" ]] && echo $UL"Did you mean 'qbit'?" && exit 1
+
 # eternal loop
 for (( ; ; )); do
   # do ping 
