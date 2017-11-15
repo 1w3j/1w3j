@@ -118,3 +118,5 @@ set smartcase       " ...unless we type a capital
 so ~/.yadr/vim/settings.vim
 
 set guifont=Source\ Code\ Pro
+
+set shellcmdflag=-ic

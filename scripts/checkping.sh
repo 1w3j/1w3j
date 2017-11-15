@@ -4,15 +4,15 @@
 # Usage:
 # checkping [qbit]
 
+IP='10.0.10.1';
+WIFI_NAME="1b";
+
 RED=$(tput sgr0 && tput setaf 1 && tput bold);
 GREEN=$(tput sgr0 && tput setaf 2 && tput bold);
 YELLOW=$(tput sgr0 && tput setaf 3);
 STD=$(tput sgr0);
 UL=$(tput smul); # UnderLine
 NUL=$(tput rmul); # No UnderLine
-
-IP='10.0.10.1';
-WIFI_NAME="1b";
 
 PING_EXIT_CODE_TRIGGER=0;
 PING_FAILED_COUNT=0;
