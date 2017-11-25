@@ -35,6 +35,8 @@ reconnect () {
 
 [[ -n "$*" ]] && [[ "$1" != "qbit" ]] && echo $UL"Did you mean 'qbit'?" && exit 1
 
+echo -e $UL"Using $WIFI_NAME as wireless connection name"$NUL;
+
 # eternal loop
 for (( ; ; )); do
   # do ping 
