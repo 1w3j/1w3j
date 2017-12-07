@@ -16,7 +16,7 @@ NUL=$(tput rmul); # No UnderLine
 
 PING_EXIT_CODE_TRIGGER=0;
 PING_FAILED_COUNT=0;
-PING_FAILED_COUNT_TRIGGER=6;
+PING_FAILED_COUNT_TRIGGER=8;
 PING_SLEEP_TIME=2;
 NMCLI_EXIT_CODE_TRIGGER=0;
 
@@ -43,7 +43,11 @@ for (( ; ; )); do
   PING_STDOUT=$( sh -c "ping -q -c 1 $IP 2>&1" );
   PING_EXIT_CODE=$?;
   # if ping failed
-  if [ $PING_EXIT_CODE -ne $PING_EXIT_CODE_TRIGGER ]; then 
+  if [ $PING_EXIT_CODE -ne $PING_EXIT_CODE_TRIGGER ]; then
+    # BUT if we are recovering from a disconnection and the current ping becomes a fail again (fixed bug)
+    if [ $PING_FAILED_COUNT -ge $PING_FAILED_COUNT_TRIGGER ]; then
+      PING_FAILED_COUNT=0;
+    fi;
     # increment failed count by one
     echo $YELLOW"[$(date +'%H:%M:%S')]: Failed Count: "$((++PING_FAILED_COUNT))" --- PING returned "$PING_EXIT_CODE" --- "$(($PING_FAILED_COUNT_TRIGGER-$PING_FAILED_COUNT))" more failed attemps to reconnect";
     # and if failed count reached max attempts
