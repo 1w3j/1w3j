@@ -41,6 +41,8 @@ if [ -n "$1" ]; then
           fi;
         fi;
       done;
+    else
+      >&2 echo "0 rars found...Nothing to do!";
     fi;
   else
     >&2 echo "$1": Folder doesn\'t exist;

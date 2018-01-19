@@ -8,7 +8,7 @@ CONFIG_FILES=(bashrc gvimrc ideavimrc tmux.conf vimrc vimrc.after vimrc.before z
 link_scripts() {
     echo -e "\033[32m(*) Found these .$1 scripts:\033[m";
     FILES=();
-    # globbing files with he specified extension
+    # globbing files with the specified extension on '$1'
     for f in $SCRIPTS_PATH/*.$1; do
         # check if current $f file is actually a file (not dirs) while excluding this script file
         [ -f "$f" ] && [ "$f" != "$(realpath $0)" ] && FIEL=$(basename $f);
