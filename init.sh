@@ -1,9 +1,9 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 SCRIPTS_PATH=~/1w3j/scripts;
-CONFIGS_PATH=~/1w3j/conf
+CONFIGS_PATH=~/1w3j/conf;
 BIN_PATH=~/bin;
-CONFIG_FILES=(bashrc gvimrc ideavimrc tmux.conf vimrc vimrc.after vimrc.before zshrc)
+CONFIG_FILES=(bashrc gvimrc ideavimrc tmux.conf vimrc vimrc.after vimrc.before zshrc);
 
 link_scripts() {
     echo -e "\033[32m(*) Found these .$1 scripts:\033[m";
