@@ -29,7 +29,8 @@ export JDK_HOME=$JAVA_HOME
 export GRADLE_HOME=/opt/gradle/gradle-4.6
 export CATALINA_HOME=/usr/share/tomcat8
 export CATALINA_BASE=/var/lib/tomcat8
-export PATH=$PATH:~/bin:$GRADLE_HOME/bin:$JAVA_HOME/bin
+export NODE_MODULES=$HOME/.npm-global
+export PATH=$PATH:~/bin:$GRADLE_HOME/bin:$JAVA_HOME/bin:$NODE_MODULES/bin
 #https://github.com/dotnet/core/issues/973 - segfault caused by dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
