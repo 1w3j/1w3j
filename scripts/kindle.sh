@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 # Open Kindle for PC app and links the book in 'My Kindle Content' to the original path, in order to save space
 # usage: $ kindle "/path/to/book.pdf"
