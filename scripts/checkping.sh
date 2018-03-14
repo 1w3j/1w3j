@@ -1,11 +1,11 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 # Check if ping can reach the specified host, if not NMCLI will reconnect to a specified network name (see 'nmcli connections')
 # Usage:
 # checkping [qbit]
 
-IP='192.168.0.1';
-WIFI_NAME="ce2";
+IP='192.168.1.1';
+WIFI_NAME="ce1";
 
 RED=$(tput sgr0 && tput setaf 1 && tput bold);
 GREEN=$(tput sgr0 && tput setaf 2 && tput bold);
@@ -73,7 +73,7 @@ for (( ; ; )); do
     PING_FAILED_COUNT=0;
     PING_STDOUT_INFO=`echo $PING_STDOUT | cut -d"-" -f1`;
     echo -e $GREEN$UL"Host is OK"$NUL": "$PING_STDOUT;
-    if [ "$1" == "qbit" ] ; then 
+    if [ "$1" = "qbit" ] ; then
       if ! pidof qbittorrent 1>/dev/null; then
         echo $GREEN"Opening qbittorrent...";
         qbittorrent &>/dev/null &

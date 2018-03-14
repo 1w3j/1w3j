@@ -5,8 +5,18 @@ CURRENT_COURSE_INFO_FILENAME=current_course_info.txt
 CURRENT_COURSE_INFO_FILENAME_LOCATION=$CURRENT_COURSE_DIR/$CURRENT_COURSE_INFO_FILENAME
 
 link_course () {
-  echo "Linking course \"$1\"..." && cp -rs "$1"/* $CURRENT_COURSE_DIR
-  echo "Creating Current Course Info..." && echo `basename "$1"` > $CURRENT_COURSE_INFO_FILENAME_LOCATION
+  course_tobe_linked="$1"
+  extension="${course_tobe_linked##*.}"
+  if [[ $extension = "zip" ]]; then
+    zipped_course_name="${$(basename $course_tobe_linked)%.*}"
+    echo "Unzipping Course..." && unzip -q $course_tobe_linked -d $CURRENT_COURSE_DIR;
+    echo "Creating Current Course Info..." && echo "$zipped_course_name" > $CURRENT_COURSE_INFO_FILENAME_LOCATION;
+    echo "Moving inner course folder content..." && mv $CURRENT_COURSE_DIR/"$zipped_course_name"/* $CURRENT_COURSE_DIR
+    echo 'Deleting empty folder...' && rm -r $CURRENT_COURSE_DIR/"$zipped_course_name"
+  else
+    echo "Linking Course \"$course_tobe_linked\"..." && cp -rs "$course_tobe_linked"/* $CURRENT_COURSE_DIR
+    echo "Creating Current Course Info..." && echo `basename "$course_tobe_linked"` > $CURRENT_COURSE_INFO_FILENAME_LOCATION;
+  fi;
 }
 
 # check if $CURRENT_COURSE_DIR exists
