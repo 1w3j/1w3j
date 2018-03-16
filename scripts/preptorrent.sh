@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 if [[ -e "$1" ]]; then
-  echo Linking "$1" -\> ~/Bittorrent && ln -s "$1" ~/Bittorrent;
+  echo Linking "$1" -\> ~/Bittorrent && ln -s "$(realpath $1)" ~/Bittorrent;
 else
   echo "$1 does not exist";
 fi;
