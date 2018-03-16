@@ -48,6 +48,7 @@ alias reboot='sudo reboot'
 alias nmcli='nmcli -p'
 alias free='free -h'
 alias cq='checkping qbit'
+alias utserver='utserver -settingspath /home/iqbal/.utserver/ -configfile /home/iqbal/.utserver/utserver.conf -logfile /home/iqbal/.utserver/utserver.log -pidfile /home/iqbal/.utserver/utserver.pid -daemon'
 
 #start highlighting files in terminal
 if [ -x /usr/bin/dircolors ]; then
