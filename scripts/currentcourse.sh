@@ -14,7 +14,8 @@ link_course () {
     echo "Moving inner course folder content..." && mv $CURRENT_COURSE_DIR/"$zipped_course_name"/* $CURRENT_COURSE_DIR
     echo 'Deleting empty folder...' && rm -r $CURRENT_COURSE_DIR/"$zipped_course_name"
   else
-    echo "Linking Course \"$course_tobe_linked\"..." && cp -rs "$course_tobe_linked"/* $CURRENT_COURSE_DIR
+    #echo "Linking Course \"$course_tobe_linked\"..." && cp -rs "$course_tobe_linked"/* $CURRENT_COURSE_DIR
+    echo "Linking Course \"$course_tobe_linked\"..." && cp -r "$course_tobe_linked"/* $CURRENT_COURSE_DIR
     echo "Creating Current Course Info..." && echo `basename "$course_tobe_linked"` > $CURRENT_COURSE_INFO_FILENAME_LOCATION;
   fi;
 }

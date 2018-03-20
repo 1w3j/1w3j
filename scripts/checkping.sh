@@ -54,7 +54,7 @@ for (( ; ; )); do
     # and if failed count reached max attempts
     if [ $PING_FAILED_COUNT -ge $PING_FAILED_COUNT_TRIGGER ]; then
       # kill qbittorrent process if specified
-      if [ "$1" == "qbit" ]; then
+      if [ "$1" = "qbit" ]; then
         if pidof qbittorrent 1>/dev/null; then
           echo $YELLOW"Killing all qbitorrent processes...";
           killall qbittorrent;
