@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 # Usage:
 #
-# $ testrars dir [--bad-only]
+# $ testrars dir
 #
 # where 'dir' is a folder containing rar archives
 # prints a list of corrupted archives to stderr
