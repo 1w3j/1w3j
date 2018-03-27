@@ -7,7 +7,7 @@ KINDLE_APP_PATH=~/.wine/drive_c/Program\ Files\ \(x86\)/Amazon/Kindle/Kindle.exe
 MY_KINDLE_CONTENT_PATH=~/Documents/My\ Kindle\ Content
 
 if [[ $# = 0 ]]; then
-  wine "$KINDLE_APP_PATH";
+  wine "$KINDLE_APP_PATH" &>/dev/null;
 else
   if [[ "$1" = "-l" ]]; then
     ls -l "$MY_KINDLE_CONTENT_PATH";
