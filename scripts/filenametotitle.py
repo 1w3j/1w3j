@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python
 
 import argparse
 import os
@@ -6,7 +6,7 @@ import subprocess
 from termcolor import colored
 
 parser = argparse.ArgumentParser(
-    description='Converts the "Title" metadata attribute of pdf files and set it the same as its file name'
+    description='Puts the "Title" metadata attribute of pdf files instead of file name'
 )
 parser.add_argument('-r','-R','--recursive',
                     action='store_true',

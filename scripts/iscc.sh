@@ -1,4 +1,6 @@
 #!/bin/sh
+# RUN
+# Inno Setup script
 unset DISPLAY
 scriptname=$1
 [ -f "$scriptname" ] && scriptname=$(winepath -w "$scriptname")

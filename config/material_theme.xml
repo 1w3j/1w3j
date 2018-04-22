@@ -1,0 +1,12 @@
+<application>
+  <component name="MaterialThemeConfig">
+    <option name="version" value="2.1.7.1" />
+    <option name="selectedTheme" value="CUSTOM" />
+    <option name="highlightColor" value="d1292d" />
+    <option name="highlightColorEnabled" value="true" />
+    <option name="accentColor" value="9e231f" />
+    <option name="isCompactStatusBar" value="true" />
+    <option name="darkTitleBar" value="true" />
+    <option name="tabOpacity" value="51" />
+  </component>
+</application>
