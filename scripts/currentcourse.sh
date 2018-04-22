@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 CURRENT_COURSE_DIR=~/Current\ Course
 CURRENT_COURSE_INFO_FILENAME=current_course_info.txt

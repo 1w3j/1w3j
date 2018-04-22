@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 # Check if ping can reach the specified host, if not NMCLI will reconnect to a specified network name (see 'nmcli connections')
 # Usage:

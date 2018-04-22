@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python3
 
 """ simple script for checking out the availability
     of innings in the new argentinian reservation system 
