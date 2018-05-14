@@ -1,12 +1,14 @@
 <application>
   <component name="MaterialThemeConfig">
-    <option name="version" value="2.1.7.1" />
+    <option name="version" value="2.2.0.1" />
     <option name="selectedTheme" value="CUSTOM" />
     <option name="highlightColor" value="d1292d" />
     <option name="highlightColorEnabled" value="true" />
-    <option name="accentColor" value="9e231f" />
+    <option name="isBoldTabs" value="true" />
+    <option name="accentColor" value="f44336" />
     <option name="isCompactStatusBar" value="true" />
+    <option name="upperCaseTabs" value="true" />
     <option name="darkTitleBar" value="true" />
-    <option name="tabOpacity" value="51" />
+    <option name="tabOpacity" value="86" />
   </component>
 </application>

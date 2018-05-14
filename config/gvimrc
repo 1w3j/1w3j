@@ -4,8 +4,8 @@ set bg=dark
 "if &background == "dark"
 "hi normal guibg=black
 "endif
-set guifont=Source\ Code\ Pro:h18
-silent! colorscheme solarized
+set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+silent! colorscheme wal
 
 if exists('*HexHighlight()')
   " http://www.vim.org/scripts/script.php?script_id=2937

@@ -1,6 +1,0 @@
-[profiles]
-  [[default]]
-    background_color = "#2B2B2B"
-    cursor_color = "#A9B7C6"
-    foreground_color = "#A9B7C6"
-    palette = "#000000:#A9B7C6:#7E7E7E:#CB772F:#364135:#619647:#6897BB:#9876AA:#A9B7C6:#A9B7C6:#CB772F:#3C3F41:#A9B7C6:#619647:#7E7E7E:#ff0021"

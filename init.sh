@@ -5,7 +5,7 @@ CONFIGS_PATH=~/1w3j/config;
 BIN_PATH=~/bin;
 CONFIG_FILES=(
 #              bashrc
-#              gvimrc
+              gvimrc
               ideavimrc
               tmux.conf
               vimrc
