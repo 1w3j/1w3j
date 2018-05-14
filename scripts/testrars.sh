@@ -16,13 +16,13 @@ if [ -n "$1" ]; then
         #echo file: "$FILE";
         FILES=("$FILE" "${FILES[@]}");
     done;
-    QTY_FILES=$((${#FILES[@]}-1));
-    if [ $QTY_FILES -gt 0 ]; then
+    QTY_FILES=$((${#FILES[@]}));
+    if [ ${QTY_FILES} -gt 0 ]; then
       if [[ "$2" != "--bad-only" ]]; then
         echo "$QTY_FILES rar archives found:";
-        for (( i=0; i<=${QTY_FILES}; i++ )); do
+        for (( i=0; i<=$((${QTY_FILES}-1)); i++ )); do
           echo -e "\t$((${i}+1))) $(basename "${FILES[$i]}")";
-          [ $i -eq 10 ] && break;
+          [ ${i} -eq 10 ] && break;
         done;
         read -p 'Press ENTER to continue the test or Ctrl-c the shit out of here';
       fi;
