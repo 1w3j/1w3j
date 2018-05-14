@@ -55,3 +55,12 @@ cmake
 tor
 arm
 android-file-transfer
+lib32-libldap
+youtube-dl
+nodejs
+kicad
+xclip
+xorg-xprop
+xorg-xev
+dbeaver
+postgresql
