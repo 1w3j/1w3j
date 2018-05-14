@@ -14,23 +14,23 @@ if [ -n "$1" ]; then
         for d in $1/*; do
             if [ -d "$d" ]; then
                 FOLDER=$(realpath "$d");
-                #echo folder: "$folder";
+                echo adding folder: "$FOLDER";
                 FOLDERS=("$FOLDER" "${FOLDERS[@]}");
             fi;
         done;
-        QTY_FOLDERS=$((${#FOLDERS[@]}-1));
+        QTY_FOLDERS=$((${#FOLDERS[@]}));
         if [ $QTY_FOLDERS -gt 0 ]; then
             echo "$QTY_FOLDERS folders found, showing first 10: ";
-            for (( i=0; i<=${QTY_FOLDERS}; i++ )); do
-                echo -e "\t$((${i}+1))) $(basename "${FOLDERS[$i]}")";
-                [ $i -eq 10 ] && break;
+            for (( i=0; i<=$((${QTY_FOLDERS}-1)); i++ )); do
+                echo -e "\t$((${i}+1)) $(basename "${FOLDERS[$i]}")";
+                [ ${i} -eq 10 ] && break;
             done;
             read -p "Press ENTER to continue to zip or Ctrl-c the shit out of here";
             cd ${SOURCE_DIR};
-            for (( i=0; i<=${QTY_FOLDERS}; i++ )); do
+            for (( i=0; i<=$((${QTY_FOLDERS}-1)); i++ )); do
                 CURRENT_FOLDER=`basename "${FOLDERS[$i]}"`;
                 echo -e "\t<=====================" "${CURRENT_FOLDER}" "========================>";
-                zip -m -r "${CURRENT_FOLDER}" "${CURRENT_FOLDER}";
+                zip -m -r -9 "${CURRENT_FOLDER}" "${CURRENT_FOLDER}";
             done;
         else
             warn "0 folders found.. Nothing to do !";
