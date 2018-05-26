@@ -52,19 +52,19 @@ currentcourse(){
     fi;
   else
     # if $CURRENT_COURSE_INFO_FILENAME_LOCATION exists AND $CURRENT_COURSE_DIR has contents
-    if [[ -f ${CURRENT_COURSE_INFO_FILENAME_LOCATION} ]]; then
-      display_current_course;
-    else
-      warn -e "Wow $CURRENT_COURSE_INFO_FILENAME_LOCATION does not exist. but this is what its folder contains:\n";
-    fi;
+    display_current_course;
     ls -l ${CURRENT_COURSE_DIR};
   fi;
 }
 
 display_current_course(){
-  echo '|';
-  echo -e '|' "\t"`cat ${CURRENT_COURSE_INFO_FILENAME_LOCATION}`;
-  echo '|';
+  if [[ -f ${CURRENT_COURSE_INFO_FILENAME_LOCATION} ]]; then
+    echo '|';
+    echo -e '|' "\t"`cat ${CURRENT_COURSE_INFO_FILENAME_LOCATION}`;
+    echo '|';
+  else
+    warn -e "Wow $CURRENT_COURSE_INFO_FILENAME_LOCATION does not exist. but this is what its folder contains:\n";
+  fi;
 }
 
 currentcourse "${*}";
