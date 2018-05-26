@@ -51,7 +51,7 @@ link_scripts() {
 
 link_config_files() {
     source ~/1w3j/scripts/resetintellijkey.sh --just-get-configpath webstorm;
-    echo ide config detected ${IDE_CONFIG};
+    #echo ide config detected ${IDE_CONFIG};
     warn "Found these config files";
     for c in "${CONFIG_FILES[@]}"; do
         echo -e "\t$CONFIGS_PATH/$c";

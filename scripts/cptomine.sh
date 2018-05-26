@@ -24,4 +24,4 @@ cptomine(){
   fi;
 }
 
-cptomine "$*";
+cptomine "${*}";
