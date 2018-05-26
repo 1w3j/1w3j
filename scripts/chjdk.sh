@@ -3,21 +3,10 @@
 # usage:
 # chjdk [-l] [jdkfoldername]
 
-JVM_PATH=/usr/lib/jvm/;
-JDK_DEFAULT_PATH=/usr/lib/jvm/default-runtime;
+source ~/1w3j/functions.sh
 
-err() {
-    echo >&2 `tput bold; tput setaf 1`"[-] ERROR: ${*}"`tput sgr0`;
-    exit 1;
-}
-
-msg() {
-    echo `tput bold; tput setaf 2`"[+] ${*}"`tput sgr0`;
-}
-
-warn() {
-    echo >&2 `tput bold; tput setaf 1`"[!] WARNING: ${*}"`tput sgr0`;
-}
+JVM_PATH=/opt/;
+JDK_DEFAULT_PATH=/usr/bin/java;
 
 check_root() {
     if [ $EUID -ne 0 ] ; then
@@ -25,10 +14,10 @@ check_root() {
     fi
 }
 
-
 if [[ $1 == "-l" ]] || [[ $1 == "list" ]]; then
-  ls -l ${JVM_PATH};
+  ls -l ${JVM_PATH} | grep 'jdk' -i;
 else
+  err "Sorry script not implemented yet";
   JDK_PATH="$JVM_PATH$1";
   if [ -e $JDK_PATH ]; then
     check_root;

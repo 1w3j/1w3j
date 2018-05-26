@@ -272,4 +272,4 @@ setw -g aggressive-resize on
 new-session -d -s rtorrent rtorrent ; new-session -d -s cmus cmus ; new-session -d -s ranger ranger ; new-session -d -s terminal
 bind-key C-y run "xclip -o | tmux load-buffer - ; tmux paste-buffer"
 bind-key P run "xclip -o | tmux load-buffer - ; tmux paste-buffer"
-
+setw -g mode-keys vi

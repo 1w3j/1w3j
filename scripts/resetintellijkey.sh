@@ -1,54 +1,97 @@
 #!/bin/bash
 
-PYCHARM=pycharm;
+source ~/1w3j/functions.sh;
+
+PYCHARM=pycharm; #usage => $ resetintellijkey pycharm
 PYCHARM_CONFIG=~/.PyCharm;
 
+IDEA=idea; #usage => $ resetintellijkey idea
 IDEA_CONFIG=~/.IntelliJIdea;
-IDEA=idea;
 
-CLION=clion
+CLION=clion #usage => $ resetintellijkey clion
 CLION_CONFIG=~/.CLion;
 
-GOLAND=goland;
+GOLAND=goland; #usage => $ resetintellijkey goland
 GOLAND_CONFIG=~/.GoLand;
 
-WEBSTORM=webstorm;
+WEBSTORM=webstorm; #usage => $ resetintellijkey webstorm
 WEBSTORM_CONFIG=~/.WebStorm;
 
-case $1 in
-  $PYCHARM)
-    IDE=$PYCHARM;
-    ;;
-  $CLION)
-    IDE=$CLION;
-    ;;
-  *)
-    err "$1: ide not available - nothing do do here...";
-    ;;
-esac
+reset_keys(){
+    IDE=${1};
+    IDE_CONFIG=${2};
 
+    msg "Removing the evaluation keys";
+    rm  -rf ${IDE_CONFIG}*/config/eval;
 
-echo "removing evaluation key"
-rm  -rf $IDE*/config/eval
+    rm -rf ~/.java/.userPrefs/jetbrains/pycharm;
 
-rm -rf ~/.java/.userPrefs/jetbrains/pycharm
+    msg "Resetting evalsprt in options.xml";
+    sed -i '/evlsprt/d' ${IDE_CONFIG}*/config/options/options.xml;
 
-echo "resetting evalsprt in options.xml"
-sed -i '/evlsprt/d' $IDE*/config/options/options.xml
+    msg "Resetting evalsprt in prefs.xml";
+    sed -i '/evlsprt/d' ~/.java/.userPrefs/prefs.xml;
 
-echo "resetting evalsprt in prefs.xml"
-sed -i '/evlsprt/d' ~/.java/.userPrefs/prefs.xml
+    msg "Touching files";
+    find ${IDE_CONFIG}* -type d -exec touch -t $(date +"%Y%m%d%H%M") {} +;
+    find ${IDE_CONFIG}* -type f -exec touch -t $(date +"%Y%m%d%H%M") {} +;
+}
 
+handle_configpath_params(){
+    case "${1}" in
+        ${PYCHARM})
+            IDE=${PYCHARM};
+            ;;
+        ${IDEA})
+            IDE=${IDEA};
+            ;;
+        ${CLION})
+            IDE=${CLION};
+            ;;
+        ${GOLAND})
+            IDE=${GOLAND};
+            ;;
+        ${WEBSTORM})
+            IDE=${WEBSTORM};
+            ;;
+        *)
+            err "--just-get-configpath needs the name of the IDE being passed as an argument";
+    esac
+}
 
-echo "change date file"
-find ~/.PyCharm* -type d -exec touch -t $(date +"%Y%m%d%H%M") {} +;
-find ~/.PyCharm* -type f -exec touch -t $(date +"%Y%m%d%H%M") {} +;
+resetintellijkey(){
+    case "${1}" in
+        ${PYCHARM})
+            IDE=${PYCHARM};
+            ;;
+        ${IDEA})
+            IDE=${IDEA};
+            ;;
+        ${CLION})
+            IDE=${CLION};
+            ;;
+        ${GOLAND})
+            IDE=${GOLAND};
+            ;;
+        ${WEBSTORM})
+            IDE=${WEBSTORM};
+            ;;
+        --just-get-configpath)
+            handle_configpath_params "${2}";
+            ;;
+        *)
+            err "IDE named \"$1\" not available - nothing to do here...";
+    esac
 
-#find ~/.IntelliJIdea* -type d -exec touch -t $(date +"%Y%m%d%H%M") {} +;
-#find ~/.IntelliJIdea* -type f -exec touch -t $(date +"%Y%m%d%H%M") {} +;
+    UPPER_IDE=`echo ${IDE} | awk '{print toupper($0)}'`;
+    IDE_CONFIG=`eval echo '$'"${UPPER_IDE}_CONFIG"`;
 
-#find ~/.GoLand* -type d -exec touch -t $(date +"%Y%m%d%H%M") {} +;
-#find ~/.GoLand* -type f -exec touch -t $(date +"%Y%m%d%H%M") {} +;
+    msg ${IDE} detected;
+    msg ${IDE_CONFIG}* detected;
 
-#find ~/.WebStorm* -type d -exec touch -t $(date +"%Y%m%d%H%M") {} +;
-#find ~/.WebStorm* -type f -exec touch -t $(date +"%Y%m%d%H%M") {} +;
+    if [[ ! "${1}" = "--just-get-configpath" ]]; then
+        reset_keys ${IDE} ${IDE_CONFIG};
+    fi
+}
+
+resetintellijkey ${*};
