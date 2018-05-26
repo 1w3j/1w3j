@@ -1,4 +1,5 @@
 yaourt
+npm
 mlocate
 python-pip
 perl-image-exiftool
@@ -64,3 +65,4 @@ xorg-xprop
 xorg-xev
 dbeaver
 postgresql
+dnsutils
