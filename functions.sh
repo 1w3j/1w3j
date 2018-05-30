@@ -1,97 +1,18 @@
 #!/usr/bin/env sh
 
-handle_funcname(){
-    SH=`readlink /proc/$$/exe`
-    CURRENT_FUNCTION_NAME_INDEX=1;
-    case "$SH" in
-      /usr/bin/zsh)
-        # it seems that in zsh the first item in an array starts with 1
-        FUNCTIONS=( ${funcstack[*]} );
-        CURRENT_FUNCTION_NAME_INDEX=2;
-        ;;
-      /usr/bin/sh)
-        # but in sh it starts with 0
-        FUNCTIONS=( ${FUNCNAME[*]} );
-        ;;
-      /usr/bin/bash)
-        FUNCTIONS=( ${FUNCNAME[*]} );
-        ;;
-      *)
-        err "Please implement a handling function to use with $0 shell";
-        ;;
-    esac
-}
-
-err()
-{
-    SH=`readlink /proc/$$/exe`
-    CURRENT_FUNCTION_NAME_INDEX=1;
-    case "$SH" in
-      /usr/bin/zsh)
-        # it seems that in zsh the first item in an array starts with 1
-        FUNCTIONS=( ${funcstack[*]} );
-        CURRENT_FUNCTION_NAME_INDEX=2;
-        ;;
-      /usr/bin/sh)
-        # but in sh it starts with 0
-        FUNCTIONS=( ${FUNCNAME[*]} );
-        ;;
-      /usr/bin/bash)
-        FUNCTIONS=( ${FUNCNAME[*]} );
-        ;;
-      *)
-        err "Please implement a handling function to use with $0 shell";
-        ;;
-    esac
+err(){
+    eval "$(cat ~/1w3j/handle_funcname.inc.sh)";
     echo >&2 -e `tput bold; tput setaf 1`"[-] ${FUNCTIONS[1]} ERROR: ${*}"`tput sgr0`;
     exit 1337;
 }
 
-warn()
-{
-    SH=`readlink /proc/$$/exe`
-    CURRENT_FUNCTION_NAME_INDEX=1;
-    case "$SH" in
-      /usr/bin/zsh)
-        # it seems that in zsh the first item in an array starts with 1
-        FUNCTIONS=( ${funcstack[*]} );
-        CURRENT_FUNCTION_NAME_INDEX=2;
-        ;;
-      /usr/bin/sh)
-        # but in sh it starts with 0
-        FUNCTIONS=( ${FUNCNAME[*]} );
-        ;;
-      /usr/bin/bash)
-        FUNCTIONS=( ${FUNCNAME[*]} );
-        ;;
-      *)
-        err "Please implement a handling function to use with $0 shell";
-        ;;
-    esac
+warn(){
+    eval "$(cat ~/1w3j/handle_funcname.inc.sh)";
     echo >&2 -e `tput bold; tput setaf 3`"[!] ${FUNCTIONS[1]} WARNING: ${*}"`tput sgr0`;
 }
 
-msg()
-{
-    SH=`readlink /proc/$$/exe`
-    CURRENT_FUNCTION_NAME_INDEX=1;
-    case "$SH" in
-      /usr/bin/zsh)
-        # it seems that in zsh the first item in an array starts with 1
-        FUNCTIONS=( ${funcstack[*]} );
-        CURRENT_FUNCTION_NAME_INDEX=2;
-        ;;
-      /usr/bin/sh)
-        # but in sh it starts with 0
-        FUNCTIONS=( ${FUNCNAME[*]} );
-        ;;
-      /usr/bin/bash)
-        FUNCTIONS=( ${FUNCNAME[*]} );
-        ;;
-      *)
-        err "Please implement a handling function to use with $0 shell";
-        ;;
-    esac
+msg(){
+    eval "$(cat ~/1w3j/handle_funcname.inc.sh)";
     echo -e `tput bold; tput setaf 2`"[+] ${FUNCTIONS[$CURRENT_FUNCTION_NAME_INDEX]}: ${*}"`tput sgr0`;
 }
 
@@ -131,20 +52,21 @@ detect_us3r() {
 functions() {
     US3R=`cat ~/1w3j/us3r 2>/dev/null`;
     case "$1" in
-    --change-us3r)
-        create_us3r;
-        ;;
-    --help|-h)
-        usage;
-        ;;
-    *)
-#       e.g. $ source resetintellijkey.sh --just-get-configpath
-        if is_sourced_in_external_function; then
-            detect_us3r --quiet;
-        else
-            detect_us3r;
-        fi;
-        ;;
+        --change-us3r)
+            create_us3r;
+            ;;
+        --help|-h)
+            usage;
+            ;;
+        *)
+    #       e.g. when called within a function in scripts
+    #             $ source resetintellijkey.sh --just-get-configpath
+            if is_sourced_in_external_function; then
+                detect_us3r --quiet;
+            else
+                detect_us3r;
+            fi;
+            ;;
     esac;
 }
 

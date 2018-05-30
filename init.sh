@@ -3,21 +3,13 @@
 source `dirname "$0"`/functions.sh
 
 SCRIPTS_PATH=~/1w3j/scripts;
-CONFIGS_PATH=~/1w3j/config;
+CONFIG_PATH=~/1w3j/config;
 BIN_PATH=~/bin;
-CONFIG_FILES=(
-              lessfilter
-              rtorrent.rc
-#              bashrc
-              gvimrc
-              ideavimrc
-              tmux.conf
-              tmux.conf.local
-              vimrc
-#              vimrc.after
-#              vimrc.before
-              zshrc
-              );
+IDES_INSTALLED=(
+    idea
+    webstorm
+    pycharm
+);
 
 link_scripts() {
     msg "Found these .$1 scripts:";
@@ -50,25 +42,38 @@ link_scripts() {
 }
 
 link_config_files() {
-    source ~/1w3j/scripts/resetintellijkey.sh --just-get-configpath webstorm;
-    #echo ide config detected ${IDE_CONFIG};
-    warn "Found these config files";
-    for c in "${CONFIG_FILES[@]}"; do
-        echo -e "\t$CONFIGS_PATH/$c";
-    done;
-    msg "Started linking:";
-    for c in "${CONFIG_FILES[@]}"; do
-        from=${CONFIGS_PATH}/$c;
-        to=~/.$c;
-        echo -e "\t\033[31m$from\033[m ==>> \033[31m$to\033[m";
-        rm -f $to;
-        ln -s $from $to;
+    msg "Started linking config files";
+    for c in "${CONFIG_PATH}"/*; do
+        case "$(basename ${c})" in
+            intellij)
+                for ide in ${IDES_INSTALLED[*]}; do
+                    source ~/1w3j/scripts/resetintellijkey.sh --just-get-configpath ${ide};
+                    CURRENT_IDE_CONFIG=$(realpath ${IDE_CONFIG}*);
+                    msg "Soft linking config files for ${IDE}";
+                    if [[ -d ${CURRENT_IDE_CONFIG} ]]; then
+                        msg ${CURRENT_IDE_CONFIG} "config folder detected for ${ide}";
+                        msg "Recursively copying into" ${CURRENT_IDE_CONFIG} "with '-s' flag";
+                        cp -rsf "${c}"/* ${CURRENT_IDE_CONFIG};
+                    else
+                        warn ${CURRENT_IDE_CONFIG} "doesn't exist. Install ${ide} first then run init.sh";
+                    fi;
+                done;
+                ;;
+            *)
+                from="${c}";
+                to=~/."$(basename ${c})";
+                if [[ -d "${c}" ]]; then
+                    msg "${c} folder detected"
+                    msg "Recursively copying into ${to}"
+                    cp -rsf "${from}"/* "${to}";
+                else
+                    cp -rsf "${from}" "${to}";
+                    echo -e "\t\033[31m$from\033[m ==>> \033[31m$to\033[m";
+                fi;
+                ;;
+        esac
     done;
     echo -e "\r";
-}
-
-make_intellij_configs() {
-    echo adamn
 }
 
 check_zsh() {
