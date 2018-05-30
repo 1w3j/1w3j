@@ -1,0 +1,12 @@
+<application>
+  <component name="UISettings">
+    <option name="FONT_FACE" value="Hack" />
+    <option name="HIDE_TOOL_STRIPES" value="false" />
+    <option name="MOVE_MOUSE_ON_DEFAULT_BUTTON" value="true" />
+    <option name="OVERRIDE_NONIDEA_LAF_FONTS" value="true" />
+    <option name="PRESENTATION_MODE_FONT_SIZE" value="20" />
+    <option name="SHOW_MEMORY_INDICATOR" value="true" />
+    <option name="smoothScrolling" value="true" />
+    <option name="USE_SMALL_LABELS_ON_TABS" value="true" />
+  </component>
+</application>

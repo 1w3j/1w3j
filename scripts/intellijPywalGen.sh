@@ -13,19 +13,19 @@ c=("${c[@]//\#}")
 ijConfigPath=$1
 
 # Set colors based on pywal
-txtColor=${c[15]}
-bgColor=${c[0]}
-sbgColor=${c[1]}
-sfgColor=${c[0]}
-caretRowColor=${sfgColor}
-lnColor=${c[1]}
-fgColor=${c[15]}
-bg2Color=${c[1]}
-contrastColor=${c[1]}
-sbColor=${c[1]}
-treeColor=${c[15]}
-disabledColor=${c[15]}
-activeColor=${c[2]}
+fgColor=${c[15]} #d09899
+bgColor=${c[0]} #0c0a09
+txtColor=${c[15]} #d09899
+sfgColor=${c[0]} #0c0a09
+sbgColor=${c[1]} #9e231f
+caretRowColor=${sfgColor} #0c0a09
+lnColor=${c[1]} #9e231f
+bg2Color=${c[1]} #9e23if
+contrastColor=${c[1]} #9e231f
+sbColor=${c[1]} #9e231f
+treeColor=${c[15]} #d09899
+disabledColor=${c[15]} #d09899
+activeColor=${c[2]} #b22828
 
 # Get current Directory
 SOURCE="${BASH_SOURCE[0]}"
@@ -37,8 +37,8 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 # Paths to templates
-templatePath=$DIR\/..\/config\/material_scheme_template.xml
-materialTPath=$DIR\/..\/config\/material_template.xml
+templatePath=$DIR\/material_scheme_template.xml
+materialTPath=$DIR\/material_template.xml
 
 # Paths to IDE
 ijCfPath=$ijConfigPath/colors/material-pywal.icls
