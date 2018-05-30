@@ -5,7 +5,7 @@ source `dirname "$0"`/functions.sh
 SCRIPTS_PATH=~/1w3j/scripts;
 CONFIG_PATH=~/1w3j/config;
 BIN_PATH=~/bin;
-IDES_INSTALLED=(
+MY_INTELLIJ_IDES=(
     idea
     webstorm
     pycharm
@@ -46,7 +46,7 @@ link_config_files() {
     for c in "${CONFIG_PATH}"/*; do
         case "$(basename ${c})" in
             intellij)
-                for ide in ${IDES_INSTALLED[*]}; do
+                for ide in ${MY_INTELLIJ_IDES[*]}; do
                     source ~/1w3j/scripts/resetintellijkey.sh --just-get-configpath ${ide};
                     CURRENT_IDE_CONFIG=$(realpath ${IDE_CONFIG}*);
                     msg "Soft linking config files for ${IDE}";
