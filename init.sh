@@ -58,7 +58,8 @@ link_config_files() {
                         warn ${CURRENT_IDE_CONFIG} "doesn't exist. Install ${ide} first then run init.sh";
                     fi;
                 done;
-                msg "You may now start your IDEs, if color scheme resets as in normal consider running init.sh again before restarting your IDE";
+                msg "++++++++++++++ IMPORTANT NOTE +++++++++++++++";
+                msg "You may now want to run your IDEs, if color scheme resets as in normal (or awfully) again, consider running init.sh again before 'restarting your IDE'. This 'may' be due to the version displayed in material_theme.xml. Always update the Material Theme UI Plugin";
                 ;;
             *)
                 from="${c}";
