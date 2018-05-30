@@ -58,6 +58,7 @@ link_config_files() {
                         warn ${CURRENT_IDE_CONFIG} "doesn't exist. Install ${ide} first then run init.sh";
                     fi;
                 done;
+                msg "You may now start your IDEs, if color scheme resets as in normal consider running init.sh again before restarting your IDE";
                 ;;
             *)
                 from="${c}";
@@ -86,10 +87,11 @@ check_zsh() {
 }
 
 init_sh() {
-    check_zsh
-    link_scripts "sh"
-    link_scripts "py"
-    link_config_files
+    check_zsh;
+    link_scripts "sh";
+    link_scripts "py";
+    link_config_files;
+    wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg;
 }
 
 init_sh ${*};
