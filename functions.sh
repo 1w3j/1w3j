@@ -16,6 +16,12 @@ msg(){
     echo -e `tput bold; tput setaf 2`"[+] ${FUNCTIONS[$CURRENT_FUNCTION_NAME_INDEX]}: ${*}"`tput sgr0`;
 }
 
+check_root(){
+  if [ $EUID -ne 0 ]; then
+    err "You must be root";
+  fi;
+}
+
 is_sourced_in_external_function(){
     [ ${#FUNCTIONS[*]} -gt 3 ]
 }
