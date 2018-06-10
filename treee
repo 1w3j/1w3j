@@ -1,0 +1,82 @@
+.
+├── bin
+│   ├── idea-settings.jar
+│   └── Regex.jar
+├── binaries
+│   ├── apt
+│   ├── npm
+│   ├── pacman
+│   ├── pip
+│   └── yaourt
+├── config
+│   ├── config
+│   │   └── i3
+│   │       └── config
+│   ├── gvimrc
+│   ├── ideavimrc
+│   ├── intellij
+│   │   └── config
+│   │       ├── colors
+│   │       │   └── material-pywal.icls
+│   │       └── options
+│   │           ├── colors.scheme.xml
+│   │           ├── editor.xml
+│   │           ├── github_settings.xml
+│   │           ├── git.xml
+│   │           ├── ide.general.xml
+│   │           ├── material_custom_theme.xml
+│   │           ├── material_theme.xml
+│   │           └── ui.lnf.xml
+│   ├── lessfilter
+│   ├── rtorrent.rc
+│   ├── tmux.conf
+│   ├── tmux.conf.local
+│   ├── vimrc
+│   └── zshrc
+├── functions.sh
+├── handle_funcname.inc.sh
+├── init.sh
+├── scripts
+│   ├── blocksites.sh
+│   ├── checkping.sh
+│   ├── checkturn.py
+│   ├── chjdk.sh
+│   ├── cpprj.sh
+│   ├── cptomine.sh
+│   ├── currentcourse.sh
+│   ├── eachworkspcbg.sh
+│   ├── filenametotitle.py
+│   ├── gradle-doc.sh
+│   ├── install_hide_firefox_titlebar.sh
+│   ├── intellijPywalGen.sh
+│   ├── iscc.sh
+│   ├── kindle.sh
+│   ├── listnames.sh
+│   ├── material_scheme_template.xml
+│   ├── material_template.xml
+│   ├── mute-pacmd-index.sh
+│   ├── myip.sh
+│   ├── ncrptr.sh
+│   ├── preptorrent.sh
+│   ├── resetintellijkey
+│   ├── resetintellijkey.sh
+│   ├── restorescreen.sh
+│   ├── scanhosts.sh
+│   ├── scanwifi.sh
+│   ├── shrinkpdf.sh
+│   ├── strap.sh
+│   ├── testrars.sh
+│   ├── toggletouchpad.sh
+│   └── zipnmove.sh
+├── src
+│   └── resetkey.c
+├── treee
+├── us3r
+└── wallpapers
+    ├── http-status-codes.png
+    ├── main-cheatsheet.jpeg
+    ├── OMEN_by_HP.jpg
+    ├── rTorrent Reference Manual.pdf
+    └── vi-vim-cheat-sheet.png
+
+12 directories, 67 files
