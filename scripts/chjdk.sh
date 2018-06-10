@@ -8,12 +8,6 @@ source ~/1w3j/functions.sh
 JVM_PATH=/opt/;
 JDK_DEFAULT_PATH=/usr/bin/java;
 
-check_root() {
-    if [ $EUID -ne 0 ] ; then
-        err "you must be root";
-    fi
-}
-
 if [[ $1 == "-l" ]] || [[ $1 == "list" ]]; then
   ls -l ${JVM_PATH} | grep 'jdk' -i;
 else
