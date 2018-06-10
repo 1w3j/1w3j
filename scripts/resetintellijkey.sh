@@ -17,6 +17,9 @@ GOLAND_CONFIG=~/.GoLand;
 WEBSTORM=webstorm; #usage => $ resetintellijkey webstorm
 WEBSTORM_CONFIG=~/.WebStorm;
 
+DATAGRIP=datagrip
+DATAGRIP_CONFIG=~/.DataGrip;
+
 reset_keys(){
     IDE=${1};
     IDE_CONFIG=${2};
@@ -54,6 +57,9 @@ handle_configpath_params(){
         ${WEBSTORM})
             IDE=${WEBSTORM};
             ;;
+          ${DATAGRIP})
+            IDE=${DATAGRIP};
+            ;;
         *)
             err "--just-get-configpath needs the name of the IDE being passed as an argument";
     esac
@@ -75,6 +81,9 @@ resetintellijkey(){
             ;;
         ${WEBSTORM})
             IDE=${WEBSTORM};
+            ;;
+        ${DATAGRIP})
+            IDE=${DATAGRIP};
             ;;
         --just-get-configpath)
             handle_configpath_params "${2}";
