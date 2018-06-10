@@ -9,6 +9,7 @@ MY_INTELLIJ_IDES=(
     idea
     webstorm
     pycharm
+    datagrip
 );
 
 link_scripts() {
@@ -66,6 +67,8 @@ link_config_files() {
                 to=~/."$(basename ${c})";
                 if [[ -d "${c}" ]]; then
                     msg "${c} folder detected"
+                    msg "Creating parent folders for you"
+                    mkdir -p "$(dirname {to})"
                     msg "Recursively copying into ${to}"
                     cp -rsf "${from}"/* "${to}";
                 else

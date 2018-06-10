@@ -66,3 +66,8 @@ xorg-xev
 dbeaver
 postgresql
 dnsutils
+mariadb
+php
+composer
+phpmyadmin
+apache
