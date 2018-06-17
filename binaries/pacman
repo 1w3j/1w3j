@@ -1,6 +1,10 @@
 yaourt
+vim
 npm
+chromium
 mlocate
+python2
+python2-pip
 python-pip
 perl-image-exiftool
 testdisk
@@ -71,3 +75,7 @@ php
 composer
 phpmyadmin
 apache
+tmux
+cmus
+wireless_tools
+tree

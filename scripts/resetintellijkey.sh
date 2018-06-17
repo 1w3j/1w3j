@@ -62,7 +62,7 @@ handle_configpath_params(){
             ;;
         *)
             err "--just-get-configpath needs the name of the IDE being passed as an argument";
-    esac
+    esac;
 }
 
 resetintellijkey(){

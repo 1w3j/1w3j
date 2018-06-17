@@ -34,9 +34,9 @@ dht = off
 
 # Enable peer exchange (for torrents not marked private)
 #
-peer_exchange = yes
+# peer_exchange = yes
 
-set_max_file_size = 300G
+# set_max_file_size = 300G
 method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://zer0day.ch:1337\""
 method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://tracker.leechers-paradise.org:6969\""
 # method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"http://share.camoe.cn:8080/announce\""
