@@ -1,5 +1,15 @@
 #!/usr/bin/env sh
 
+check_home() {
+	echo 'Checking if the repo was cloned in your $HOME path...';
+  two_dirs_up=$(dirname $(dirname $(realpath $0)));
+  if [[ ! $HOME = "$two_dirs_up" ]]; then
+    echo "Please run the following command: \`mv $(dirname $(realpath $0)) $HOME\`";
+		exit 1336
+	fi;
+}
+
+check_home;
 source `dirname "$0"`/functions.sh
 
 SCRIPTS_PATH=~/1w3j/scripts;
@@ -83,19 +93,49 @@ link_config_files() {
 
 check_zsh() {
     msg "Checking if zsh is your current shell"
-    if [[ (! $SHELL = "/usr/bin/zsh") && (! $SHELL = "/bin/zsh") ]]; then
+    if [[ ( ! $SHELL = "/usr/bin/zsh") && (! $SHELL = "/bin/zsh") ]]; then
         warn "Nope, $SHELL is your shell right now, we need to change";
         chsh -s /usr/bin/zsh "${US3R}";
     fi;
     msg "Everything is just fine";
 }
 
+print_usage(){
+cat<<EOF
+
+Usage: ${0} [--do-not-install-anything]
+Options:
+      --do-not-install-anything           Just link your config files without isntalling the 'binaries'
+EOF
+}
+
+install_packages() {
+    pacman_pkgs=$(cat ~/1w3j/binaries/pacman | tr '\n' ' ');
+    yaourt_pkgs=$(cat ~/1w3j/binaries/yaourt | tr '\n' ' ');
+    msg "Starting pacman sync";
+    msg "Please select number 3) when installing 'i3' -> i3blocks";
+    sudo pacman -Syyyu;
+    sudo pacman -S $pacman_pkgs;
+    yaourt -S $yaourt_pkgs;
+    sudo pip install -r ~/1w3j/binaries/pip;
+    mhwd -i pci video-hybrid-intel-nvidia-bumblebee;
+    sh -c "$(curl -fSsL https://blackarch.org/strap.sh)";
+}
+
 init_sh() {
+    if [[ "${1}" = "--help" || "${1}" = "-h" ]]; then
+      print_usage;
+      exit 0;
+    fi;
     check_zsh;
     link_scripts "sh";
     link_scripts "py";
     link_config_files;
-    wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg;
+    if [[ ! "${1}" = "--do-not-install-anything" ]]; then
+      echo installing PACKAGESSSSS
+#      install_packages;
+    fi;
+    #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg;
 }
 
 init_sh ${*};

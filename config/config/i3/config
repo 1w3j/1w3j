@@ -18,7 +18,7 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-font pango:Hack 9
+font pango:Hack 9, Font Awesome 5 Free 9
 
 # Before i3 v4.8, we used to recommend this one as the default:
  # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -178,6 +178,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86AudioPause exec cmus-remote --pause
 bindsym XF86AudioNext exec cmus-remote --next
 bindsym XF86AudioPrev exec cmus-remote --prev
+bindsym Print exec gnome-screenshot
 
 bindsym $mod+shift+o exec i3lock
 bindsym $mod+n exec nemo ~
@@ -189,7 +190,7 @@ assign [title="ranger"] $ws2
 assign [title="terminal"] $ws3
 assign [class="^Thunderbird$"] $ws5
 assign [class="^jetbrains"] $ws4
-assign [class="^whatsapp-desktop$"] $ws6
+assign [class="^whats-app$"] $ws6
 assign [class="^TelegramDesktop$"] $ws7
 assign [class="^Nemo$"] $ws8
 assign [title="rtorrent"] $ws9
@@ -210,7 +211,7 @@ exec --no-startup-id chromium
 exec --no-startup-id "sh -c 'sleep 10; exec urxvt -e tmux attach-session -t ranger'"
 exec --no-startup-id "sh -c 'sleep 10; exec optirun urxvt -e tmux attach-session -t terminal'"
 exec --no-startup-id thunderbird
-exec --no-startup-id Whatsapp
+exec --no-startup-id whatsapp-web-desktop
 exec --no-startup-id telegram-desktop
 exec --no-startup-id nemo
 exec --no-startup-id "sh -c 'sleep 10; exec urxvt -e tmux attach-session -t rtorrent'"
@@ -305,5 +306,3 @@ bar {
     urgent_workspace   $urgent-bg-color   $urgent-bg-color   $urgent-fg-color
   }
 }
-
-bindsym Print exec gnome-screenshot

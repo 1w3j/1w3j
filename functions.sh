@@ -28,6 +28,7 @@ is_sourced_in_external_function(){
 
 usage() {
     cat << EOF
+
 This script manages utilities used for the repository, can be used to change the default UNIX user too
 Usage: ./functions.sh [-h|--help] [--change-us3r]
     -h, --help              Shows this message
