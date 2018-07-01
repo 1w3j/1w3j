@@ -208,14 +208,14 @@ exec --no-startup-id anatine
 exec --no-startup-id jetbrains-toolbox --minimize
 exec --no-startup-id xset -b
 exec --no-startup-id chromium
-exec --no-startup-id "sh -c 'sleep 10; exec urxvt -e tmux attach-session -t ranger'"
+exec --no-startup-id "sh -c 'sleep 8; exec urxvt -e tmux attach-session -t ranger'"
 exec --no-startup-id "sh -c 'sleep 10; exec optirun urxvt -e tmux attach-session -t terminal'"
 exec --no-startup-id thunderbird
 exec --no-startup-id whatsapp-web-desktop
 exec --no-startup-id telegram-desktop
 exec --no-startup-id nemo
-exec --no-startup-id "sh -c 'sleep 10; exec urxvt -e tmux attach-session -t rtorrent'"
-exec --no-startup-id "sh -c 'sleep 10; exec urxvt -e tmux attach-session -t cmus'"
+exec --no-startup-id "sh -c 'sleep 12; exec urxvt -e tmux attach-session -t rtorrent'"
+exec --no-startup-id "sh -c 'sleep 14; exec urxvt -e tmux attach-session -t cmus'"
 exec_always i3-msg "workspace $ws5"
 
 focus_follows_mouse yes
