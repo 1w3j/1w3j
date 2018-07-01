@@ -16,7 +16,7 @@ directory = ~/Bittorrent/Completed
 session = ~/Bittorrent/session
 
 # Port range to use for listening.
-port_range = 60125-64125
+port_range = 49155-49356
 
 # Start opening ports at a random position within the port range.
 port_random = yes

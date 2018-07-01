@@ -132,10 +132,9 @@ init_sh() {
     link_scripts "py";
     link_config_files;
     if [[ ! "${1}" = "--do-not-install-anything" ]]; then
-      echo installing PACKAGESSSSS
-#      install_packages;
+      install_packages;
     fi;
-    #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg;
+    wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg;
 }
 
 init_sh ${*};
