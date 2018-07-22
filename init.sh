@@ -103,9 +103,9 @@ check_zsh() {
 print_usage(){
 cat<<EOF
 
-Usage: ${0} [--do-not-install-anything]
+Usage: ${0} [--do-not-install-anything | -dnia ]
 Options:
-      --do-not-install-anything           Just link your config files without isntalling the 'binaries'
+      --do-not-install-anything, -dnia           Just link your config files without isntalling the 'binaries'
 EOF
 }
 
@@ -113,7 +113,7 @@ install_packages() {
     pacman_pkgs=$(cat ~/1w3j/binaries/pacman | tr '\n' ' ');
     yaourt_pkgs=$(cat ~/1w3j/binaries/yaourt | tr '\n' ' ');
     msg "Starting pacman sync";
-    msg "Please select number 3) when installing 'i3' -> i3blocks";
+    msg "DON'T forget to select number 3) when installing 'i3' -> i3blocks";
     sudo pacman -Syyyu;
     msg "Performing pacman pkgs installation";
     sudo pacman -S $pacman_pkgs;
@@ -136,7 +136,7 @@ init_sh() {
     link_scripts "sh";
     link_scripts "py";
     link_config_files;
-    if [[ ! "${1}" = "--do-not-install-anything" ]]; then
+    if [[ ! "${1}" = "--do-not-install-anything" && ! "${1}" = "-dnia" ]]; then
       install_packages;
     fi;
     wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg;
