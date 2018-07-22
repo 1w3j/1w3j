@@ -70,7 +70,7 @@ link_config_files() {
                     fi;
                 done;
                 msg "++++++++++++++ IMPORTANT NOTE +++++++++++++++";
-                msg "You may now want to run your IDEs, if color scheme resets as in normal (or awfully) again, consider running init.sh again before 'restarting your IDE'. This 'may' be due to the version displayed in material_theme.xml. Always update the Material Theme UI Plugin";
+                msg "You may now want to run your IDEs, if color scheme sets again as in normal (or awfully normal) again, consider running init.sh again before 'restarting your IDE'. This 'may' be due to the plugin version displayed in material_theme.xml. Always update the Material Theme UI Plugin";
                 ;;
             *)
                 from="${c}";
@@ -97,7 +97,7 @@ check_zsh() {
         warn "Nope, $SHELL is your shell right now, we need to change";
         chsh -s /usr/bin/zsh "${US3R}";
     fi;
-    msg "Everything is just fine";
+    msg "Everything will be just fine";
 }
 
 print_usage(){
@@ -115,10 +115,15 @@ install_packages() {
     msg "Starting pacman sync";
     msg "Please select number 3) when installing 'i3' -> i3blocks";
     sudo pacman -Syyyu;
+    msg "Performing pacman pkgs installation";
     sudo pacman -S $pacman_pkgs;
+    msg "Starting yaourt pkgs installation";
     yaourt -S $yaourt_pkgs;
+    msg "Starting pip modules installation";
     sudo pip install -r ~/1w3j/binaries/pip;
+    msg "Starting mhwd -i bumblebee";
     mhwd -i pci video-hybrid-intel-nvidia-bumblebee;
+    msg "Bootstraping BlackArch packages"
     sh -c "$(curl -fSsL https://blackarch.org/strap.sh)";
 }
 

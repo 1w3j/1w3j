@@ -1,0 +1,5 @@
+<keymap version="1" name="Default for XWin copy" parent="Default for XWin">
+  <action id="ToggleDistractionFreeMode">
+    <keyboard-shortcut first-keystroke="alt f5" />
+  </action>
+</keymap>
