@@ -3,7 +3,7 @@
     <property name="created">2017-11-02T17:04:42</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2017.2.5.0.0</property>
-    <property name="modified">2018-05-31T01:30:11</property>
+    <property name="modified">2018-07-23T00:58:10</property>
     <property name="originalScheme">_@user_Material Darker</property>
   </metaInfo>
   <colors>
@@ -16,7 +16,7 @@
     <option name="DIFF_SEPARATORS_BACKGROUND" value="1c1c1c" />
     <option name="DIFF_SEPARATORS_TOP_BORDER" value="171717" />
     <option name="DOCUMENTATION_COLOR" value="c0a09" />
-    <option name="FILESTATUS_ADDED" value="80cbc4" />
+    <option name="FILESTATUS_ADDED" value="f44336" />
     <option name="FILESTATUS_COPIED" value="659d9a" />
     <option name="FILESTATUS_DELETED" value="f77669" />
     <option name="FILESTATUS_HIJACKED" value="ffcb6b" />
@@ -25,15 +25,16 @@
     <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="c3e88d" />
     <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="546e7a" />
     <option name="FILESTATUS_MERGED" value="65738e" />
-    <option name="FILESTATUS_MODIFIED" value="80cbc4" />
-    <option name="FILESTATUS_NOT_CHANGED" value="626669" />
+    <option name="FILESTATUS_MODIFIED" value="9e231f" />
+    <option name="FILESTATUS_NOT_CHANGED" value="d09899" />
     <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="80cbc4" />
     <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="80cbc4" />
     <option name="FILESTATUS_OBSOLETE" value="7c7c00" />
     <option name="FILESTATUS_SUPPRESSED" value="616161" />
     <option name="FILESTATUS_SWITCHED" value="8978f" />
     <option name="FILESTATUS_UNKNOWN" value="f77669" />
-    <option name="FILESTATUS_modifiedOutside" value="80cbc4" />
+    <option name="FILESTATUS_addedOutside" value="bf3932" />
+    <option name="FILESTATUS_modifiedOutside" value="9e231f" />
     <option name="GUTTER_BACKGROUND" value="c0a09" />
     <option name="INDENT_GUIDE" value="9e231f" />
     <option name="INFORMATION_HINT" value="c0a09" />
@@ -577,7 +578,7 @@
     </option>
     <option name="DEFAULT_BLOCK_COMMENT">
       <value>
-        <option name="FOREGROUND" value="4a4a4a" />
+        <option name="FOREGROUND" value="828282" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
@@ -613,7 +614,7 @@
     </option>
     <option name="DEFAULT_DOC_COMMENT">
       <value>
-        <option name="FOREGROUND" value="4a4a4a" />
+        <option name="FOREGROUND" value="787878" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
@@ -625,13 +626,14 @@
     </option>
     <option name="DEFAULT_DOC_COMMENT_TAG_VALUE">
       <value>
-        <option name="FOREGROUND" value="4a4a4a" />
+        <option name="FOREGROUND" value="777777" />
+        <option name="BACKGROUND" value="312727" />
         <option name="FONT_TYPE" value="3" />
       </value>
     </option>
     <option name="DEFAULT_DOC_MARKUP">
       <value>
-        <option name="FOREGROUND" value="4a4a4a" />
+        <option name="FOREGROUND" value="757575" />
       </value>
     </option>
     <option name="DEFAULT_DOT">

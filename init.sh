@@ -18,9 +18,26 @@ BIN_PATH=~/bin;
 MY_INTELLIJ_IDES=(
     idea
     webstorm
-    pycharm
+    charm
     datagrip
+    clion
 );
+
+link_ides_scripts() {
+    warn "If some IDE script is missing, first check jetbrains-toolbox configuration\n and set the Shell Scripts Location to ${SCRIPTS_PATH}";
+    for ide in ${MY_INTELLIJ_IDES[*]}; do
+        ide_script=${SCRIPTS_PATH}/${ide};
+        if [ -f ${ide_script} ]; then
+            from=${ide_script};
+            to=${BIN_PATH}/$(basename ${ide_script});
+            echo -e "\t\033[31m$from\033[m ==>> \033[31m$to\033[m";
+            rm -f ${to};
+            ln -s ${from} ${to};
+        else
+            warn "${ide} script is missing!";
+        fi;
+    done;
+}
 
 link_scripts() {
     msg "Found these .$1 scripts:";
@@ -59,13 +76,14 @@ link_config_files() {
             intellij)
                 for ide in ${MY_INTELLIJ_IDES[*]}; do
                     source ~/1w3j/scripts/resetintellijkey.sh --just-get-configpath ${ide};
-                    CURRENT_IDE_CONFIG=$(realpath ${IDE_CONFIG}*);
-                    msg "Soft linking config files for ${IDE}";
+                    CURRENT_IDE_CONFIG=$(realpath ${IDE_CONFIG});
+                    msg "Soft linking config files for ${IDE} ";
                     if [[ -d ${CURRENT_IDE_CONFIG} ]]; then
                         msg ${CURRENT_IDE_CONFIG} "config folder detected for ${ide}";
                         msg "Recursively copying into" ${CURRENT_IDE_CONFIG} "with '-s' flag";
                         cp -rsf "${c}"/* ${CURRENT_IDE_CONFIG};
                     else
+                    echo ${CURRENT_IDE_CONFIG};
                         warn ${CURRENT_IDE_CONFIG} "doesn't exist. Install ${ide} first then run init.sh";
                     fi;
                 done;
@@ -93,7 +111,7 @@ link_config_files() {
 
 check_zsh() {
     msg "Checking if zsh is your current shell"
-    if [[ ( ! $SHELL = "/usr/bin/zsh") && (! $SHELL = "/bin/zsh") ]]; then
+    if [[ ( ! ${SHELL} = "/usr/bin/zsh") && (! ${SHELL} = "/bin/zsh") ]]; then
         warn "Nope, $SHELL is your shell right now, we need to change";
         chsh -s /usr/bin/zsh "${US3R}";
     fi;
@@ -105,7 +123,7 @@ cat<<EOF
 
 Usage: ${0} [--do-not-install-anything | -dnia ]
 Options:
-      --do-not-install-anything, -dnia           Just link your config files without isntalling the 'binaries'
+      --do-not-install-anything, -dnia           Just link your config files without installing the 'binaries'
 EOF
 }
 
@@ -135,6 +153,7 @@ init_sh() {
     check_zsh;
     link_scripts "sh";
     link_scripts "py";
+    link_ides_scripts;
     link_config_files;
     if [[ ! "${1}" = "--do-not-install-anything" && ! "${1}" = "-dnia" ]]; then
       install_packages;

@@ -183,7 +183,7 @@ bindsym Print exec gnome-screenshot
 bindsym $mod+shift+o exec i3lock
 bindsym $mod+n exec nemo ~
 bindsym $mod+t exec ~/bin/toggletouchpad
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show combi -show-icons -modi "run#ssh#window#drun"
 
 assign [class="^Chromium$"] $ws1
 assign [title="^ranger"] $ws2
