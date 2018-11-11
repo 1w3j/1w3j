@@ -8,13 +8,14 @@ TRIM_CHAR=":";
 cptomine(){
   if [ -n "$1" ]; then
     #note $@ does not care of $IFS, $* does
-    for file in "$1"; do
+    for file in "$@"; do
       if [ -e "$file" ]; then
         NEW_NAME=`basename "$file" | tr --delete "$TRIM_CHAR"`;
         NEW_PATH=$MINE_FOLDER/$NEW_NAME;
         msg "Copying $file ==> $NEW_PATH";
         # copy and follow soft link if exists
         cp -L "$file" "$NEW_PATH";
+        filenametotitle "$NEW_PATH";
       else
         err "$file: File doesn\'t exist";
       fi;
@@ -24,4 +25,4 @@ cptomine(){
   fi;
 }
 
-cptomine "${*}";
+cptomine "${@}";

@@ -39,6 +39,7 @@ dht = off
 # set_max_file_size = 300G
 method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://zer0day.ch:1337\""
 method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://tracker.leechers-paradise.org:6969\""
+method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://open.demonii.com:1337\""
 # method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"http://share.camoe.cn:8080/announce\""
 # method.set_key=event.download.inserted_new,add_all_trackers016,"d.tracker.insert=\"32\",\"udp://tracker.doko.moe:6969/announce\""
 # method.set_key=event.download.inserted_new,add_all_trackers017,"d.tracker.insert=\"32\",\"http://tracker.bittor.pw:1337/announce\""

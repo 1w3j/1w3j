@@ -1,7 +1,8 @@
 <application>
   <component name="UISettings">
     <option name="FONT_FACE" value="Hack" />
-    <option name="HIDE_TOOL_STRIPES" value="false" />
+    <option name="FONT_SCALE" value="1.0" />
+    <option name="FONT_SIZE" value="14" />
     <option name="MOVE_MOUSE_ON_DEFAULT_BUTTON" value="true" />
     <option name="OVERRIDE_NONIDEA_LAF_FONTS" value="true" />
     <option name="PRESENTATION_MODE_FONT_SIZE" value="20" />

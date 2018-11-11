@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-check_home() {
+check_if_currently_on_home() {
 	echo 'Checking if the repo was cloned in your $HOME path...';
   two_dirs_up=$(dirname $(dirname $(realpath $0)));
   if [[ ! $HOME = "$two_dirs_up" ]]; then
@@ -9,7 +9,7 @@ check_home() {
 	fi;
 }
 
-check_home;
+check_if_currently_on_home;
 source `dirname "$0"`/functions.sh
 
 SCRIPTS_PATH=~/1w3j/scripts;

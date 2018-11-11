@@ -190,7 +190,6 @@ assign [title="^ranger"] $ws2
 assign [title="^terminal"] $ws3
 assign [class="^Thunderbird$"] $ws5
 assign [class="^jetbrains"] $ws4
-assign [class="^whatsie"] $ws6
 assign [class="^telegram-desktop"] $ws7
 assign [class="^Nemo$"] $ws8
 assign [title="^rtorrent"] $ws9
@@ -205,7 +204,6 @@ exec --no-startup-id wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg
 exec_always setxkbmap -layout us,es -option grp:alt_shift_toggle
 exec --no-startup-id "sh -c 'sleep 10; exec redshift-gtk'"
 exec --no-startup-id anatine
-exec --no-startup-id whatsie
 exec --no-startup-id jetbrains-toolbox --minimize
 exec --no-startup-id xset -b
 exec --no-startup-id chromium
