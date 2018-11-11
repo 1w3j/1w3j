@@ -1,0 +1,5 @@
+#!/bin/sh
+#Generated with love at Sun Nov 11 11:21:35 2018 by JetBrains Toolbox 1.11.4269 (Aug 30 2018)
+
+"/home/iqbal/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.4892.24/bin/clion.sh" "$@"
+

@@ -87,3 +87,10 @@ gimp
 gsmartcontrol
 gpick
 php-apache
+android-tools
+lib32-libjpeg-turbo
+lib32-libpng
+lib32-libldap
+lib32-libpulse
+lib32-alsa-plugins
+winetricks
