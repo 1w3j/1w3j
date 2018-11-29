@@ -1,5 +1,5 @@
 # Maximum and minimum number of peers to connect to per torrent.
-min_peers = 2
+min_peers = 1
 max_peers = 5
 max_uploads = 4
 
@@ -26,20 +26,23 @@ port_random = yes
 check_hash = yes
 encryption = allow_incoming,try_outgoing,enable_retry
 
-dht = off
+dht = on
 
 # UDP port to use for DHT.
 #
-# dht_port = 63425
+dht_port = 63425
 
 # Enable peer exchange (for torrents not marked private)
 #
-# peer_exchange = yes
+protocol.pex.set=true
 
 # set_max_file_size = 300G
-method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://zer0day.ch:1337\""
-method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://tracker.leechers-paradise.org:6969\""
-method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://open.demonii.com:1337\""
+method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://tracker.openbittorrent.com:80/announce\""
+method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://tracker.publicbt.com:80/announce\""
+method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://tracker.istole.it:80/announce\""
+#method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://zer0day.ch:1337\""
+#method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://tracker.leechers-paradise.org:6969\""
+#method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"udp://open.demonii.com:1337\""
 # method.set_key=event.download.inserted_new,add_all_trackers015,"d.tracker.insert=\"32\",\"http://share.camoe.cn:8080/announce\""
 # method.set_key=event.download.inserted_new,add_all_trackers016,"d.tracker.insert=\"32\",\"udp://tracker.doko.moe:6969/announce\""
 # method.set_key=event.download.inserted_new,add_all_trackers017,"d.tracker.insert=\"32\",\"http://tracker.bittor.pw:1337/announce\""
