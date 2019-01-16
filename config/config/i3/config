@@ -189,6 +189,7 @@ assign [class="^Chromium$"] $ws1
 assign [title="^ranger"] $ws2
 assign [title="^terminal"] $ws3
 assign [class="^Thunderbird$"] $ws5
+assign [class="^nixnote2$"] $ws5
 assign [class="^jetbrains"] $ws4
 assign [class="^discord"] $ws6
 assign [class="^TelegramDesktop"] $ws7
@@ -196,6 +197,7 @@ assign [class="^Nemo$"] $ws8
 assign [title="^rtorrent"] $ws9
 assign [title="^cmus"] $ws10
 for_window [class="Anatine"] floating enable
+workspace $ws5; layout tabbed
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id compton -cCGb --backend glx --vsync opengl
@@ -213,7 +215,9 @@ exec --no-startup-id "sh -c 'sleep 8; exec urxvt -e tmux attach-session -t range
 exec --no-startup-id "sh -c 'sleep 10; exec optirun urxvt -e tmux attach-session -t terminal'"
 exec --no-startup-id thunderbird
 exec --no-startup-id telegram-desktop
+exec --no-startup-id nixnote2
 exec --no-startup-id nemo
+exec --no-startup-id steam -silent
 exec --no-startup-id "sh -c 'sleep 12; exec urxvt -e tmux attach-session -t rtorrent'"
 exec --no-startup-id "sh -c 'sleep 14; exec urxvt -e tmux attach-session -t cmus'"
 exec_always i3-msg "workspace $ws5"
