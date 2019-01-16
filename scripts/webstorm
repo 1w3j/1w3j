@@ -1,0 +1,5 @@
+#!/bin/sh
+#Generated with love at Tue Jan 15 08:44:17 2019 by JetBrains Toolbox 1.12.4481 (Nov  9 2018)
+
+"/home/iqbal/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/183.5153.33/bin/webstorm.sh" "$@"
+

@@ -8,12 +8,12 @@ download_rate = 0
 upload_rate = 0
 
 # Default directory to save the downloaded torrents.
-directory = ~/Bittorrent/Completed
+directory = ~/Documents/the-eye.org
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
 # relative path?
-session = ~/Bittorrent/session
+session = ~/.rtorrent/session
 
 # Port range to use for listening.
 port_range = 49155-49356
