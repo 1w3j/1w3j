@@ -197,7 +197,6 @@ assign [class="^Nemo$"] $ws8
 assign [title="^rtorrent"] $ws9
 assign [title="^cmus"] $ws10
 for_window [class="Anatine"] floating enable
-workspace $ws5; layout tabbed
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id compton -cCGb --backend glx --vsync opengl

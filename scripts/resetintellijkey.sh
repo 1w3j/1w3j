@@ -30,10 +30,17 @@ reset_keys(){
     rm -rf ~/.java/.userPrefs/jetbrains/pycharm;
 
     msg "Resetting evalsprt in options.xml";
-    sed -i '/evlsprt/d' ${IDE_CONFIG}/config/options/options.xml;
+    # 2018 versions : change other.xml to options.xml
+    sed -i '/evlsprt/d' ${IDE_CONFIG}/config/options/other.xml;
 
     msg "Resetting evalsprt in prefs.xml";
     sed -i '/evlsprt/d' ~/.java/.userPrefs/prefs.xml;
+
+    msg "Deleting eval folder";
+    rm -f "${IDE_CONFIG}/config/options/eval";
+
+    msg "Deleting ${IDE} user prefs folder";
+    rm -rf ~/.java/userPrefs/jetbrains/${IDE};
 
     msg "Touching files";
     find ${IDE_CONFIG} -type d -exec touch -t $(date +"%Y%m%d%H%M") {} +;
