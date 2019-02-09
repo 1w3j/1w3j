@@ -205,7 +205,6 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg
 exec_always setxkbmap -layout us,es -option grp:alt_shift_toggle
 exec --no-startup-id "sh -c 'sleep 10; exec redshift-gtk'"
-exec --no-startup-id anatine
 exec --no-startup-id discord
 exec --no-startup-id jetbrains-toolbox --minimize
 exec --no-startup-id xset -b
