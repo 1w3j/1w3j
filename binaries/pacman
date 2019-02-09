@@ -94,3 +94,4 @@ lib32-libldap
 lib32-libpulse
 lib32-alsa-plugins
 winetricks
+easytag
