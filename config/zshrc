@@ -1,10 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export JAVA_HOME=/opt/jdk8/jdk1.8.0_202
+export JAVA_HOME=/opt/jdk8/jdk1.8.0_212
 #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre/
 export IDEA_JDK=$JAVA_HOME
 export JDK_HOME=$JAVA_HOME
-export GRADLE_HOME=/opt/gradle/gradle-5.1.1
+export GRADLE_HOME=/opt/gradle/gradle-5.4.1
 export CATALINA_HOME=/usr/share/tomcat8
 export CATALINA_BASE=/var/lib/tomcat8
 export NODE_MODULES=$HOME/.npm-global
@@ -120,5 +120,5 @@ source $ZSH/oh-my-zsh.sh
 
 
 ### MY SETTINGS ###
-# setsid wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg
-showerthoughts
+wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg &> /dev/null
+#showerthoughts

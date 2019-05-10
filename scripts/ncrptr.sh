@@ -1,2 +1,2 @@
 #!/bin/bash
-java -jar ~/1w3j/bin/Music_Maker.jar
+java -jar ~/1w3j/bin/ncrptr.jar
