@@ -95,3 +95,4 @@ lib32-libpulse
 lib32-alsa-plugins
 winetricks
 easytag
+htop
