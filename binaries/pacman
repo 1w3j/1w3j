@@ -76,7 +76,6 @@ composer
 phpmyadmin
 apache
 tmux
-cmus
 wireless_tools
 tree
 lolcat
@@ -96,3 +95,7 @@ lib32-alsa-plugins
 winetricks
 easytag
 htop
+cmus
+wget
+curl
+powerline2
