@@ -26,11 +26,11 @@ check_if_important_folders_exists() {
 check_if_important_folders_exists;
 
 MY_INTELLIJ_IDES=(
-    idea
-    webstorm
-    charm
-    datagrip
-    clion
+#    idea
+#    webstorm
+#    charm
+#    datagrip
+#    clion
 );
 
 link_ides_scripts() {
@@ -89,7 +89,7 @@ link_config_files() {
                     CURRENT_IDE_CONFIG=$(realpath ${IDE_CONFIG});
                     msg "Soft linking config files for ${IDE} ";
                     if [[ -d ${CURRENT_IDE_CONFIG} ]]; then
-                        msg ${CURRENT_IDE_CONFIG} "config folder detected for ${ide}";
+                        msg ${CURRENT_IDE_CONFIG} "Config folder detected for ${ide}";
                         msg "Recursively copying into" ${CURRENT_IDE_CONFIG} "with '-s' flag";
                         cp -rsf "${c}"/* ${CURRENT_IDE_CONFIG};
                     else
@@ -100,19 +100,21 @@ link_config_files() {
                 msg "++++++++++++++ IMPORTANT NOTE +++++++++++++++";
                 msg "You may now want to run your IDEs, if color scheme sets again as in normal (or awfully normal) again, consider running init.sh again before 'restarting your IDE'. This 'may' be due to the plugin version displayed in material_theme.xml. Always update the Material Theme UI Plugin";
                 ;;
+            config)
+                msg "config folder files detected \"${c}\"";
+                if [[ ! -d ~/.config ]]; then
+                    msg "Checking if ~/.config folder exists";
+                    msg "Creating config folder for you";
+                    mkdir -p ~/.config;
+                fi
+                msg "Recursively copying into ~/.config";
+                cp -rs ${c}/* ~/.config;
+                ;;
             *)
                 from="${c}";
                 to=~/."$(basename ${c})";
-                if [[ -d "${c}" ]]; then
-                    msg "${c} folder detected"
-                    msg "Creating parent folders for you"
-                    mkdir -p "$(dirname {to})"
-                    msg "Recursively copying into ${to}"
-                    cp -rsf "${from}"/* "${to}";
-                else
-                    cp -rsf "${from}" "${to}";
-                    echo -e "\t\033[31m$from\033[m ==>> \033[31m$to\033[m";
-                fi;
+                cp -rsf "${from}" "${to}";
+                echo -e "\t\033[31m$from\033[m ==>> \033[31m$to\033[m";
                 ;;
         esac
     done;
