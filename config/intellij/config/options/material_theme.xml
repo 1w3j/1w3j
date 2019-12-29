@@ -1,7 +1,6 @@
 <application>
   <component name="MaterialThemeConfig">
     <option name="arrowsStyle" value="Darcula" />
-    <option name="allowDataCollection" value="true" />
     <option name="compactDropdowns" value="true" />
     <option name="compactSidebar" value="true" />
     <option name="highlightColorEnabled" value="true" />
@@ -13,20 +12,19 @@
     <option name="isWizardShown" value="true" />
     <option name="monochromeIcons" value="true" />
     <option name="pristineConfig" value="false" />
-    <option name="themedScrollbars" value="false" />
     <option name="upperCaseTabs" value="true" />
     <option name="useMaterialIcons" value="false" />
     <option name="indicatorStyle" value="Dot" />
     <option name="tabOpacity" value="86" />
     <option name="treeFontSize" value="11" />
     <option name="indicatorThickness" value="1" />
-    <option name="settingsSelectedTab" value="4" />
+    <option name="settingsSelectedTab" value="6" />
     <option name="tabsHeight" value="21" />
     <option name="accentColor" value="dc282e" />
     <option name="secondAccentColor" value="f44336" />
     <option name="highlightColor" value="d1292d" />
     <option name="selectedTheme" value="CUSTOM" />
     <option name="userId" value="547e3576:164e6fbf64f:-7fff" />
-    <option name="version" value="4.10.0" />
+    <option name="version" value="4.11.4" />
   </component>
 </application>
