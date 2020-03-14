@@ -1,23 +1,23 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 check_if_currently_on_home() {
 	echo 'Checking if the repo was cloned in your $HOME path...'
-	two_dirs_up=$(dirname $(dirname $(realpath $0)))
+	two_dirs_up=$(dirname "$(dirname "$(realpath $0)")")
 	if [[ ! $HOME = "$two_dirs_up" ]]; then
-		echo "Please run the following command: \`mv $(dirname $(realpath $0)) $HOME\`"
-		exit 1336
+		echo "Please run the following command: \`mv $(dirname "$(realpath $0)") $HOME\`"
+		exit 163
 	fi
 }
 
 check_if_currently_on_home
-source $(dirname "$0")/functions.sh
+. $(dirname "$0")/functions.sh
 
 SCRIPTS_PATH=~/1w3j/scripts
 CONFIG_PATH=~/1w3j/config
 BIN_PATH=~/bin
 check_if_important_folders_exists() {
 	msg "Checking if ${BIN_PATH} exists..."
-	if [ ! -d ${BIN_PATH} ]; then
+	if [[ ! -d ${BIN_PATH} ]]; then
 		warn "Creating ${BIN_PATH} for you..."
 		mkdir ${BIN_PATH}
 	fi
@@ -37,7 +37,7 @@ link_ides_scripts() {
             Location to ${SCRIPTS_PATH}"
 	for ide in ${MY_INTELLIJ_IDES[*]}; do
 		ide_script=${SCRIPTS_PATH}/${ide}
-		if [ -f ${ide_script} ]; then
+		if [[ -f ${ide_script} ]]; then
 			from=${ide_script}
 			to=${BIN_PATH}/$(basename ${ide_script})
 			echo -e "\t\033[31m$from\033[m ==>> \033[31m$to\033[m"
@@ -55,7 +55,7 @@ link_scripts() {
 	# globbing files with the specified extension on '$1'
 	for f in ${SCRIPTS_PATH}/*.$1; do
 		# check if current $f file is actually a file (not dirs) while excluding this script file
-		[ -f "${f}" ] && [ "${f}" != "$(realpath $0)" ] && FIEL=$(basename ${f})
+		[[ -f "${f}" ]] && [[ "${f}" != "$(realpath $0)" ]] && FIEL=$(basename ${f})
 		# note: shortened filenames just for fooling around
 		# concatenating the SCRIPTS_PATH "path string", a "/" slash, and the current file string "globbed"
 		FILE=${SCRIPTS_PATH}/${FIEL}
@@ -65,12 +65,12 @@ link_scripts() {
 		# echo "FILES: " "${FILES[@]}";
 	done
 	msg "Started linking:"
-	#iterating over all files in the array
+	# iterating over all files in the array
 	for f in "${FILES[@]}"; do
 		from=${f}
 		#getting the basename of the script file
 		to_base=$(basename ${f})
-		#trimming out the extension
+		# trimming out the extension
 		to=${BIN_PATH}/${to_base%.*}
 		echo -e "\t\033[31m$from\033[m ==>> \033[31m$to\033[m"
 		rm -f ${to}
@@ -107,10 +107,8 @@ link_config_files() {
 			from="${c}"
 			to=~/."$(basename ${c})"
             if [[ -d "${c}" ]]; then
-                warn "${from}" " --- ${to} | ~/.* (folder)"
                 cp -rsf ${from}/* ${to} && echo -e "\t\033[31m${from}/*\033[m ==>> \033[31m${to}/\033[m"
             else
-                warn "${from}" " --- ${to} | ~/.* (file)"
                 cp -sf "${c}" ${to} && echo -e "\t\033[31m${from}\033[m ==>> \033[31m${to}\033[m"
             fi
 		esac
@@ -138,20 +136,22 @@ EOF
 }
 
 install_packages() {
-	pacman_pkgs=$(cat ~/1w3j/pkgnames/pacman | tr '\n' ' ')
-	yaourt_pkgs=$(cat ~/1w3j/pkgnames/yaourt | tr '\n' ' ')
+    pkgdir="pkgnames"
+	pacman_pkgs=$(cat ~/1w3j/${pkgdir}/pacman | tr '\n' ' ')
+	yaourt_pkgs=$(cat ~/1w3j/${pkgdir}/yaourt | tr '\n' ' ')
 	msg "Starting pacman sync"
-	#msg "DON'T forget to select number 3) when installing 'i3' -> i3blocks";
+	# Deprecated message:
+	# msg "DON'T forget to select number 3) when installing 'i3' -> i3blocks";
 	sudo pacman -Syyu
 	msg "Performing pacman pkgs installation"
-	sudo pacman -S $pacman_pkgs
+	sudo pacman -S ${pacman_pkgs}
 	msg "Starting yaourt pkgs installation"
-	yaourt -S $yaourt_pkgs
+	yaourt -S ${yaourt_pkgs}
 	msg "Starting pip modules installation"
-	sudo pip install -r ~/1w3j/pkgnames/pip
+	sudo pip install -r ~/1w3j/${pkgdir}/pip
 	msg "Starting mhwd -i bumblebee"
 	sudo mhwd -i pci video-hybrid-intel-nvidia-bumblebee
-	msg "Bootstraping BlackArch packages"
+	msg "Bootstrapping BlackArch packages"
 	sh -c "$(curl -fSsL https://blackarch.org/strap.sh)"
 }
 
@@ -171,4 +171,4 @@ init_sh() {
 	wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg
 }
 
-init_sh ${*}
+init_sh "$@"
