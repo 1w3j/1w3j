@@ -1,5 +1,0 @@
-#!/bin/sh
-#Generated with love at Thu Nov 15 06:32:54 2018 by JetBrains Toolbox 1.8.3868 (May 25 2018)
-
-"/home/iqbal/.local/share/JetBrains/Toolbox/apps/datagrip/ch-0/182.5107.26/bin/datagrip.sh" "$@"
-
