@@ -1,3 +1,4 @@
+" ~/1w3j/config/ideavimrc
 nnoremap vv :vsp<CR>
 nnoremap ss :sp<CR>
 nnoremap <space>\ :action VimFilePrevious<cr>
