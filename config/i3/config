@@ -23,7 +23,8 @@ bindsym $mod+n border normal;exec notify-send 'Border set to normal'
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-font pango:Hack 9
+#font pango:Hack 9
+font xft:Source Code Pro for Powerline 9
 #font pango:Hack 9, Font Awesome 5
 #font xft:URWGothic-Book 9
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -38,6 +39,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec terminal
+bindsym $mod+Shift+Return exec terminal -name floating
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -53,16 +55,21 @@ bindsym $mod+z exec --no-startup-id morc_menu;exec notify-send 'Start morc_menu'
 ################################################################################################
 
 exec --no-startup-id volumeicon
-#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer';exec notify-send 'Border set to none'
+bindsym $mod+Ctrl+m exec terminal -e 'alsamixer';exec notify-send 'Start alsamixer'
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
-bindsym $mod+Ctrl+m exec pavucontrol;exec notify-send 'Start pavucontrol'
+#bindsym $mod+Ctrl+m exec pavucontrol;exec notify-send 'Start pavucontrol'
 
 ################################################################################################
 
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+#
+#Volume controls
+bindsym XF86AudioRaiseVolume exec amixer sset PCM 1%+;exec notify-send -t 300 "Volume $(~/1w3j/scripts/currentvolume.sh)"
+bindsym XF86AudioLowerVolume exec amixer sset PCM 1%-;exec notify-send -t 300 "Volume $(~/1w3j/scripts/currentvolume.sh)"
+bindsym XF86AudioMute exec amixer sset PCM toggle
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu';exec notify-send 'Start bmenu'
@@ -110,8 +117,8 @@ bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth;exec notify-send 'B&F workspace'
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth;exec notify-send 'Move to B&F workspace'
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
@@ -199,8 +206,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
-assign [class="jetbrains-idea"] $ws3
 assign [class="Chromium"] $ws2
+assign [class="jetbrains-idea"] $ws3
+assign [class="Thunderbird"] $ws6
+assign [class="URxvt" instance="cmus"] $ws7
 assign [class="qBittorrent"] $ws8
 
 # Open specific applications in floating mode
@@ -237,6 +246,11 @@ for_window [class="Nemo"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="jetbrains-idea"] border normal
 for_window [title="ColorPanelHelper"] floating enable
+for_window [class="URxvt"] border none
+for_window [class="URxvt" instance="floating"] floating enable border pixel 1
+for_window [class="Baobab"] floating enable
+for_window [class="Gcolor3"] floating enable border pixel 1
+for_window [class="Chromium"] border none
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -318,6 +332,7 @@ exec --no-startup-id megasync
 exec --no-startup-id jetbrains-toolbox
 exec --no-startup-id redshift-gtk
 exec --no-startup-id qbittorrent
+exec --no-startup-id terminal -name cmus -e cmus
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -367,16 +382,16 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #0C0909
-        statusline #CC8186
-        separator #9E231F
+        background $term_background
+        statusline $term_foreground
+        separator $term_color2
 
-#                          border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+#                          border           backgr.           text
+        focused_workspace  $term_color0     $term_color1      $term_background
+        active_workspace   $term_color1     $term_background  $term_color6
+        inactive_workspace $term_color8     $term_background  $term_foreground
+        binding_mode       $term_foreground $term_color1      $term_foreground
+        urgent_workspace   $term_color0     $term_foreground  $term_color0
     }
 }
 
@@ -384,14 +399,19 @@ bar {
 bindsym $mod+m bar mode toggle;exec notify-send 'Toggle bar mode'
 
 # Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+# focused: as the name indicates
+# focused_inactive: e.g. intellij tip of the day prompt when unfocused, kind of important window unfocused
+# unfocused: another window opened besides the focused, not a prompt, just another independent window
+# urgent: as the name indicates
+# placeholder: ??
+# class                   border            backgr.           text              indic.            child_border
+  client.focused          $term_color14     $term_background  $term_foreground  $term_color15     $term_color4
+  client.focused_inactive $term_color6      $term_color8      $term_color15     #fd12df           $term_color12
+  client.unfocused        $term_color1      $term_color0      $term_color8      #fd12df           $term_color14
+  client.urgent           #2534ff           $term_color8      $term_foreground  #fd12df           #00ff31
+  client.placeholder      #13FDDF           #dffd13           $term_foreground  #fd12df           #00ff31
 
-  client.background       #2B2C2B
+  client.background       $term_background
 
 #############################
 ### settings for i3-gaps: ###

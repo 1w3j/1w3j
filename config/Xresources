@@ -6,58 +6,69 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #222D31
-XTerm*foreground:        #d8d8d8
-XTerm*pointerColor:      #1ABB9B
+XTerm*background:        #0C0909
+XTerm*foreground:        #e99499
+XTerm*pointerColor:      #AE1914
 XTerm*faceName:          Fixed
 XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-*background:                      #222D31
-*foreground:                      #d8d8d8
-*fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #1ABB9B
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
+! color0  dirs fg drwxrwxrwt, error color fg, agnoster pwd fg and error arrow
+! color8  Terminal bg? | on vim, line numbers, shebang, comments
+! color1  on vim system commands, binaries | specific case: highlighting color for \033[31m (on init.sh output f.e.)
+! color9  compressed files fg | on vim, declarations and assignments (function names, variable names, including its bracket or parenthesis)
+! color2  dirs bg dwrxrwxrwx | strings in vim
+! color10 files fg (-rwxrwxrwx/-rwxr-xr-x) & links destination location (after the arrow) | no vim colors sighted
+! color3  on vim parenthesis, symbols, commas
+! color11 files in /dev (crw-------)
+! color4  dirs fg drwxrwxrwx | agnoster pwd arrow bg
+! color12 dirs fg drwxr-xr-x/drwx------ | no vim color yet
+! color5  on vim if [[!]]then else fi, do done, case in esac color foreground
+! color13 image files
+! color6  audio files fg
+! color14 filenames of links fg (before the arrow)
+! color7  on vim function calls, file locations, quotes, @=&%*.~/;cat<<EOF symbols-operators
+! color15 still no color sighted
 
-!! black dark/light
-*color0:                          #222D31
-*color8:                          #585858
+*background:            #0C0909
+*foreground:            #e99499
+*fading:                20
+*fadeColor:             #0C0909
+*cursorColor:           #e99499
+*pointerColorBackground:#a3676b
+*pointerColorForeground:#e99499
 
-!! red dark/light
-*color1:                          #ab4642
-*color9:                          #ab4642
-
-!! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
-
-!! yellow dark/light
-*color3:                          #f7ca88
-*color11:                         #f7ca88
-
-!! blue dark/light
-*color4:                          #7cafc2
-*color12:                         #7cafc2
-
-!! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
-
-!! cyan dark/light
-*color6:                          #1ABB9B
-*color14:                         #1ABB9B
-
-!! white dark/light
-*color7:                          #d8d8d8
-*color15:                         #f8f8f8
+*color0:                #0C0909
+*color8:                #630F0D
+*color1:                #C81A1A
+*color9:                #AB1612
+*color2:                #BD787D
+*color10:               #AD2721
+*color3:                #963C3F
+*color11:               #B37175
+*color4:                #8C1212
+*color12:               #611612
+*color5:                #F73f35
+*color13:               #E82132
+*color6:                #9E474A
+*color14:               #E0292F
+*color7:                #a3676b
+*color15:               #FFA2A7
 
 Xcursor.theme: Chameleon-Pearl-Regular-0.5
 Xcursor.size:                     0
 
-URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
+!! Search font names with fc-match -a, agnoster needs Nerd Fonts symbols and Powerline, just Powerline seems not to work
+!! "\ " backslashes for in between spaces are not needed
+#define pixel_size    14
+!!URxvt.font:         xft:TerminessTTFNerdFontMono:medium:size=12:antialias=true
+!!URxvt.font:         xft:Source Code Pro for Powerline:medium:size=11:antialias=true
+URxvt.font:           xft:Source Code Pro for Powerline:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:medium:pixelsize=pixel_size:autohint=true:antialias=true
+URxvt.imFont:         xft:Source Code Pro for Powerline:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:medium:pixelsize=pixel_size:autohint=true:antialias=true
+URxvt.boldFont:       xft:Source Code Pro for Powerline:bold:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:bold:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:bold:pixelsize=pixel_size:autohint=true:antialias=true
+URxvt.italicFont:     xft:Source Code Pro for Powerline:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:italic:pixelsize=pixel_size:autohint=true:antialias=true
+URxvt.boldItalicFont: xft:Source Code Pro for Powerline:bold:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:bold:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:bold:italic:pixelsize=pixel_size:autohint=true:antialias=true
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
@@ -65,12 +76,12 @@ URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 !! terminus names see end of file!
 
 URxvt.depth:                      32
-URxvt.background:                 [100]#222D31
+URxvt.background:                 [100]#0C0909
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*background:                 black
-URxvt*foreground:                 grey
+URxvt*background:                 #0C0909
+URxvt*foreground:                 #e99499
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
@@ -176,7 +187,7 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! URxvt*internalBorder:             number
 ! URxvt*borderLess:                 true
 ! URxvt*lineSpace:                  number
-! URxvt*letterSpace:                number
+ URxvt*letterSpace:                 -1
 ! URxvt*skipBuiltinGlyphs:          boolean
 ! URxvt*pointerBlankDelay:          number
 ! URxvt*backspacekey:               string

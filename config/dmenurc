@@ -3,7 +3,8 @@
 #
 
 ## define the font for dmenu to be used
-DMENU_FN="Noto-10.5"
+#DMENU_FN="Noto-10.5"
+DMENU_FN="SourceCodePro-9"
 
 ## background colour for unselected menu-items
 DMENU_NB="#0C0909"
@@ -12,7 +13,7 @@ DMENU_NB="#0C0909"
 DMENU_NF="#E99499"
 
 ## background colour for selected menu-items
-DMENU_SB="#16A085"
+DMENU_SB="#630F0D"
 
 ## textcolour for selected menu-items
 DMENU_SF="#E99499"
