@@ -4,6 +4,7 @@ export JAVA_HOME=/opt/jdk/8/jdk1.8.0_241/bin
 #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre/
 export IDEA_JDK=$JAVA_HOME
 export JDK_HOME=$JAVA_HOME
+export XDG_CONFIG_HOME=$HOME/.config
 export GRADLE_HOME=/opt/gradle/gradle-5.4.1
 export CATALINA_HOME=/usr/share/tomcat8
 export CATALINA_BASE=/var/lib/tomcat8
