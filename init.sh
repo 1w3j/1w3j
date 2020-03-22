@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# 1. Select your IDEs before running the script
+# 2. You can use -dnia flag to skip installing packages
+# 3. Check if you need the -f flag for the cp command, enabled by default in the link_config_files function, this will overwrite existing config files in $HOME
 
 check_if_currently_on_home() {
 	echo 'Checking if the repo was cloned in your $HOME path...'
@@ -169,7 +172,10 @@ init_sh() {
 		install_packages
 	fi
 	#wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
+    source ~/.zshrc
     xrdb ~/.Xresources
+    i3-msg reload
+    # After a reboot all customizations should be displayed
 }
 
 init_sh "$@"

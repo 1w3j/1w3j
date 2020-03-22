@@ -64,7 +64,7 @@ fi
 if [[ $ZSH_DISABLE_COMPFIX != true ]]; then
   source $ZSH/lib/compfix.zsh
   # If completion insecurities exist, warn the user
-#  handle_completion_insecurities
+  handle_completion_insecurities
   # Load only from secure directories
   compinit -i -C -d "${ZSH_COMPDUMP}"
 else
