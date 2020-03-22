@@ -172,7 +172,6 @@ init_sh() {
 		install_packages
 	fi
 	#wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
-    source ~/.zshrc
     xrdb ~/.Xresources
     i3-msg reload
     # After a reboot all customizations should be displayed
