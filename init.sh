@@ -168,7 +168,8 @@ init_sh() {
 	if [[ ! "${1}" = "--do-not-install-anything" && ! "${1}" = "-dnia" ]]; then
 		install_packages
 	fi
-	wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg
+	#wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
+    xrdb ~/.Xresources
 }
 
 init_sh "$@"
