@@ -14,22 +14,22 @@ XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-! color0  dirs fg drwxrwxrwt, error color fg, agnoster pwd fg and error arrow
-! color8  Terminal bg? | on vim, line numbers, shebang, comments
-! color1  on vim system commands, binaries | specific case: highlighting color for \033[31m (on init.sh output f.e.)
-! color9  compressed files fg | on vim, declarations and assignments (function names, variable names, including its bracket or parenthesis)
-! color2  dirs bg dwrxrwxrwx | strings in vim
-! color10 files fg (-rwxrwxrwx/-rwxr-xr-x) & links destination location (after the arrow) | no vim colors sighted
-! color3  on vim parenthesis, symbols, commas
-! color11 files in /dev (crw-------)
-! color4  dirs fg drwxrwxrwx | agnoster pwd arrow bg
-! color12 dirs fg drwxr-xr-x/drwx------ | no vim color yet
-! color5  on vim if [[!]]then else fi, do done, case in esac color foreground
-! color13 image files
-! color6  audio files fg
-! color14 filenames of links fg (before the arrow)
-! color7  on vim function calls, file locations, quotes, @=&%*.~/;cat<<EOF symbols-operators
-! color15 still no color sighted
+!! color0  dirs fg drwxrwxrwt, error color fg, agnoster pwd fg and error arrow
+!! color8  Terminal bg? | on vim, line numbers, shebang, comments
+!! color1  on vim system commands, binaries | specific case: highlighting color for \033[31m (on init.sh output f.e.)
+!! color9  compressed files fg | on vim, declarations and assignments (function names, variable names, including its bracket or parenthesis)
+!! color2  dirs bg dwrxrwxrwx | strings in vim
+!! color10 files fg (-rwxrwxrwx/-rwxr-xr-x) & links destination location (after the arrow) | no vim colors sighted
+!! color3  on vim parenthesis, symbols, commas
+!! color11 files in /dev (crw-------)
+!! color4  dirs fg drwxrwxrwx | agnoster pwd arrow bg
+!! color12 dirs fg drwxr-xr-x/drwx------ | no vim color yet
+!! color5  on vim if [[!]]then else fi, do done, case in esac color foreground
+!! color13 image files
+!! color6  audio files fg
+!! color14 filenames of links fg (before the arrow)
+!! color7  on vim function calls, file locations, quotes, @=&%*.~/;cat<<EOF symbols-operators
+!! color15 still no color sighted
 
 *background:            #0C0909
 *foreground:            #e99499

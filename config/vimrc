@@ -213,3 +213,6 @@ nnoremap / :action Find<cr>
 " but preserve ideavim search
 " nnoremap g/ /
 nnoremap / /
+
+"read /usr/share/vim/vimfiles/syntax/conkyrc.vim
+"read /usr/share/vim/vimfiles/ftdetect/conkyrc.vim
