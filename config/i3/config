@@ -320,7 +320,7 @@ exec --no-startup-id xfce4-clipman
 bindsym $mod+Shift+v exec xfce4-popup-clipman;exec notify-send 'Clipman popup'
 exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id conky
+exec --no-startup-id conky -c ~/.config/conky/conky.conf
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 60 -locker blurlock
 exec_always --no-startup-id ff-theme-util
