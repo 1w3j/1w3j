@@ -7,7 +7,7 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 XTerm*background:        #0C0909
-XTerm*foreground:        #e99499
+XTerm*foreground:        #E99499
 XTerm*pointerColor:      #AE1914
 XTerm*faceName:          Fixed
 XTerm*faceSize:          11
@@ -32,12 +32,12 @@ XTerm*selectToClipboard: true
 !! color15 still no color sighted
 
 *background:            #0C0909
-*foreground:            #e99499
+*foreground:            #E99499
 *fading:                20
 *fadeColor:             #0C0909
-*cursorColor:           #e99499
-*pointerColorBackground:#a3676b
-*pointerColorForeground:#e99499
+*cursorColor:           #E99499
+*pointerColorBackground:#A3676B
+*pointerColorForeground:#E99499
 
 *color0:                #0C0909
 *color8:                #7D1310
@@ -53,7 +53,7 @@ XTerm*selectToClipboard: true
 *color13:               #E82132
 *color6:                #9E474A
 *color14:               #E0292F
-*color7:                #a3676b
+*color7:                #A3676B
 *color15:               #FFA2A7
 
 Xcursor.theme: Chameleon-Pearl-Regular-0.5

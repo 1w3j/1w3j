@@ -3,3 +3,6 @@ termcolor
 python-dotenv
 grip
 pyquery
+python-magic
+progressbar
+dpt-rp1-py
