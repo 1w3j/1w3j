@@ -8,8 +8,8 @@
 import requests
 from pyquery import PyQuery
 
-r=requests.get("http://titulosvalidez.educacion.gob.ar/validez/v_turnos/inicio12.php")
-html=r.text
-pq=PyQuery(html)
-text=pq("center").text()
+r = requests.get("http://titulosvalidez.educacion.gob.ar/validez/v_turnos/inicio12.php")
+html = r.text
+pq = PyQuery(html)
+text = pq("center").text()
 print(text)
