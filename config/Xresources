@@ -14,13 +14,13 @@ XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-!! color0  dirs fg drwxrwxrwt, error color fg, agnoster pwd fg and error arrow
+!! color0  dirs fg drwxrwxrwt, error color fg, agnoster pwd fg and error arrow bg
 !! color8  Terminal bg? | on vim, line numbers, shebang, comments
 !! color1  on vim system commands, binaries | specific case: highlighting color for \033[31m (on init.sh output f.e.)
 !! color9  compressed files fg | on vim, declarations and assignments (function names, variable names, including its bracket or parenthesis)
 !! color2  dirs bg dwrxrwxrwx | strings in vim
 !! color10 files fg (-rwxrwxrwx/-rwxr-xr-x) & links destination location (after the arrow) | no vim colors sighted
-!! color3  on vim parenthesis, symbols, commas
+!! color3  on vim parenthesis, symbols, commas | agnoster git plugin arrow e.g. "master arrow"
 !! color11 files in /dev (crw-------)
 !! color4  dirs fg drwxrwxrwx | agnoster pwd arrow bg
 !! color12 dirs fg drwxr-xr-x/drwx------ | no vim color yet
@@ -38,14 +38,14 @@ XTerm*selectToClipboard: true
 *cursorColor:           #E99499
 *pointerColorBackground:#A3676B
 *pointerColorForeground:#E99499
-
+!! for color references look at Intellij idea Settings>Editor>Color Schemes>Console Colors
 *color0:                #0C0909
 *color8:                #7D1310
 *color1:                #C81A1A
 *color9:                #AB1612
 *color2:                #BD787D
 *color10:               #AD2721
-*color3:                #963C3F
+*color3:                #D4868B
 *color11:               #B37175
 *color4:                #8C1212
 *color12:               #871F19
@@ -53,8 +53,8 @@ XTerm*selectToClipboard: true
 *color13:               #E82132
 *color6:                #9E474A
 *color14:               #E0292F
-*color7:                #A3676B
-*color15:               #FFA2A7
+*color7:                #FFA2A7
+*color15:               #A3676B
 
 Xcursor.theme: Chameleon-Pearl-Regular-0.5
 Xcursor.size:                     0

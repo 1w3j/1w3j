@@ -6,11 +6,11 @@ import subprocess
 from termcolor import colored
 
 parser = argparse.ArgumentParser(
-    description='Puts the "Title" metadata attribute of pdf files instead of file name'
+    description='Writes the "Title" metadata attribute of pdf files using its file name'
 )
 parser.add_argument('-r', '-R', '--recursive',
                     action='store_true',
-                    help='Make recursive the processing for all the files, directories, links, etc.'
+                    help='Make recursive the processing for all the files, directories and links'
                     )
 parser.add_argument('files',
                     nargs='+',
@@ -18,7 +18,7 @@ parser.add_argument('files',
                     )
 parser.add_argument('--debug', '-D',
                     action="store_true",
-                    help='Sort like \'dry run mode\', prints out which commands are going to be used for updating the '
+                    help='Sort of \'dry run mode\', prints out which commands are going to be used for updating the '
                          'pdfs '
                     )
 parser.add_argument('-o', '--output',
