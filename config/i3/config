@@ -251,6 +251,7 @@ for_window [class="URxvt" instance="floating"] floating enable border pixel 1
 for_window [class="Baobab"] floating enable
 for_window [class="Gcolor3"] floating enable border pixel 1
 for_window [class="Chromium"] border none
+for_window [class="guiscrscpy"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
