@@ -114,6 +114,7 @@ link_config_files() {
             else
                 cp -sf "${c}" ${to} && echo -e "\t\033[31m${from}\033[m ==>> \033[31m${to}\033[m"
             fi
+            ;;
 		esac
 	done
 	echo -e "\r"
@@ -129,13 +130,27 @@ check_zsh() {
 }
 
 print_usage() {
-	cat <<EOF
+    warn '${0} : ' "${0}";
+    case "$(basename ${0})" in
+        init.sh)
+            cat <<EOF
 
 Usage: ${0} [--do-not-install-anything | -dnia ]
 Options:
-      --do-not-install-anything, -dnia           Just link your config files without installing packages
+        --do-not-install-anything, -dnia           Just link your config files without installing packages
                                                  listed in ~/1w3j/pkgnames
 EOF
+        ;;
+        resetintellijkey|resetintellijkey.sh)
+            cat <<EOF
+Usage: ${0} {IDE} [--just-get-configpath {IDE}]
+Options:
+        {IDE}                                     The IDE name as in the scripts created by the Jetbrains Toolbox app,
+                                                must be lowercase, and only one name per runtime
+        --just-get-configpath                     Only output the config folder of IDE
+EOF
+        ;;
+    esac
 }
 
 install_packages() {
@@ -154,7 +169,7 @@ install_packages() {
 	sudo pip install -r ~/1w3j/${pkgdir}/pip
 	msg "Starting mhwd -i bumblebee"
 	sudo mhwd -i pci video-hybrid-intel-nvidia-bumblebee
-	msg "Bootstrapping BlackArch packages"
+	msg "Bootstrapping BlackArch repo"
 	sh -c "$(curl -fSsL https://blackarch.org/strap.sh)"
 }
 

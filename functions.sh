@@ -27,13 +27,17 @@ is_sourced_in_external_function(){
 }
 
 usage() {
-    cat << EOF
+    case "$(basename ${0})" in
+        functions.sh)
+            cat << EOF
 
 This script manages utilities used for the repository, can be used to change the default UNIX user too
 Usage: ./functions.sh [-h|--help] [--change-us3r]
     -h, --help              Shows this message
     --change-us3r           Change the default UNIX us3r name for usage in scripts from this repo
 EOF
+        ;;
+    esac
 }
 
 us3r_exists() {
@@ -59,7 +63,7 @@ detect_us3r() {
 functions() {
     US3R=`cat ~/1w3j/us3r 2>/dev/null`;
     case "$1" in
-        --change-us3r)
+        --create-us3r)
             create_us3r;
             ;;
         --help|-h)

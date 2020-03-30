@@ -4,7 +4,7 @@
     <property name="created">2020-03-08T01:55:55</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2019.3.3.0.0</property>
-    <property name="modified">2020-03-27T02:19:19</property>
+    <property name="modified">2020-03-29T21:39:29</property>
     <property name="originalScheme">_@user_Material Darker</property>
   </metaInfo>
   <option name="LINE_SPACING" value="1.2" />
@@ -479,7 +479,7 @@
     </option>
     <option name="CONSOLE_ERROR_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="ff0ff0" />
+        <option name="FOREGROUND" value="ffa4a9" />
       </value>
     </option>
     <option name="CONSOLE_GRAY_OUTPUT">
@@ -532,12 +532,12 @@
     </option>
     <option name="CONSOLE_SYSTEM_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="ff" />
+        <option name="FOREGROUND" value="e0292f" />
       </value>
     </option>
     <option name="CONSOLE_USER_INPUT">
       <value>
-        <option name="FOREGROUND" value="ffff" />
+        <option name="FOREGROUND" value="ab1612" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
