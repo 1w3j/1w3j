@@ -71,7 +71,7 @@ link_scripts() {
 	# iterating over all files in the array
 	for f in "${FILES[@]}"; do
 		from=${f}
-		#getting the basename of the script file
+		# getting the basename of the script file
 		to_base=$(basename ${f})
 		# trimming out the extension
 		to=${BIN_PATH}/${to_base%.*}
@@ -123,14 +123,13 @@ link_config_files() {
 check_zsh() {
 	msg "Checking if zsh is your current shell"
 	if [[ (! ${SHELL} = "/usr/bin/zsh") && (! ${SHELL} = "/bin/zsh") ]]; then
-		warn "Nope, $SHELL is your shell right now, we need to change"
+		warn "Nope, $SHELL is your shell right now, we need to use ZSH"
 		chsh -s /usr/bin/zsh "${US3R}"
 	fi
 	msg "Everything will be just fine"
 }
 
 print_usage() {
-    warn '${0} : ' "${0}";
     case "$(basename ${0})" in
         init.sh)
             cat <<EOF
@@ -139,15 +138,6 @@ Usage: ${0} [--do-not-install-anything | -dnia ]
 Options:
         --do-not-install-anything, -dnia           Just link your config files without installing packages
                                                  listed in ~/1w3j/pkgnames
-EOF
-        ;;
-        resetintellijkey|resetintellijkey.sh)
-            cat <<EOF
-Usage: ${0} {IDE} [--just-get-configpath {IDE}]
-Options:
-        {IDE}                                     The IDE name as in the scripts created by the Jetbrains Toolbox app,
-                                                must be lowercase, and only one name per runtime
-        --just-get-configpath                     Only output the config folder of IDE
 EOF
         ;;
     esac
@@ -160,6 +150,7 @@ install_packages() {
 	msg "Starting pacman sync"
 	# Deprecated message:
 	# msg "DON'T forget to select number 3) when installing 'i3' -> i3blocks";
+    # All these dotfiles work best with the manjaro-i3 distro
 	sudo pacman -Syyu
 	msg "Performing pacman pkgs installation"
 	sudo pacman -S ${pacman_pkgs}
