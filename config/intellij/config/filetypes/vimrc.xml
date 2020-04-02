@@ -17,7 +17,6 @@
     <keywords4 />
   </highlighting>
   <extensionMap>
-    <mapping pattern="vimrc,.vimrc" />
-    <mapping pattern="vimrc" />
+    <mapping pattern="*vimrc" />
   </extensionMap>
 </filetype>

@@ -178,7 +178,9 @@ init_sh() {
 		install_packages
 	fi
 	#wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
+    msg "rxrdb ~/.Xresources"
     xrdb ~/.Xresources
+    msg "i3-msg reload"
     i3-msg reload
     # After a reboot all customizations should be displayed
 }
