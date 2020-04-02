@@ -4,7 +4,7 @@
     <property name="created">2020-03-08T01:55:55</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2019.3.3.0.0</property>
-    <property name="modified">2020-03-29T21:39:29</property>
+    <property name="modified">2020-04-02T23:55:29</property>
     <property name="originalScheme">_@user_Material Darker</property>
   </metaInfo>
   <option name="LINE_SPACING" value="1.2" />
@@ -624,9 +624,19 @@
         <option name="EFFECT_TYPE" value="1" />
       </value>
     </option>
-    <option name="CUSTOM_KEYWORD4_ATTRIBUTES">
+    <option name="CUSTOM_KEYWORD2_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="f77669" />
+      </value>
+    </option>
+    <option name="CUSTOM_KEYWORD3_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="ffcb6b" />
+      </value>
+    </option>
+    <option name="CUSTOM_KEYWORD4_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="ff5370" />
         <option name="EFFECT_TYPE" value="1" />
       </value>
     </option>
@@ -762,7 +772,7 @@
     <option name="DEFAULT_LINE_COMMENT">
       <value>
         <option name="FOREGROUND" value="808080" />
-        <option name="BACKGROUND" value="290707" />
+        <option name="BACKGROUND" value="291010" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
