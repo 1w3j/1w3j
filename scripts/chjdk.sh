@@ -53,6 +53,7 @@ chjdk(){
                     [[ -e ${JAVA_BIN_PATH} ]] && warn "Removing $JAVA_BIN_PATH" && sudo rm -i ${JAVA_BIN_PATH}
                     # if sudo rm -i was successful or JAVA_BIN_PATH already removed externally, then proceed
                     if [[ "$?" -eq 0 ]] || [[ ! -e ${JAVA_BIN_PATH} ]]; then
+                        warn "${JAVA_BIN_PATH} was removed"
                         msg Linking \""${full_jdk_bin_path}"\" to \"${JAVA_BIN_PATH}\"
                         sudo ln -s ${full_jdk_bin_path} ${JAVA_BIN_PATH}
                         msg "Job Finished"
