@@ -4,10 +4,11 @@
       <mapping pattern="Xresources" type="Bash" />
       <mapping pattern="profile" type="Bash" />
       <mapping ext="gradle.kts" type="Kotlin" />
-      <mapping pattern="443e886731824f8baa44b06972d97fc8-0" type="PLAIN_TEXT" />
-      <mapping pattern=".ideavimrc" type="PLAIN_TEXT" />
-      <mapping pattern="offline-27375167jpg" type="PLAIN_TEXT" />
+      <mapping ext="mp3" type="Native" />
       <mapping pattern=".inxi_info" type="PLAIN_TEXT" />
+      <mapping pattern="443e886731824f8baa44b06972d97fc8-0" type="PLAIN_TEXT" />
+      <mapping pattern="offline-27375167jpg" type="PLAIN_TEXT" />
+      <mapping pattern=".ideavimrc" type="PLAIN_TEXT" />
       <mapping ext="vim" type="PLAIN_TEXT" />
       <mapping ext="dat" type="PLAIN_TEXT" />
       <mapping ext="icls" type="XML" />

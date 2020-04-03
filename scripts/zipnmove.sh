@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 #
 #   Simple script that makes zip files from folders without
 #   keeping the source directory
@@ -11,7 +11,7 @@ FOLDERS=();
 
 find_folders() {
     for d in "${1}"/*; do
-        if [ -d "$d" ]; then
+        if [[ -d "$d" ]]; then
             FOLDER=$(realpath "$d");
             #echo adding folder: "$FOLDER";
             FOLDERS=("$FOLDER" "${FOLDERS[@]}");
@@ -21,14 +21,14 @@ find_folders() {
 
 zip_folders(){
     QTY_FOLDERS=$((${#FOLDERS[@]}));
-    if [ $QTY_FOLDERS -gt 0 ]; then
+    if [[ ${QTY_FOLDERS} -gt 0 ]]; then
         echo "$QTY_FOLDERS folders found, showing first 10: ";
         for (( i=0; i<=$((${QTY_FOLDERS}-1)); i++ )); do
             echo -e "\t$((${i}+1)) $(basename "${FOLDERS[$i]}")";
-            [ ${i} -eq 10 ] && break;
+            [[ ${i} -eq 10 ]] && break;
         done;
         read -p "Press ENTER to continue to zip or Ctrl-c the shit out of here";
-        cd ${SOURCE_DIR};
+        cd ${SOURCE_DIR} || err "${SOURCE_DIR} does not exist";
         for (( i=0; i<=$((${QTY_FOLDERS}-1)); i++ )); do
             CURRENT_FOLDER=`basename "${FOLDERS[$i]}"`;
             echo -e "\t<=====================" "${CURRENT_FOLDER}" "========================>";
@@ -41,8 +41,8 @@ zip_folders(){
 }
 
 zipnmove(){
-    if [ -n "${SOURCE_DIR}" ]; then
-        if [ -e "${SOURCE_DIR}" ]; then
+    if [[ -n "${SOURCE_DIR}" ]]; then
+        if [[ -e "${SOURCE_DIR}" ]]; then
             find_folders "${SOURCE_DIR}";
             zip_folders;
         else
@@ -53,4 +53,4 @@ zipnmove(){
     fi;
 }
 
-zipnmove ${*};
+zipnmove "$@";

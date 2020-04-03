@@ -83,7 +83,7 @@ Options:
         {IDE}                                     The IDE name as in the scripts created by the
                                                 Jetbrains Toolbox app, must be lowercase, and only
                                                 one name per runtime
-        --just-get-configpath                     Only output the config folder of IDE
+        --just-get-configpath                     Just output the config folder of IDE
 EOF
         ;;
     esac

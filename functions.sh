@@ -1,9 +1,11 @@
 #!/usr/bin/env sh
 
+US3R="?"
+
 err(){
     eval "$(cat ~/1w3j/handle_funcname.inc.sh)";
     echo >&2 -e `tput bold; tput setaf 1`"[-] ${FUNCTIONS[1]} ERROR: ${*}"`tput sgr0`;
-    exit 1337;
+    exit 163;
 }
 
 warn(){
@@ -41,7 +43,7 @@ EOF
 }
 
 us3r_exists() {
-    [ -n "$US3R" ];
+    [[ -n "$US3R" ]];
 }
 
 create_us3r() {

@@ -327,7 +327,7 @@ exec --no-startup-id xautolock -time 60 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id setxkbmap -layout us,es -option 'grp:alt_shift_toggle'
-exec --no-startup-id gxkb
+#exec --no-startup-id gxkb
 exec --no-startup-id fcitx -d
 exec --no-startup-id megasync
 exec --no-startup-id jetbrains-toolbox
