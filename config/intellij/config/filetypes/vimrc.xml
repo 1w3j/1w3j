@@ -12,9 +12,6 @@
       <option name="HAS_STRING_ESCAPES" value="true" />
     </options>
     <keywords keywords="Plugin;call;filetype;scriptencoding;set" ignore_case="false" />
-    <keywords2 />
-    <keywords3 />
-    <keywords4 />
   </highlighting>
   <extensionMap>
     <mapping pattern="*vimrc" />

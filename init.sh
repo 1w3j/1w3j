@@ -13,11 +13,12 @@ check_if_currently_on_home() {
 }
 
 check_if_currently_on_home
-. $(dirname "$0")/functions.sh
+source $(dirname "$0")/functions.sh
 
 SCRIPTS_PATH=~/1w3j/scripts
 CONFIG_PATH=~/1w3j/config
 BIN_PATH=~/bin
+
 check_if_important_folders_exists() {
 	msg "Checking if ${BIN_PATH} exists..."
 	if [[ ! -d ${BIN_PATH} ]]; then
