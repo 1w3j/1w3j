@@ -67,6 +67,7 @@ net-tools
 gimp
 gsmartcontrol
 gpick
+gcolor3
 android-tools
 lib32-libjpeg-turbo
 lib32-libpng
@@ -81,3 +82,11 @@ wget
 curl
 powerline2
 xss-lock
+krename
+pdfmod
+gscan2pdf
+pdftk
+markdown_previewer
+xfce4-clipman-plugin
+gnome-calculator
+mariadb
