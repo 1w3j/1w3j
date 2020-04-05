@@ -244,10 +244,12 @@ for_window [class="MEGAsync"] floating enable
 for_window [class="jetbrains-toolbox"] floating enable border none
 for_window [class="Nemo"] floating enable
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="Gedit"] floating enable
 for_window [class="jetbrains-idea"] border normal
 for_window [title="ColorPanelHelper"] floating enable
 for_window [class="URxvt"] border none
 for_window [class="URxvt" instance="floating"] floating enable border pixel 1
+for_window [class="Wine"] floating enable border pixel 1
 for_window [class="Baobab"] floating enable
 for_window [class="Gcolor3"] floating enable border pixel 1
 for_window [class="Chromium"] border none
