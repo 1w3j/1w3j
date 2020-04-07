@@ -28,7 +28,7 @@ XTerm*selectToClipboard: true
 !! color13 image files
 !! color6  audio files fg
 !! color14 filenames of links fg (before the arrow)
-!! color7  on vim function calls, file locations, quotes, @=&%*.~/;cat<<EOF symbols-operators
+!! color7  on vim function calls, file locations, quotes, @=&%*.~/;cat<<EOF symbols-operators | on gtk the window background
 !! color15 still no color sighted
 
 *background:            #0C0909
@@ -56,19 +56,19 @@ XTerm*selectToClipboard: true
 *color7:                #FFA2A7
 *color15:               #A3676B
 
-Xcursor.theme: Chameleon-Pearl-Regular-0.5
-Xcursor.size:                     0
+Xcursor.theme:          Maia-0.5
+Xcursor.size:           0
 
 !! Search font names with fc-match -a, agnoster needs Nerd Fonts symbols and Powerline, just Powerline seems not to work
 !! "\ " backslashes for in between spaces are not needed
 #define pixel_size    14
 !!URxvt.font:         xft:TerminessTTFNerdFontMono:medium:size=12:antialias=true
 !!URxvt.font:         xft:Source Code Pro for Powerline:medium:size=11:antialias=true
-URxvt.font:           xft:Source Code Pro for Powerline:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:medium:pixelsize=pixel_size:autohint=true:antialias=true
-URxvt.imFont:         xft:Source Code Pro for Powerline:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:medium:pixelsize=pixel_size:autohint=true:antialias=true
-URxvt.boldFont:       xft:Source Code Pro for Powerline:bold:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:bold:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:bold:pixelsize=pixel_size:autohint=true:antialias=true
-URxvt.italicFont:     xft:Source Code Pro for Powerline:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:italic:pixelsize=pixel_size:autohint=true:antialias=true
-URxvt.boldItalicFont: xft:Source Code Pro for Powerline:bold:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:bold:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:bold:italic:pixelsize=pixel_size:autohint=true:antialias=true
+*font:           xft:Source Code Pro for Powerline:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:medium:pixelsize=pixel_size:autohint=true:antialias=true
+*imFont:         xft:Source Code Pro for Powerline:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:medium:pixelsize=pixel_size:autohint=true:antialias=true
+*boldFont:       xft:Source Code Pro for Powerline:bold:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:bold:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:bold:pixelsize=pixel_size:autohint=true:antialias=true
+*italicFont:     xft:Source Code Pro for Powerline:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:italic:pixelsize=pixel_size:autohint=true:antialias=true
+*boldItalicFont: xft:Source Code Pro for Powerline:bold:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:bold:italic:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:bold:italic:pixelsize=pixel_size:autohint=true:antialias=true
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
