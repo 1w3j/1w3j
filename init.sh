@@ -183,6 +183,8 @@ init_sh() {
     xrdb ~/.Xresources
     msg "i3-msg reload"
     i3-msg reload
+    msg "Liking gtk themes"
+    sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
     # After a reboot all customizations should be displayed
 }
 
