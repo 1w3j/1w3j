@@ -208,6 +208,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Skype"] $ws5
 assign [class="Chromium"] $ws2
 assign [class="jetbrains-idea"] $ws3
+assign [class="Hexchat"] $ws5
 assign [class="Thunderbird"] $ws6
 assign [class="URxvt" instance="cmus"] $ws7
 assign [class="qBittorrent"] $ws8
@@ -335,7 +336,8 @@ exec --no-startup-id megasync
 exec --no-startup-id jetbrains-toolbox
 exec --no-startup-id redshift-gtk
 exec --no-startup-id qbittorrent
-exec --no-startup-id terminal -name cmus -e cmus
+exec --no-startup-id hexchat
+exec --no-startup-id i3-msg 'workspace $ws6; exec terminal -name cmus -e cmus; workspace $ws1'
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -472,3 +474,4 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
