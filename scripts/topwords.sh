@@ -20,4 +20,4 @@ topwords() {
     fi;
 }
 
-topwords ${*};
+topwords "$@";
