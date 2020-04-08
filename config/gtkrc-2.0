@@ -1,5 +1,5 @@
 # -- THEME AUTO-WRITTEN DO NOT EDIT
-include "/home/iqbal/.themes/oomox-1w3j-dark/gtk-2.0/gtkrc"
+include "/usr/share/themes/oomox-1w3j-dark/gtk-2.0/gtkrc"
 
 style "user-font" {
 	font_name = "Source Code Pro for Powerline 10"
