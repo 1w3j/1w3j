@@ -90,6 +90,15 @@ markdown_previewer
 xfce4-clipman-plugin
 gnome-calculator
 mariadb
+php
+composer
+php-cgi
+php-gd
+php-fpm
+php-igbinary
+php-phpdbg
+php-redis
+phpmyadmin
 cmake
 yarn
 gtk-chtheme
