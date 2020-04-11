@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# https://github.com/SiddharthPant/booky
 
 # Change to the directory of pdf file
 cd $(dirname "$1")
