@@ -137,8 +137,10 @@ print_usage() {
 
 Usage: ${0} [--do-not-install-anything | -dnia ]
 Options:
-        --do-not-install-anything, -dnia           Just link your config files without installing packages
-                                                 listed in ~/1w3j/pkgnames
+        --do-not-install-anything, -dnia            Just link your config files without installing packages
+                                                   listed in ~/1w3j/pkgnames
+        -rc,--rc,--reload-config-files              Link dotfiles, themes, colorschemes, etc
+        -rs,--rs,--reload-scripts                   Link scripts/* files to ~/bin
 EOF
         ;;
     esac
@@ -166,26 +168,57 @@ install_packages() {
 }
 
 init_sh() {
-	if [[ "${1}" = "--help" || "${1}" = "-h" ]]; then
-		print_usage
-		exit 0
-	fi
-	check_zsh
-	link_scripts "sh"
-	link_scripts "py"
-	link_ides_scripts
-	link_config_files
-	if [[ ! "${1}" = "--do-not-install-anything" && ! "${1}" = "-dnia" ]]; then
-		install_packages
-	fi
-	#wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
-    msg "rxrdb ~/.Xresources"
-    xrdb ~/.Xresources
-    msg "i3-msg reload"
-    i3-msg reload
-    msg "Liking gtk themes"
-    sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
-    # After a reboot all customizations should be displayed
+    case "${1}" in
+        --help|-h)
+            print_usage
+            exit 0
+            ;;
+        --dnia|--do-not-install-anything)
+            check_zsh
+            link_scripts "sh"
+            link_scripts "py"
+            link_ides_scripts
+            link_config_files
+            #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
+            msg "rxrdb ~/.Xresources"
+            xrdb ~/.Xresources
+            msg "i3-msg reload"
+            i3-msg reload
+            msg "Liking gtk themes"
+            sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
+            ;;
+        -rs|--rs|--reload-scripts)
+            check_zsh
+            link_scripts "sh"
+            link_scripts "py"
+            link_ides_scripts
+            ;;
+        -rc|--rc|--reload-config-files)
+            check_zsh
+            #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
+            msg "rxrdb ~/.Xresources"
+            xrdb ~/.Xresources
+            msg "i3-msg reload"
+            i3-msg reload
+            msg "Liking gtk themes"
+            sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
+        *)
+            check_zsh
+            link_scripts "sh"
+            link_scripts "py"
+            link_ides_scripts
+            link_config_files
+            install_packages
+            #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
+            msg "rxrdb ~/.Xresources"
+            xrdb ~/.Xresources
+            msg "i3-msg reload"
+            i3-msg reload
+            msg "Liking gtk themes"
+            sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
+            ;;
+    esac
 }
 
+# After a reboot all customizations should be displayed
 init_sh "$@"
