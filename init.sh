@@ -202,6 +202,7 @@ init_sh() {
             i3-msg reload
             msg "Liking gtk themes"
             sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
+            ;;
         *)
             check_zsh
             link_scripts "sh"
