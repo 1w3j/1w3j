@@ -5,9 +5,9 @@
 
 check_if_currently_on_home() {
 	echo 'Checking if the repo was cloned in your $HOME path...'
-	two_dirs_up=$(dirname "$(dirname "$(realpath $0)")")
-	if [[ ! $HOME = "$two_dirs_up" ]]; then
-		echo "Please run the following command: \`mv $(dirname "$(realpath $0)") $HOME\`"
+	two_dirs_up=$(dirname "$(dirname "$(realpath ${0})")")
+	if [[ ! ${HOME} = "${two_dirs_up}" ]]; then
+		echo "Please run the following command: \`mv $(dirname "$(realpath $0)") ${HOME}\`"
 		exit 163
 	fi
 }
@@ -44,7 +44,7 @@ link_ides_scripts() {
 		if [[ -f ${ide_script} ]]; then
 			from=${ide_script}
 			to=${BIN_PATH}/$(basename ${ide_script})
-			echo -e "\t\033[31m$from\033[m ==>> \033[31m$to\033[m"
+			echo -e "\t\033[31m${from}\033[m ==>> \033[31m${to}\033[m"
 			rm -f ${to}
 			ln -s ${from} ${to}
 		else
@@ -54,18 +54,18 @@ link_ides_scripts() {
 }
 
 link_scripts() {
-	msg "Found these .$1 scripts:"
+	msg "Found these .${1} scripts:"
 	FILES=()
-	# globbing files with the specified extension on '$1'
+	# globbing files with the specified extension on '${1}'
 	for f in ${SCRIPTS_PATH}/*.$1; do
-		# check if current $f file is actually a file (not dirs) while excluding this script file
-		[[ -f "${f}" ]] && [[ "${f}" != "$(realpath $0)" ]] && FIEL=$(basename ${f})
+		# check if current ${f} file is actually a file (not dirs) while excluding this script file
+		[[ -f "${f}" ]] && [[ "${f}" != "$(realpath ${0})" ]] && FIEL=$(basename ${f})
 		# note: shortened filenames just for fooling around
 		# concatenating the SCRIPTS_PATH "path string", a "/" slash, and the current file string "globbed"
 		FILE=${SCRIPTS_PATH}/${FIEL}
-		echo -e "\t$FILE"
+		echo -e "\t${FILE}"
 		# append that string to the FILES array
-		FILES=("$FILE" "${FILES[@]}")
+		FILES=("${FILE}" "${FILES[@]}")
 		# echo "FILES: " "${FILES[@]}";
 	done
 	msg "Started linking:"
@@ -73,10 +73,10 @@ link_scripts() {
 	for f in "${FILES[@]}"; do
 		from=${f}
 		# getting the basename of the script file
-		to_base=$(basename ${f})
+		to_basename=$(basename ${f})
 		# trimming out the extension
-		to=${BIN_PATH}/${to_base%.*}
-		echo -e "\t\033[31m$from\033[m ==>> \033[31m$to\033[m"
+		to=${BIN_PATH}/${to_basename%.*}
+		echo -e "\t\033[31m${from}\033[m ==>> \033[31m${to}\033[m"
 		rm -f ${to}
 		ln -s ${from} ${to}
 	done

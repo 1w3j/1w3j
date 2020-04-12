@@ -10,15 +10,21 @@ link_course () {
   course_tobe_linked="$1";
   extension="${course_tobe_linked##*.}";
   if [[ ${extension} = "zip" ]]; then
-    zipped_course_name="${$(basename $course_tobe_linked)%.*}";
-    msg "Unzipping Course..." && unzip -q ${course_tobe_linked} -d ${CURRENT_COURSE_DIR};
-    msg "Creating Current Course Info..." && echo "$zipped_course_name" > ${CURRENT_COURSE_INFO_FILENAME_LOCATION};
-    msg "Moving inner course folder content..." && mv ${CURRENT_COURSE_DIR}/"$zipped_course_name"/* ${CURRENT_COURSE_DIR};
-    msg 'Deleting empty folder...' && rm -r ${CURRENT_COURSE_DIR}/"$zipped_course_name";
+    zipped_course_name="$(basename ${course_tobe_linked})%.*";
+    msg "Unzipping Course..."\
+        && unzip -q ${course_tobe_linked} -d ${CURRENT_COURSE_DIR};
+    msg "Creating Current Course Info..."\
+        && echo "${zipped_course_name}" > ${CURRENT_COURSE_INFO_FILENAME_LOCATION};
+    msg "Moving inner course folder content..."\
+        && mv ${CURRENT_COURSE_DIR}/"${zipped_course_name}"/* ${CURRENT_COURSE_DIR};
+    msg 'Deleting empty folder...'\
+        && rm -r ${CURRENT_COURSE_DIR}/"${zipped_course_name}";
   else
-    #msg "Linking Course \"$course_tobe_linked\"..." && cp -rs "$course_tobe_linked"/* $CURRENT_COURSE_DIR;
-    msg "Linking Course \"$course_tobe_linked\"..." && cp -r "$course_tobe_linked"/* ${CURRENT_COURSE_DIR};
-    msg "Creating Current Course Info..." && echo `basename "$course_tobe_linked"` > ${CURRENT_COURSE_INFO_FILENAME_LOCATION};
+    #msg "Linking Course \"${course_tobe_linked}\"..." && cp -rs "$course_tobe_linked"/* $CURRENT_COURSE_DIR;
+    msg "Linking Course \"${course_tobe_linked}\"..."\
+        && cp -r "${course_tobe_linked}/*" ${CURRENT_COURSE_DIR};
+    msg "Creating Current Course Info..."\
+        && echo `basename "$course_tobe_linked"` > ${CURRENT_COURSE_INFO_FILENAME_LOCATION};
   fi;
 }
 

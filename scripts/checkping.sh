@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Check if ping can reach the specified host, if not NMCLI will reconnect to the specified network name (see 'nmcli connections')
+# Check if ping can reach the specified host, if not NMCLI will reconnect to
+# the specified network name (see 'nmcliconnections')
 # Usage:
 # checkping [qbit]
 

@@ -29,7 +29,7 @@ reset_keys(){
     msg "Removing the evaluation keys";
     rm  -rf "${IDE_CONFIG}/config/eval";
 
-    rm -rf "~/.java/.userPrefs/jetbrains/${IDE}";
+    rm -rf "${HOME}/.java/.userPrefs/jetbrains/${IDE}";
 
     msg "Resetting evalsprt in options.xml";
     # 2018 versions : change other.xml to options.xml
@@ -42,14 +42,14 @@ reset_keys(){
     rm -f "${IDE_CONFIG}/config/options/eval";
 
     msg "Deleting ${IDE} user prefs folder";
-    rm -rf "~/.java/userPrefs/jetbrains/${IDE}";
+    rm -rf "${HOME}/.java/userPrefs/jetbrains/${IDE}";
 
     msg "Touching files";
-    find ${IDE_CONFIG} -type d -exec touch -t $(date +"%Y%m%d%H%M") {} +;
-    find ${IDE_CONFIG} -type f -exec touch -t $(date +"%Y%m%d%H%M") {} +;
+    find ${IDE_CONFIG} -type d -exec touch -t "$(date +"%Y%m%d%H%M")" {} +;
+    find ${IDE_CONFIG} -type f -exec touch -t "$(date +"%Y%m%d%H%M")" {} +;
 }
 
-handle_configpath_params(){
+handle_config_path_params(){
     case "${1}" in
         ${PYCHARM})
             IDE=${PYCHARM};
@@ -114,10 +114,10 @@ resetintellijkey(){
             IDE=${DATAGRIP};
             ;;
         --just-get-configpath)
-            handle_configpath_params "${2}";
+            handle_config_path_params "${2}";
             ;;
         *)
-            err "IDE named \"$1\" not available - nothing to do here...";
+            err "IDE named \"${1}\" not available - nothing to do here...";
     esac
 
     UPPER_IDE=`echo ${IDE} | awk '{print toupper($0)}'`;
@@ -135,10 +135,9 @@ resetintellijkey(){
         *)
             msg ${IDE} detected;
             msg ${IDE_CONFIG} detected;
-            msg resettt
             #reset_keys ${IDE} ${IDE_CONFIG};
             ;;
     esac
 }
 
-resetintellijkey ${*};
+resetintellijkey "${@}";

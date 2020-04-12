@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 source ~/1w3j/functions.sh;
 
-FOLDER=${1};
+FOLDER="${1}";
 # no indentation
 EXCLUDED_WORDS="pdf\|zip\|epub\|azw3\|azw4\|chm\|video\|1st\|3rd\|2nd\|s\|First\|Second\|third\|fourth\|technologies\|edition\|practical\|hands\|cookbook\|guide\|application\|applications\|app\|stop\|apps\
 \|using\|build\|learning\|introduction\|user\|users\|skills\|theoretical\|theory\|yourself\|concepts\|beginner\|beginners\|start\|own\|click\|like\|mine\|make\|techniques\|technique\|beginning\|begin\
@@ -14,10 +14,10 @@ EXCLUDED_WORDS="pdf\|zip\|epub\|azw3\|azw4\|chm\|video\|1st\|3rd\|2nd\|s\|First\
 
 topwords() {
     if [[ -n "${FOLDER}" ]]; then
-        listnames ${FOLDER} | tr -c '[:alnum:]' '[\n*]' | grep -v -w -f /usr/share/groff/current/eign -e "${EXCLUDED_WORDS}" -i | sort | uniq -c | sort -nr | head -20;
+        listnames "${FOLDER}" | tr -c '[:alnum:]' '[\n*]' | grep -v -w -f /usr/share/groff/current/eign -e "${EXCLUDED_WORDS}" -i | sort | uniq -c | sort -nr | head -20;
     else
         err "Wh4t f0lder did you say?";
     fi;
 }
 
-topwords "$@";
+topwords "${@}";
