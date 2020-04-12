@@ -139,7 +139,7 @@ Usage: ${0} [--do-not-install-anything | -dnia ]
 Options:
         --do-not-install-anything, -dnia            Just link your config files without installing packages
                                                    listed in ~/1w3j/pkgnames
-        -rc,--rc,--reload-config-files              Link dotfiles, themes, colorschemes, etc
+        -rc,--rc,--reload-config-files              Link dotfiles, themes, color schemes, etc
         -rs,--rs,--reload-scripts                   Link scripts/* files to ~/bin
 EOF
         ;;
@@ -167,6 +167,16 @@ install_packages() {
 	sh -c "$(curl -fSsL https://blackarch.org/strap.sh)"
 }
 
+reload_themes() {
+    #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
+    msg "rxrdb ~/.Xresources"
+    xrdb ~/.Xresources
+    msg "i3-msg reload"
+    i3-msg reload
+    warn "Linking gtk themes requires root privileges, Continue?" && read
+    sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
+}
+
 init_sh() {
     case "${1}" in
         --help|-h)
@@ -179,13 +189,7 @@ init_sh() {
             link_scripts "py"
             link_ides_scripts
             link_config_files
-            #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
-            msg "rxrdb ~/.Xresources"
-            xrdb ~/.Xresources
-            msg "i3-msg reload"
-            i3-msg reload
-            msg "Liking gtk themes"
-            sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
+            reload_themes
             ;;
         -rs|--rs|--reload-scripts)
             check_zsh
@@ -195,13 +199,7 @@ init_sh() {
             ;;
         -rc|--rc|--reload-config-files)
             check_zsh
-            #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
-            msg "rxrdb ~/.Xresources"
-            xrdb ~/.Xresources
-            msg "i3-msg reload"
-            i3-msg reload
-            msg "Liking gtk themes"
-            sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
+            reload_themes
             ;;
         *)
             check_zsh
@@ -210,13 +208,6 @@ init_sh() {
             link_ides_scripts
             link_config_files
             install_packages
-            #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
-            msg "rxrdb ~/.Xresources"
-            xrdb ~/.Xresources
-            msg "i3-msg reload"
-            i3-msg reload
-            msg "Liking gtk themes"
-            sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
             ;;
     esac
 }
