@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 source ~/1w3j/functions.sh;
 
@@ -6,12 +6,12 @@ MINE_FOLDER=~/mine;
 TRIM_CHAR=":";
 
 cptomine(){
-  if [ -n "$1" ]; then
+  if [[ -n "$1" ]]; then
     #note $@ does not care of $IFS, $* does
     for file in "$@"; do
-      if [ -e "$file" ]; then
+      if [[ -e "$file" ]]; then
         NEW_NAME=`basename "$file" | tr --delete "$TRIM_CHAR"`;
-        NEW_PATH=$MINE_FOLDER/$NEW_NAME;
+        NEW_PATH=${MINE_FOLDER}/${NEW_NAME};
         msg "Copying $file ==> $NEW_PATH";
         # copy and follow soft link if exists
         cp -L "$file" "$NEW_PATH";

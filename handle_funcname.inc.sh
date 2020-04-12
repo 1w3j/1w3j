@@ -1,5 +1,5 @@
 #@IgnoreInspection BashAddShebang
-# by doing eval $(handle_funcname.inc.sh) we avoid having to create another function
+# by doing eval $(handle_funcname.inc.sh) we avoid the need to create another function
 # which would be registered in $FUNCNAME (sh)
 SH="$(readlink /proc/$$/exe)"
 CURRENT_FUNCTION_NAME_INDEX=1;
