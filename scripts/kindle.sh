@@ -18,7 +18,7 @@ else
       echo -e "\n"
       echo Removing "${DUPLICATED_BOOK_PATH}";
       rm "${DUPLICATED_BOOK_PATH}";
-      echo Linking "$1" '->' "${DUPLICATED_BOOK_PATH}";
+      echo Linking "${1}" '->' "${DUPLICATED_BOOK_PATH}";
       ln -s "${1}" "${DUPLICATED_BOOK_PATH}";
     else
       >&2 echo "${1}" does not exist;
