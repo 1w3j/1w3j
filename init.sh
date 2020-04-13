@@ -103,7 +103,7 @@ link_config_files() {
 				fi
 			done
 			msg "++++++++++++++ IMPORTANT NOTE +++++++++++++++"
-			msg "You may now want to run your IDEs right now, if color scheme sets again as in normal (or awful) again,\
+            msg "You may now want to run your IDEs right now, if color scheme default resets (or awfully displayed),\
                 consider running init.sh again before 'restarting your IDE'. This 'may' be due to the plugin version \
                 displayed in material_theme.xml. Always update the Material Theme UI Plugin on your IDEs"
 			;;
