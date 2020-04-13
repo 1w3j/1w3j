@@ -173,8 +173,9 @@ reload_themes() {
     xrdb ~/.Xresources
     msg "i3-msg reload"
     i3-msg reload
-    warn "Linking gtk themes requires root privileges, Continue?" && read
+    warn "Linking gtk themes and icons requires root privileges, Continue?" && read
     sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
+    sudo ln -sf ~/1w3j/config/icons/* /usr/share/icons
 }
 
 init_sh() {
@@ -208,6 +209,7 @@ init_sh() {
             link_ides_scripts
             link_config_files
             install_packages
+            reload_themes
             ;;
     esac
 }
