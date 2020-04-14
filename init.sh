@@ -158,7 +158,7 @@ install_packages() {
 	msg "Performing pacman pkgs installation"
 	sudo pacman -S ${pacman_pkgs}
 	msg "Starting yaourt pkgs installation"
-	yaourt -S ${yaourt_pkgs}
+	pacaur -S ${yaourt_pkgs}
 	msg "Starting pip modules installation"
 	sudo pip install -r ~/1w3j/${pkgdir}/pip
 	msg "Starting mhwd -i bumblebee"
