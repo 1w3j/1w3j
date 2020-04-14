@@ -4,7 +4,7 @@
 # - Install linux-headers with the same version as system kernel
 #  version (uname -r)
 # - Read and follow the Arch Linux Guide for VMware
-# - Change the /etc/init.d/vmware, the global variable mod=vmw_vmci,
+# - Edit /etc/init.d/vmware, each mod='something' must be mod=vmw_vmci,
 #  search for the 'vmwareStartVmci' function, edit vmci=vmw_vmci
 # - tar -xzf workstation-15.5.1.tar.gz
 # - cd vmware-host-modules-workstation-15.5.1
