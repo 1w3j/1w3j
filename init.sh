@@ -200,6 +200,8 @@ init_sh() {
             ;;
         -rc|--rc|--reload-config-files)
             check_zsh
+            link_ides_scripts
+            link_config_files
             reload_themes
             ;;
         *)
