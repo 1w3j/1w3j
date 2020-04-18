@@ -248,6 +248,7 @@ for_window [class="Gnome-calculator"] floating enable
 for_window [class="Gedit"] floating enable
 for_window [class="jetbrains-idea"] border normal
 for_window [title="ColorPanelHelper"] floating enable
+for_window [title="OneNote Web Clipper"] floating enable
 for_window [class="URxvt"] border none
 for_window [class="URxvt" instance="floating"] floating enable border pixel 1
 for_window [class="Wine"] floating enable border pixel 1
@@ -415,7 +416,7 @@ bindsym $mod+m bar mode toggle;exec notify-send 'Toggle bar mode'
   client.focused          $term_color14     $term_background  $term_foreground  $term_color15     $term_color4
   client.focused_inactive $term_color6      $term_color8      $term_color15     #fd12df           $term_color12
   client.unfocused        $term_color1      $term_color0      $term_color8      #fd12df           $term_color14
-  client.urgent           #2534ff           $term_color8      $term_foreground  #fd12df           #00ff31
+  client.urgent           $term_color7      $term_color8      $term_foreground  #fd12df           $term_color7
   client.placeholder      #13FDDF           #dffd13           $term_foreground  #fd12df           #00ff31
 
   client.background       $term_background

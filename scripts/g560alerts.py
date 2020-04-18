@@ -7,7 +7,7 @@ import json
 from time import sleep
 
 # Local Imports
-from g560.ledcontrols import LedControls
+from .g560.ledcontrols import LedControls
 
 
 class AlertControls(LedControls):
