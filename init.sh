@@ -13,7 +13,7 @@ check_if_currently_on_home() {
 }
 
 check_if_currently_on_home
-source $(dirname "$0")/functions.sh
+source "$(dirname "$0")/functions.sh"
 
 SCRIPTS_PATH=~/1w3j/scripts
 CONFIG_PATH=~/1w3j/config
@@ -118,7 +118,6 @@ link_config_files() {
             ;;
 		esac
 	done
-	echo -e "\r"
 }
 
 check_zsh() {
