@@ -5,7 +5,9 @@
 #  version (uname -r)
 # - Read and follow the Arch Linux Guide for VMware
 # - Edit /etc/init.d/vmware, each mod='something' must be mod=vmw_vmci,
-#  search for the 'vmwareStartVmci' function, edit vmci=vmw_vmci
+#  search for the 'vmwareStartVmci' function, edit vmci=vmw_vmci or just
+#  create a global variable mod=vmw_vmci and delete all "mod=...", so 
+#  practically vmwareRealModName() should not be used in the whole script
 # - tar -xzf workstation-15.5.1.tar.gz
 # - cd vmware-host-modules-workstation-15.5.1
 # - make
