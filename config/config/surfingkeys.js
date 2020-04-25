@@ -10,11 +10,11 @@ map('gt', 'T');
 unmap('<Ctrl-i>');
 
 // 1w3j theme link hints
-Hints.style('font-size: 11pt!important; border: solid 1px #D1292D; color:#e99499; background: initial; background-color: #0C0909;');
+Hints.style('font-size: 11pt!important; border: solid 1px #D1292D!important; color:#e99499!important; background: initial; background-color: #0C0909!important;');
 // Text hints
-Hints.style("font-size: 11pt!important; border: solid 1px #e99499;padding: 1px;background: #0C0909", "text");
+Hints.style("font-size: 11pt!important; border: solid 1px #FFA2A7!important; color:#D9898E!important; padding: 1px;background: #0C0909!important", "text");
 // Search marks and cursor
-Visual.style('marks', 'background-color: #89a1e2;');
+Visual.style('marks', 'background-color: #300A0A;');
 Visual.style('cursor', 'background-color: #FFA2A7;');
 
 // set theme
@@ -25,6 +25,7 @@ settings.theme = `
 }
 .sk_theme input {
     color: #e99499;
+    font-size: 13pt;
 }
 .sk_theme .url {
     color: #222;
@@ -35,7 +36,7 @@ settings.theme = `
 .sk_theme kbd {
     background: #0C0909;
     color: #FFA2A7;
-    font-size: 11pt;
+    font-size: 12pt;
 }
 .sk_theme .frame {
     background: rgba(174, 25, 20, 0.62);
@@ -172,10 +173,12 @@ body {
     padding: 4px 8px 0 8px;
     border-radius: 4px 4px 0px 0px;
     border: 1px solid #80120F;
-    font-size: 12px;
+    font-size: 13pt;
 }
 #sk_status>span {
     line-height: 16px;
+    color: #FFA2A7;
+    border-right-color: #a3676b!important;
 }
 .expandRichHints span.annotation {
     padding-left: 4px;
@@ -252,11 +255,11 @@ kbd {
     white-space: nowrap;
     display: inline-block;
     padding: 3px 5px;
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
     line-height: 10px;
     vertical-align: middle;
-    border: solid 1px #e99499;
-    border-bottom-color: #C77E83;
+    border: solid 1px #8C1410;
+    border-bottom-color: #8C1410;
     border-radius: 3px;
     box-shadow: inset 0 -1px 0 #AE1914;
 }
@@ -268,7 +271,7 @@ kbd {
     z-index: 2147483000;
     width: 80%;
     border-radius: 0px 0px 4px 4px;
-    border: 1px solid #ffc356;
+    border: 1px solid #00ff3d;
     border-top-style: none;
     text-align: center;
     background: rgb(255, 233, 182);
@@ -343,7 +346,7 @@ div.sk_tab_hint {
     color: #222;
     background-color: #ffd;
     z-index: 2147483000;
-    font-size: 14px;
+    font-size: 12pt;
 }
 #sk_bubble .sk_bubble_content {
     overflow-y: scroll;
