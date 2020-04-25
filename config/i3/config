@@ -258,6 +258,8 @@ for_window [class="Chromium"] border none
 for_window [class="guiscrscpy"] floating enable
 for_window [class="Mousepad"] floating enable
 for_window [class="Gthumb"] floating enable
+for_window [class="Xarchiver"] floating enable
+for_window [class="okular"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

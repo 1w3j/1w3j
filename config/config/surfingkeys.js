@@ -9,6 +9,14 @@ map('gt', 'T');
 // an example to remove mapkey `Ctrl-i`
 unmap('<Ctrl-i>');
 
+// 1w3j theme link hints
+Hints.style('font-size: 11pt!important; border: solid 1px #D1292D; color:#e99499; background: initial; background-color: #0C0909;');
+// Text hints
+Hints.style("font-size: 11pt!important; border: solid 1px #e99499;padding: 1px;background: #0C0909", "text");
+// Search marks and cursor
+Visual.style('marks', 'background-color: #89a1e2;');
+Visual.style('cursor', 'background-color: #FFA2A7;');
+
 // set theme
 settings.theme = `
 .sk_theme {
@@ -25,11 +33,12 @@ settings.theme = `
     color: #222;
 }
 .sk_theme kbd {
-    background: #ddd;
-    color: #111;
+    background: #0C0909;
+    color: #FFA2A7;
+    font-size: 11pt;
 }
 .sk_theme .frame {
-    background: rgba(129, 120, 222, 0.62);
+    background: rgba(174, 25, 20, 0.62);
 }
 .sk_theme .omnibar_highlight {
     color: #b90c0c;
@@ -56,7 +65,7 @@ settings.theme = `
 body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 13px;
 }
 #sk_omnibar {
     overflow: hidden;
@@ -130,10 +139,10 @@ body {
     overflow-y: auto;
 }
 .sk_theme #sk_omnibarSearchResult>ul>li:nth-child(odd) {
-    background: #fafafa;
+    background: #1A0403;
 }
 .sk_theme #sk_omnibarSearchResult>ul>li.focused {
-    background: #cddef9;
+    background: #8F1510;
 }
 .sk_theme div.table {
     display: table;
@@ -162,7 +171,7 @@ body {
     z-index: 2147483000;
     padding: 4px 8px 0 8px;
     border-radius: 4px 4px 0px 0px;
-    border: 1px solid #777;
+    border: 1px solid #80120F;
     font-size: 12px;
 }
 #sk_status>span {
@@ -170,7 +179,7 @@ body {
 }
 .expandRichHints span.annotation {
     padding-left: 4px;
-    color: #56b6c2;
+    color: #e99499;
 }
 .expandRichHints .kbd-span {
     min-width: 30px;
@@ -178,11 +187,12 @@ body {
     display: inline-block;
 }
 .expandRichHints kbd>.candidates {
-    color: #de0606;
+    color: #E8332E;
     font-weight: bold;
 }
 .expandRichHints kbd {
     padding: 1px 2px;
+    color: #FFA2A7;
 }
 #sk_find {
     border-style: none;
@@ -195,8 +205,9 @@ body {
     bottom: 0px;
     z-index: 2147483000;
     right: 0px;
-    background: #000;
-    color: #fff;
+    background: #0C0909;
+    color: #e99499;
+    border: 2px solid #B22828;
 }
 #sk_usage, #sk_popup, #sk_editor {
     overflow: auto;
@@ -227,26 +238,27 @@ body {
     padding-bottom: 4px;
 }
 #sk_usage .feature_name>span {
-    border-bottom: 2px solid #888;
+    border-bottom: 2px solid #8C1410;
 }
 #sk_usage span.annotation {
     padding-left: 32px;
     line-height: 22px;
 }
 #sk_usage * {
-    font-size: 10pt;
+    font-size: 11pt;
+    color: #e99499;
 }
 kbd {
     white-space: nowrap;
     display: inline-block;
     padding: 3px 5px;
-    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
     line-height: 10px;
     vertical-align: middle;
-    border: solid 1px #ccc;
-    border-bottom-color: #bbb;
+    border: solid 1px #e99499;
+    border-bottom-color: #C77E83;
     border-radius: 3px;
-    box-shadow: inset 0 -1px 0 #bbb;
+    box-shadow: inset 0 -1px 0 #AE1914;
 }
 #sk_banner {
     padding: 0.5rem;
@@ -279,7 +291,7 @@ div.sk_tab {
     border-radius: 3px;
     padding: 10px 20px;
     margin: 5px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DAE6F5), color-stop(100%,#B0CCEF));
+    background: #5E1513;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
 }
 div.sk_tab_wrap {
@@ -301,14 +313,14 @@ div.sk_tab_title {
     text-overflow: ellipsis;
     overflow: hidden;
     padding-left: 5px;
-    color: #000;
+    color: #FFA2A7;
 }
 div.sk_tab_url {
     font-size: 10pt;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    color: #333;
+    color: #a3676b;
 }
 div.sk_tab_hint {
     display: inline-block;
@@ -316,9 +328,9 @@ div.sk_tab_hint {
     font-size: 10pt;
     font-weight: bold;
     padding: 0px 2px 0px 2px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785), color-stop(100%,#FFC542));
-    color: #000;
-    border: solid 1px #C38A22;
+    background: #0C0909;
+    color: #FFA2A7;
+    border: solid 1px #DC282E;
     border-radius: 3px;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
 }
