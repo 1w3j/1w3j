@@ -79,7 +79,10 @@ similarly Ctrl+v ENTER will display the escape sequence for the Enter key: ^M
   Ctrl + s   Go back to the next most recent command.
              (beware to not execute it from a terminal because this will also launch its XOFF).
   Ctrl + o   Execute the command found via Ctrl+r or Ctrl+s
+  ctrl + j	 Execute (accept-line)
+  ctrl + m	 Execute (accept-line)
   Ctrl + g   Escape from history searching mode
+  Alt  + s   Scrollback urxvt search 
         !!   Repeat last command
       !n     Repeat from the last command: args n e.g. !:2 for the second argumant.
       !n:m   Repeat from the last command: args from n to m. e.g. !:2-3 for the second and third.
