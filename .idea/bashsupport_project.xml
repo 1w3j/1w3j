@@ -8,6 +8,7 @@
         <option value="FUNCTIONS" />
         <option value="IDE" />
         <option value="IDE_CONFIG" />
+        <option value="SSH_CONNECTION" />
         <option value="US3R" />
       </set>
     </option>
