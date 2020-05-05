@@ -3,6 +3,17 @@
 #   Simple script that makes zip files from folders without
 #   keeping the source directory
 #
+#   Example:
+#   Source Dir: dir_a/
+#   --/home/user/dir_a/
+#   ------------|______subdir1/
+#   ------------|______subdir2/
+#   ------------|______subdir3/
+#   ------------|______file1.txt
+#
+#   If run `zipnmove /home/user/dir_a` then 3 zip files will be created subdir{1,2,3}.zip, each one containing their
+#   respective root folder e.g: subdir2.zip contents would be -> /subdir1/ . Avoiding using abs path for the root folder
+#
 
 source ~/1w3j/functions.sh
 
@@ -28,7 +39,7 @@ zip_folders(){
             [[ ${i} -eq 10 ]] && break
         done
         read -p "Press ENTER to continue to zip or Ctrl-c the shit out of here"
-        cd ${SOURCE_DIR} || err "${SOURCE_DIR} does not exist"
+        cd "${SOURCE_DIR}" || err "${SOURCE_DIR} does not exist"
         for (( i=0; i<=$((${QTY_FOLDERS}-1)); i++ )); do
             CURRENT_FOLDER=`basename "${FOLDERS[$i]}"`
             echo -e "\t<=====================" "${CURRENT_FOLDER}" "========================>"
