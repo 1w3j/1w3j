@@ -1,16 +1,17 @@
+#@IgnoreInspection BashAddShebang
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export JAVA_HOME=/opt/jdk/8/jdk1.8.0_241/bin
 #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre/
-export IDEA_JDK=$JAVA_HOME
-export JDK_HOME=$JAVA_HOME
+export IDEA_JDK=${JAVA_HOME}
+export JDK_HOME=${JAVA_HOME}
 export XDG_CONFIG_HOME=$HOME/.config
 export GRADLE_HOME=/opt/gradle/gradle-5.4.1
 export CATALINA_HOME=/usr/share/tomcat8
 export CATALINA_BASE=/var/lib/tomcat8
 export NODE_MODULES=$HOME/.npm-global
 export COMPOSER_HOME=$HOME/.config/composer/vendor
-export PATH=$PATH:~/bin:$GRADLE_HOME/bin:$JAVA_HOME/bin:$NODE_MODULES/bin:$HOME/.cargo/bin:$COMPOSER_HOME/bin
+export PATH=$PATH:~/bin:${GRADLE_HOME}/bin:${JAVA_HOME}/bin:${NODE_MODULES}/bin:$HOME/.cargo/bin:${COMPOSER_HOME}/bin
 #https://github.com/dotnet/core/issues/973 - segfault caused by dotnet
 #export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export CHEATCOLORS=true
@@ -91,7 +92,7 @@ plugins=(git zsh-completions)
 
 autoload -U compinit && compinit
 
-source $ZSH/oh-my-zsh.sh
+source ${ZSH}/oh-my-zsh.sh
 
 # User configuration
 
@@ -101,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
  export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
+ if [[ -n ${SSH_CONNECTION} ]]; then
    export EDITOR='vim'
  else
    export EDITOR='mvim'
@@ -132,3 +133,6 @@ source $ZSH/oh-my-zsh.sh
 # https://github.com/dylanaraps/pywal/wiki/Customization#dmenu.
 #source "${HOME}/.cache/wal/colors.sh"
 #alias dmen='dmenu_run -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
+vw(){
+    /usr/bin/which --skip-alias --skip-functions "${1}" && vim `which "${1}"`
+}
