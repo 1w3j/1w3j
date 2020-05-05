@@ -20,6 +20,7 @@
       <w>batt</w>
       <w>booky</w>
       <w>boottime</w>
+      <w>cbar</w>
       <w>cheatcolors</w>
       <w>checkping</w>
       <w>chjdk</w>
@@ -27,6 +28,8 @@
       <w>compinit</w>
       <w>configpath</w>
       <w>createtorrent</w>
+      <w>ctermbg</w>
+      <w>ctermfg</w>
       <w>currentcourse</w>
       <w>cutchars</w>
       <w>datagrip</w>
@@ -131,6 +134,7 @@
       <w>pkgdir</w>
       <w>pkgnames</w>
       <w>pkgs</w>
+      <w>pmenu</w>
       <w>pmset</w>
       <w>powerline</w>
       <w>preedit</w>
