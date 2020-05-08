@@ -14,7 +14,7 @@
 # - make
 # - sudo make install
 # 
-# if for some reason still isn't completed
+# if for some reason still isn't completed continue with the following:
 # - Install vmware-patch from AUR
 # - Run sudo vmware-patch -fvk
 # - Run sudo vmware-modconfig --console --install-all

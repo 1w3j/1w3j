@@ -264,6 +264,7 @@ for_window [class="okular"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Typora"] floating enable
 for_window [class="calibre"] floating enable
+for_window [class="wechat.exe"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
