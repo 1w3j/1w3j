@@ -119,7 +119,7 @@ source ${ZSH}/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+alias journal="journalctl -fu"
 
 ### MY SETTINGS ###
 #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg &> /dev/null
