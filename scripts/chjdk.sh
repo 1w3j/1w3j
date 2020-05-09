@@ -51,14 +51,14 @@ chjdk(){
                     full_jdk_bin_path_array=("${selected_jdk}"/*/bin/java) # the array () expands the glob
                     full_jdk_bin_path="$(printf "%s" ${full_jdk_bin_path_array[*]})"
                     [[ -e ${JAVA_BIN_PATH} ]] && warn "Removing ${JAVA_BIN_PATH}" && sudo rm -i ${JAVA_BIN_PATH}
-                    [[ -e ${JDK_PATH}/default ]] && warn "Removing ${JDK_PATH}/default" && sudo rm -i ${JDK_PATH}/default
+                    [[ -e /opt/defaultjdk && ( ${1} = "-d" || ${2} = "-d" || ${3} = "-d" ) ]] && warn "Removing /opt/defaultjdk" && sudo rm -i /opt/defaultjdk
                     # if sudo rm -i was successful or JAVA_BIN_PATH already removed externally, then proceed
                     if [[ "$?" -eq 0 ]] || [[ ! -e ${JAVA_BIN_PATH} ]]; then
                         warn "${JAVA_BIN_PATH} was removed"
                         msg Linking \""${full_jdk_bin_path}"\" to \"${JAVA_BIN_PATH}\"
                         sudo ln -s ${full_jdk_bin_path} ${JAVA_BIN_PATH}
-                        msg Linking \""${selected_jdk}"\" to \"${JDK_PATH}/default\"
-                        sudo ln -fs ${selected_jdk}/*/ ${JDK_PATH}/default
+                        msg Linking \""${selected_jdk}"\" to \"/opt/defaultjdk\"
+                        sudo ln -fs ${selected_jdk}/*/ /opt/defaultjdk
                         msg "Job Finished"
                     else
                         err "Get to know that you must grant sudo access to completely run this script"
