@@ -7,7 +7,7 @@ source ~/1w3j/functions.sh
 
 JDK_PATH=/opt/jdk
 JAVA_BIN_PATH=/usr/bin/java
-number=0;
+number=0
 
 msg "Using \`java\` path: ${JAVA_BIN_PATH}"
 msg "Using JDK folder path: ${JDK_PATH}"
@@ -50,12 +50,15 @@ chjdk(){
                     selected_jdk=${jdks[$((${1}-1))]}
                     full_jdk_bin_path_array=("${selected_jdk}"/*/bin/java) # the array () expands the glob
                     full_jdk_bin_path="$(printf "%s" ${full_jdk_bin_path_array[*]})"
-                    [[ -e ${JAVA_BIN_PATH} ]] && warn "Removing $JAVA_BIN_PATH" && sudo rm -i ${JAVA_BIN_PATH}
+                    [[ -e ${JAVA_BIN_PATH} ]] && warn "Removing ${JAVA_BIN_PATH}" && sudo rm -i ${JAVA_BIN_PATH}
+                    [[ -e ${JDK_PATH}/default ]] && warn "Removing ${JDK_PATH}/default" && sudo rm -i ${JDK_PATH}/default
                     # if sudo rm -i was successful or JAVA_BIN_PATH already removed externally, then proceed
                     if [[ "$?" -eq 0 ]] || [[ ! -e ${JAVA_BIN_PATH} ]]; then
                         warn "${JAVA_BIN_PATH} was removed"
                         msg Linking \""${full_jdk_bin_path}"\" to \"${JAVA_BIN_PATH}\"
                         sudo ln -s ${full_jdk_bin_path} ${JAVA_BIN_PATH}
+                        msg Linking \""${selected_jdk}"\" to \"${JDK_PATH}/default\"
+                        sudo ln -fs ${selected_jdk}/*/ ${JDK_PATH}/default
                         msg "Job Finished"
                     else
                         err "Get to know that you must grant sudo access to completely run this script"
