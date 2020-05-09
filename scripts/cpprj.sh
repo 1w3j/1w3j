@@ -2,7 +2,7 @@
 if [[ ${#} -eq 2  ]]; then
     echo -e "\n"
     target=`echo ${1} | cut -d/ -f1`
-    echo "copying to...`realpath ${2}`"
+    echo "Copying to...`realpath ${2}`"
     mkdir -p ${2}
     cp -ir ${target}/* ${2}
     cd ${2} || exit

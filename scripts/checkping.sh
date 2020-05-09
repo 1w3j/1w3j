@@ -35,7 +35,7 @@ reconnect () {
 }
 
 # if there exists an argument, then check if 'qbit' is correctly written
-[[ -n "$*" ]] && [[ "$1" != "qbit" ]] && echo $UL"Did you mean 'qbit'?" && exit 1
+[[ -n "${*}" ]] && [[ "${1}" != "qbit" ]] && echo ${UL}"Did you mean 'qbit'?" && exit 1
 
 echo -e ${UL}"Using $WIFI_NAME as wireless connection name"${NUL};
 
