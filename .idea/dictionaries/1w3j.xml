@@ -2,6 +2,8 @@
   <dictionary name="1w3j">
     <words>
       <w>&amp;%*.</w>
+      <w>Educacion</w>
+      <w>Ministerio</w>
       <w>acpibat</w>
       <w>afff</w>
       <w>agnoster</w>
@@ -27,6 +29,7 @@
       <w>colorscheme</w>
       <w>compinit</w>
       <w>configpath</w>
+      <w>cptomine</w>
       <w>createtorrent</w>
       <w>ctermbg</w>
       <w>ctermfg</w>
@@ -83,6 +86,7 @@
       <w>isdirectory</w>
       <w>isize</w>
       <w>istole</w>
+      <w>jdkfoldername</w>
       <w>jdks</w>
       <w>jetbrains</w>
       <w>klomp</w>
