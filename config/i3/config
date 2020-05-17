@@ -124,7 +124,7 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'Tile vertically'
-bindsym $mod+q split toggle;exec notify-send 'Toggle split direction'
+bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle;exec notify-send 'Toggle fullscreen mode'
@@ -265,6 +265,7 @@ for_window [class="vlc"] floating enable
 for_window [class="Typora"] floating enable
 for_window [class="calibre"] floating enable
 for_window [class="wechat.exe"] floating enable
+for_window [class="krename"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -420,11 +421,11 @@ bindsym $mod+m bar mode toggle;exec notify-send 'Toggle bar mode'
 # urgent: as the name indicates
 # placeholder: ??
 # class                   border            backgr.           text              indic.            child_border
-  client.focused          $term_color14     $term_background  $term_foreground  $term_color15     $term_color4
-  client.focused_inactive $term_color6      $term_color8      $term_color15     #fd12df           $term_color12
+  client.focused          $term_color14     $term_background  $term_foreground  $term_color7      $term_color4
+  client.focused_inactive $term_color6      $term_color8      $term_color15     $term_color3      $term_color12
   client.unfocused        $term_color1      $term_color0      $term_color8      #fd12df           $term_color14
   client.urgent           $term_color7      $term_color8      $term_foreground  #fd12df           $term_color7
-  client.placeholder      #13FDDF           #dffd13           $term_foreground  #fd12df           #00ff31
+  client.placeholder      #13FDDF           #dffd13           $term_color7      #fd12df           #00ff31
 
   client.background       $term_background
 
