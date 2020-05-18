@@ -4,7 +4,6 @@
     <option name="SHOW_FULL_SIGNATURES_IN_PARAMETER_INFO" value="true" />
   </component>
   <component name="DefaultFont">
-    <option name="FONT_SIZE" value="13" />
     <option name="FONT_FAMILY" value="Source Code Pro for Powerline" />
     <option name="USE_LIGATURES" value="true" />
     <option name="SECONDARY_FONT_FAMILY" value="TerminessTTF Nerd Font Mono" />
@@ -14,4 +13,5 @@
     <option name="SOFT_WRAP_FILE_MASKS" value="*.md; *.txt; *.rst; *.adoc;*.tex;*.text;*.txt;*.ind;*.cls;*.sty;*.shl;*.pdf" />
     <option name="IS_BLOCK_CURSOR" value="true" />
   </component>
+  <component name="LiveEditOptions" chromeUpdateJSOnChanges="true" restartIfHotSwapFailed="true" updateFilesToCompile="true" useJBChromeExtension="true" />
 </application>

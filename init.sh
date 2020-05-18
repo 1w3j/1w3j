@@ -7,7 +7,7 @@ check_if_currently_on_home() {
 	echo 'Checking if the repo was cloned in your $HOME path...'
 	two_dirs_up=$(dirname "$(dirname "$(realpath ${0})")")
 	if [[ ! ${HOME} = "${two_dirs_up}" ]]; then
-		echo "Please run the following command: \`mv $(dirname "$(realpath $0)") ${HOME}\`"
+		echo "Please run the following command: \`mv $(dirname "$(realpath ${0})") ${HOME}\`"
 		exit 163
 	fi
 }
@@ -28,11 +28,13 @@ check_if_important_folders_exists() {
 }
 check_if_important_folders_exists
 
+# Don't change these values, just comment/uncomment according to your setup
 MY_INTELLIJ_IDES=(
 	    idea
-	#    webstorm
-	#    charm
-	#    datagrip
+	    webstorm
+	    charm
+	    datagrip
+		phpstorm
 	#    clion
 )
 
@@ -45,8 +47,8 @@ link_ides_scripts() {
 			from=${ide_script}
 			to=${BIN_PATH}/$(basename ${ide_script})
 			echo -e "\t\033[31m${from}\033[m ==>> \033[31m${to}\033[m"
-			rm -f ${to}
-			ln -s ${from} ${to}
+			rm -f "${to}"
+			ln -s "${from}" "${to}"
 		else
 			warn "${ide} script is missing!"
 		fi
@@ -57,7 +59,7 @@ link_scripts() {
 	msg "Found these .${1} scripts:"
 	FILES=()
 	# globbing files with the specified extension on '${1}'
-	for f in ${SCRIPTS_PATH}/*.$1; do
+	for f in "${SCRIPTS_PATH}/*".$1; do
 		# check if current ${f} file is actually a file (not dirs) while excluding this script file
 		[[ -f "${f}" ]] && [[ "${f}" != "$(realpath ${0})" ]] && FIEL=$(basename ${f})
 		# note: shortened filenames just for fooling around
@@ -92,14 +94,14 @@ link_config_files() {
 			msg "intellij folder detected \"${c}\""
 			for ide in ${MY_INTELLIJ_IDES[*]}; do
 				source ~/1w3j/scripts/resetintellijkey.sh --just-get-configpath ${ide}
-				CURRENT_IDE_CONFIG=$(realpath ${IDE_CONFIG})
+				CURRENT_IDE_CONFIG=${IDE_CONFIG}
 				msg "Soft linking config files for ${IDE} "
 				if [[ -d ${CURRENT_IDE_CONFIG} ]]; then
 					msg ${CURRENT_IDE_CONFIG} "Config folder detected for ${ide}"
 					msg "Recursively copying into" ${CURRENT_IDE_CONFIG} "with '-s' flag"
 					cp -rsf "${c}"/* ${CURRENT_IDE_CONFIG}
 				else
-					warn ${CURRENT_IDE_CONFIG} "doesn't exist. Install ${ide} first, then run init.sh"
+					warn ${CURRENT_IDE_CONFIG} "doesn't exist. Install and run ${ide} first, then reload init.sh"
 				fi
 			done
 			msg "++++++++++++++ IMPORTANT NOTE +++++++++++++++"
@@ -130,11 +132,11 @@ check_zsh() {
 }
 
 print_usage() {
-    case "$(basename ${0})" in
+    case "${0##*/}" in
         init.sh)
             cat <<EOF
 
-Usage: ${0} [--do-not-install-anything | -dnia ]
+Usage: ${0##*/} [--do-not-install-anything | -dnia ]
 Options:
         --do-not-install-anything, -dnia            Just link your config files without installing packages
                                                    listed in ~/1w3j/pkgnames

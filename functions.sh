@@ -19,7 +19,7 @@ msg(){
 }
 
 check_root(){
-    if [[ $EUID -ne 0 ]]; then
+    if [[ ${EUID} -ne 0 ]]; then
         err "You must be root"
     fi
 }
@@ -37,7 +37,7 @@ is_sourced_in_external_function(){
 }
 
 usage() {
-    case "$(basename ${0})" in
+    case "${0##*/}" in
         functions.sh)
             cat << EOF
 
@@ -51,7 +51,7 @@ EOF
 }
 
 us3r_exists() {
-    [[ -n "$US3R" ]]
+    [[ -n "${US3R}" ]]
 }
 
 create_us3r() {
@@ -72,7 +72,7 @@ detect_us3r() {
 
 functions() {
     US3R=`cat ~/1w3j/us3r 2>/dev/null`
-    case "$1" in
+    case "${1}" in
         --create-us3r)
             create_us3r
             ;;

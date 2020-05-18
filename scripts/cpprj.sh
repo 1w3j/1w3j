@@ -8,5 +8,5 @@ if [[ ${#} -eq 2  ]]; then
     cd ${2} || exit
 else
     #prints to stderr; use (>&2 echo '...') to avoid interaction with other redirection
-    >&2 echo "usage: ${0} originalprojectfolder targetfoldername"
+    >&2 echo "usage: ${0##*/} originalprojectfolder targetfoldername"
 fi

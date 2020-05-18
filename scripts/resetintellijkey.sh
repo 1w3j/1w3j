@@ -4,25 +4,25 @@
 
 source ~/1w3j/functions.sh;
 
-INTELLIJ_HOME=/opt
+INTELLIJ_HOME=${XDG_CONFIG_HOME}/JetBrains
 
-PYCHARM=charm; #usage => $ resetintellijkey charm
-PYCHARM_CONFIG=$INTELLIJ_HOME/pycharm/.PyCharm;
+CHARM=charm; #usage => $ resetintellijkey charm
+CHARM_CONFIG=${INTELLIJ_HOME}/PyCharm;
 
 IDEA=idea; #usage => $ resetintellijkey idea
-IDEA_CONFIG=$INTELLIJ_HOME/idea/.IntelliJIdea;
+IDEA_CONFIG=${INTELLIJ_HOME}/IntelliJIdea;
 
 CLION=clion #usage => $ resetintellijkey clion
-CLION_CONFIG=$INTELLIJ_HOME/clion/.CLion;
+CLION_CONFIG=${INTELLIJ_HOME}/CLion;
 
 GOLAND=goland; #usage => $ resetintellijkey goland
-GOLAND_CONFIG=$INTELLIJ_HOME/goland/.GoLand;
+GOLAND_CONFIG=${INTELLIJ_HOME}/GoLand;
 
 WEBSTORM=webstorm; #usage => $ resetintellijkey webstorm
-WEBSTORM_CONFIG=$INTELLIJ_HOME/webstorm/.WebStorm;
+WEBSTORM_CONFIG=${INTELLIJ_HOME}/WebStorm;
 
 DATAGRIP=datagrip
-DATAGRIP_CONFIG=$INTELLIJ_HOME/datagrip/.DataGrip;
+DATAGRIP_CONFIG=${INTELLIJ_HOME}/DataGrip;
 
 reset_keys(){
     IDE=${1};
@@ -47,28 +47,28 @@ reset_keys(){
     rm -rf "${HOME}/.java/userPrefs/jetbrains/${IDE}";
 
     msg "Touching files";
-    find ${IDE_CONFIG} -type d -exec touch -t "$(date +"%Y%m%d%H%M")" {} +;
-    find ${IDE_CONFIG} -type f -exec touch -t "$(date +"%Y%m%d%H%M")" {} +;
+    find "${IDE_CONFIG}" -type d -exec touch -t "$(date +"%Y%m%d%H%M")" {} +;
+    find "${IDE_CONFIG}" -type f -exec touch -t "$(date +"%Y%m%d%H%M")" {} +;
 }
 
 handle_config_path_params(){
     case "${1}" in
-        ${PYCHARM})
-            IDE=${PYCHARM};
+        "${CHARM}")
+            IDE=${CHARM};
             ;;
-        ${IDEA})
+        "${IDEA}")
             IDE=${IDEA};
             ;;
-        ${CLION})
+        "${CLION}")
             IDE=${CLION};
             ;;
-        ${GOLAND})
+        "${GOLAND}")
             IDE=${GOLAND};
             ;;
-        ${WEBSTORM})
+        "${WEBSTORM}")
             IDE=${WEBSTORM};
             ;;
-          ${DATAGRIP})
+        "${DATAGRIP}")
             IDE=${DATAGRIP};
             ;;
         *)
@@ -77,10 +77,10 @@ handle_config_path_params(){
 }
 
 print_usage() {
-    case "$(basename ${0})" in
+    case "${0##*/}" in
         resetintellijkey|resetintellijkey.sh)
             cat <<EOF
-Usage: ${0} {IDE} [--just-get-configpath {IDE}]
+Usage: ${0##*/} {IDE} [--just-get-configpath {IDE}]
 Options:
         {IDE}                                     The IDE name as in the scripts created by the
                                                 Jetbrains Toolbox app, must be lowercase, and only
@@ -97,8 +97,8 @@ resetintellijkey(){
             ;;
         --help)
             ;;
-        ${PYCHARM})
-            IDE=${PYCHARM};
+        ${CHARM})
+            IDE=${CHARM};
             ;;
         ${IDEA})
             IDE=${IDEA};
@@ -122,9 +122,9 @@ resetintellijkey(){
             err "IDE named \"${1}\" not available - nothing to do here...";
     esac
 
-    UPPERCASE_IDE=`echo ${IDE} | awk '{print toupper($0)}'`;
-    IDE_CONFIG=`eval echo '$'"${UPPERCASE_IDE}_CONFIG"`;
-    IDE_CONFIG=$(ls -td ${IDE_CONFIG}* | head -1 | tr ':' ' ');
+    UPPERCASE_IDE=$(echo ${IDE} | awk '{print toupper($0)}');
+    IDE_CONFIG=$(eval echo '$'"${UPPERCASE_IDE}_CONFIG");
+    IDE_CONFIG=$(find ${IDE_CONFIG}* -type d | head -1);
 
     case "${1}" in
         --help|-h)
@@ -132,12 +132,12 @@ resetintellijkey(){
             ;;
         --just-get-configpath)
             msg ${IDE} detected;
-            msg ${IDE_CONFIG} detected;
+            msg "${IDE_CONFIG}" detected;
             ;;
         *)
             msg ${IDE} detected;
-            msg ${IDE_CONFIG} detected;
-            reset_keys ${IDE} ${IDE_CONFIG};
+            msg "${IDE_CONFIG}" detected;
+            reset_keys ${IDE} "${IDE_CONFIG}";
             ;;
     esac
 }
