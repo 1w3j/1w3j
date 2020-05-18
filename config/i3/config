@@ -209,10 +209,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Skype"] $ws5
 assign [class="Chromium"] $ws2
 assign [class="jetbrains-idea"] $ws3
-assign [class="jetbrain-pycharm"] $ws3
-assign [class="jetbrain-datagrip"] $ws3
-assign [class="jetbrain-phpstorm"] $ws3
-assign [class="jetbrain-webstorm"] $ws3
+assign [class="jetbrains-pycharm"] $ws3
+assign [class="jetbrains-datagrip"] $ws3
+assign [class="jetbrains-phpstorm"] $ws3
+assign [class="jetbrains-webstorm"] $ws3
 assign [class="Hexchat"] $ws5
 assign [class="Thunderbird"] $ws6
 assign [class="URxvt" instance="cmus"] $ws7

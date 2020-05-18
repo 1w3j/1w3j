@@ -15,7 +15,7 @@ check_if_currently_on_home() {
 check_if_currently_on_home
 source "$(dirname "$0")/functions.sh"
 
-SCRIPTS_PATH=~/1w3j/scripts
+SCRIPTS_PATH=~/bin
 CONFIG_PATH=~/1w3j/config
 BIN_PATH=~/bin
 
@@ -32,7 +32,7 @@ check_if_important_folders_exists
 MY_INTELLIJ_IDES=(
 	    idea
 	    webstorm
-	    charm
+	    pycharm
 	    datagrip
 		phpstorm
 	#    clion
