@@ -1,6 +1,61 @@
 <application>
-  <component name="VimSettings">
-    <state version="5" enabled="true" />
+  <component name="VimEditorSettings">
+    <editor />
+  </component>
+  <component name="VimHistorySettings">
+    <history>
+      <history-search>
+        <entry>i3status</entry>
+        <entry>focus_fo</entry>
+        <entry>auto_back</entry>
+        <entry>mod+n</entry>
+        <entry>mod+e</entry>
+        <entry>mega</entry>
+        <entry>for_window</entry>
+        <entry>Print</entry>
+        <entry>reload</entry>
+        <entry>redshift</entry>
+        <entry>ranger</entry>
+        <entry>ln -s</entry>
+        <entry>ln</entry>
+        <entry>Find</entry>
+        <entry>binar</entry>
+        <entry>binari</entry>
+        <entry encoding="base64">XDxTX2Jhc2UwMlw+</entry>
+        <entry>mod+b</entry>
+        <entry encoding="base64">XDxodG1sXD4=</entry>
+        <entry encoding="base64">XDxyZXF1ZXN0c1w+</entry>
+      </history-search>
+      <history-cmd>
+        <entry>25</entry>
+        <entry>find</entry>
+        <entry>select</entry>
+        <entry>help</entry>
+        <entry>Colorize</entry>
+        <entry>PluginInstall</entry>
+        <entry>ColorHighlight</entry>
+        <entry>action EditorToggleShowWhitespaces</entry>
+        <entry>action Back</entry>
+        <entry>vsp</entry>
+        <entry>action GotoAction</entry>
+        <entry>.,.+2w</entry>
+        <entry>sp</entry>
+        <entry>257</entry>
+        <entry>167</entry>
+        <entry>55</entry>
+        <entry>876</entry>
+        <entry>53</entry>
+        <entry>117</entry>
+        <entry>108</entry>
+        <entry>action CloseContent</entry>
+        <entry>w</entry>
+        <entry>action Find</entry>
+      </history-cmd>
+      <history-expr />
+      <history-input />
+    </history>
+  </component>
+  <component name="VimKeySettings">
     <shortcut-conflicts>
       <shortcut-conflict owner="ide">
         <text>ctrl pressed V</text>
@@ -44,8 +99,283 @@
       <shortcut-conflict owner="vim">
         <text>ctrl pressed T</text>
       </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed OPEN_BRACKET</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed CLOSE_BRACKET</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed D</text>
+      </shortcut-conflict>
     </shortcut-conflicts>
-    <editor />
+  </component>
+  <component name="VimMarksSettings">
+    <globalmarks />
+    <filemarks>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter01/Exercise1.5/hello_post.php" timestamp="1587920145593">
+        <mark key="[" line="0" column="33" />
+        <mark key="]" line="0" column="41" />
+        <mark key="^" line="0" column="41" />
+        <mark key="." line="0" column="40" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter01/Exercise1.5/hello.php" timestamp="1587919753450">
+        <mark key="[" line="0" column="21" />
+        <mark key="]" line="0" column="57" />
+        <mark key="^" line="0" column="57" />
+        <mark key="." line="0" column="56" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter02/Activity2.1/tracker.php" timestamp="1588007632389">
+        <mark key="[" line="13" column="0" />
+        <mark key="]" line="13" column="0" />
+        <mark key="." line="13" column="0" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter01/Exercise1.9/isset.php" timestamp="1588005709228">
+        <mark key="[" line="10" column="0" />
+        <mark key="]" line="10" column="0" />
+        <mark key="." line="10" column="0" />
+        <mark key="^" line="10" column="0" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/www/nvlt4/ecommerce.noveltie.la/public_html/ecommerce/.env.bak" timestamp="1587979087192">
+        <mark key="[" line="23" column="0" />
+        <mark key="]" line="23" column="0" />
+        <mark key="^" line="12" column="24" />
+        <mark key="." line="23" column="0" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter01/Exercise1.4/hello.php" timestamp="1587815031527">
+        <mark key="[" line="2" column="0" />
+        <mark key="]" line="2" column="0" />
+        <mark key="." line="2" column="0" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter01/Exercise1.3/hello.php" timestamp="1588008018503">
+        <mark key="[" line="58" column="0" />
+        <mark key="]" line="58" column="0" />
+        <mark key="." line="58" column="0" />
+      </file>
+      <file name="/" timestamp="1587645905894">
+        <mark key="[" line="0" column="0" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/www/casaelida.com/public_html/casaelida-erp/composer.json" timestamp="1587438735488">
+        <mark key="[" line="14" column="38" />
+        <mark key="]" line="14" column="39" />
+        <mark key="." line="14" column="39" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter01/Exercise1.8/assignment.php" timestamp="1588005585452">
+        <mark key="[" line="18" column="12" />
+        <mark key="]" line="18" column="12" />
+        <mark key="." line="18" column="12" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter01/Exercise1.5/login-form.html" timestamp="1587920184895">
+        <mark key="[" line="10" column="22" />
+        <mark key="]" line="10" column="25" />
+        <mark key="^" line="10" column="25" />
+        <mark key="." line="10" column="24" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/www/nvlt4/ecommerce.noveltie.la/public_html/ecommerce/composer.json" timestamp="1587984385952">
+        <mark key="[" line="8" column="0" />
+        <mark key="]" line="8" column="8" />
+        <mark key="." line="8" column="8" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter01/Activity1.1/movies.php" timestamp="1588006771269">
+        <mark key="[" line="9" column="23" />
+        <mark key="]" line="9" column="23" />
+        <mark key="^" line="18" column="124" />
+        <mark key="." line="9" column="23" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter02/datatypes.php" timestamp="1588178823894">
+        <mark key="[" line="193" column="45" />
+        <mark key="]" line="222" column="0" />
+        <mark key="." line="222" column="0" />
+        <mark key="^" line="222" column="0" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter02/Exercise2.3/convertbooleanint.php" timestamp="1588157693064">
+        <mark key="[" line="17" column="14" />
+        <mark key="]" line="17" column="31" />
+        <mark key="." line="17" column="30" />
+        <mark key="^" line="17" column="31" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter01/Exercise1.2/hello.php" timestamp="1587750546601">
+        <mark key="[" line="0" column="5" />
+        <mark key="]" line="2" column="39" />
+        <mark key="^" line="2" column="39" />
+        <mark key="." line="2" column="38" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/www/ecommerce-noveltie/public_html/ecommerce/composer.json" timestamp="1587462337424">
+        <mark key="[" line="9" column="30" />
+        <mark key="]" line="9" column="31" />
+        <mark key="." line="9" column="30" />
+        <mark key="^" line="9" column="31" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/PHP/The-PHP-Workshop/Chapter02/Exercise2.2/array.php" timestamp="1588156379673">
+        <mark key="[" line="26" column="15" />
+        <mark key="]" line="26" column="16" />
+        <mark key="^" line="5" column="6" />
+        <mark key="." line="26" column="16" />
+      </file>
+      <file name="$USER_HOME$/MEGA/Projects/www/nvlt4/ecommerce.noveltie.la/public_html/ecommerce/.env" timestamp="1587975901564">
+        <mark key="[" line="11" column="12" />
+        <mark key="]" line="11" column="12" />
+        <mark key="." line="11" column="11" />
+        <mark key="^" line="11" column="12" />
+      </file>
+    </filemarks>
+    <jumps>
+      <jump line="21" column="7" filename="$USER_HOME$/.config/gcolor3/config.ini" />
+      <jump line="90" column="11" filename="$USER_HOME$/1w3j/init.sh" />
+      <jump line="15" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="275" column="21" filename="$USER_HOME$/.i3/config" />
+      <jump line="36" column="3" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="37" column="0" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="38" column="0" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="39" column="0" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="40" column="0" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="11" column="28" filename="$USER_HOME$/1w3j/config/zshrc" />
+      <jump line="55" column="42" filename="$USER_HOME$/1w3j/config/zshrc" />
+      <jump line="127" column="0" filename="$USER_HOME$/1w3j/config/zshrc" />
+      <jump line="25" column="0" filename="$USER_HOME$/1w3j/config/zshrc" />
+      <jump line="0" column="0" filename="$USER_HOME$/1w3j/config/zshrc" />
+      <jump line="120" column="0" filename="$USER_HOME$/1w3j/config/zshrc" />
+      <jump line="1" column="0" filename="$USER_HOME$/1w3j/config/zshrc" />
+      <jump line="282" column="21" filename="$USER_HOME$/.i3/config" />
+      <jump line="15" column="0" filename="$USER_HOME$/1w3j/config/vimrc" />
+      <jump line="35" column="36" filename="$USER_HOME$/.i3/config" />
+      <jump line="35" column="21" filename="$USER_HOME$/.config/compton.conf" />
+      <jump line="53" column="7" filename="$USER_HOME$/.config/compton.conf" />
+      <jump line="35" column="0" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="176" column="20" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="29" column="8" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="30" column="22" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="31" column="29" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="32" column="51" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="34" column="41" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="158" column="35" filename="$USER_HOME$/1w3j/config/vimrc" />
+      <jump line="142" column="12" filename="$USER_HOME$/1w3j/config/vimrc" />
+      <jump line="22" column="19" filename="$USER_HOME$/1w3j/config/vimrc" />
+      <jump line="80" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="292" column="32" filename="$USER_HOME$/.i3/config" />
+      <jump line="303" column="45" filename="$USER_HOME$/.i3/config" />
+      <jump line="341" column="70" filename="$USER_HOME$/.i3/config" />
+      <jump line="43" column="21" filename="$USER_HOME$/.i3/i3status.conf" />
+      <jump line="253" column="11" filename="$USER_HOME$/.i3/config" />
+      <jump line="82" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="107" column="15" filename="$USER_HOME$/.i3/config" />
+      <jump line="18" column="9" filename="$USER_HOME$/.i3/config" />
+      <jump line="123" column="9" filename="$USER_HOME$/.i3/config" />
+      <jump line="306" column="21" filename="$USER_HOME$/.i3/config" />
+      <jump line="215" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="216" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="217" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="218" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="219" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="220" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="221" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="222" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="223" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="224" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="225" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="226" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="228" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="229" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="232" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="201" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="202" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="203" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="204" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="205" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="207" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="208" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="209" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="210" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="211" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="212" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="213" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="214" column="0" filename="$USER_HOME$/.i3/config" />
+      <jump line="227" column="19" filename="$USER_HOME$/.i3/config" />
+      <jump line="65" column="19" filename="$USER_HOME$/.i3/config" />
+      <jump line="206" column="20" filename="$USER_HOME$/.i3/config" />
+      <jump line="25" column="28" filename="$USER_HOME$/1w3j/init.sh" />
+      <jump line="82" column="8" filename="$USER_HOME$/1w3j/init.sh" />
+      <jump line="50" column="12" filename="$USER_HOME$/1w3j/init.sh" />
+      <jump line="202" column="0" filename="$USER_HOME$/1w3j/config/vimrc" />
+      <jump line="210" column="29" filename="$USER_HOME$/1w3j/config/vimrc" />
+      <jump line="122" column="19" filename="$USER_HOME$/1w3j/init.sh" />
+      <jump line="149" column="36" filename="$USER_HOME$/1w3j/init.sh" />
+      <jump line="158" column="38" filename="$USER_HOME$/1w3j/init.sh" />
+      <jump line="17" column="8" filename="$USER_HOME$/1w3j/config/Xresources" />
+      <jump line="42" column="24" filename="$USER_HOME$/1w3j/config/Xresources" />
+      <jump line="27" column="25" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="73" column="19" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="379" column="8" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="118" column="9" filename="$USER_HOME$/1w3j/config/i3/config" />
+      <jump line="14" column="16" filename="$USER_HOME$/MEGA/Projects/Python/netease-cache-tool/main.py" />
+      <jump line="16" column="16" filename="$USER_HOME$/MEGA/Projects/Python/netease-cache-tool/main.py" />
+      <jump line="4" column="7" filename="$USER_HOME$/MEGA/Projects/Python/netease-cache-tool/main.py" />
+      <jump line="35" column="0" filename="$USER_HOME$/MEGA/Projects/www/casaelida.com/public_html/casaelida-erp/public/index.php" />
+      <jump line="18" column="3" filename="$USER_HOME$/1w3j/scripts/chjdk.sh" />
+      <jump line="16" column="4" filename="$USER_HOME$/1w3j/scripts/chjdk.sh" />
+      <jump line="25" column="4" filename="$USER_HOME$/1w3j/scripts/chjdk.sh" />
+      <jump line="86" column="20" filename="$USER_HOME$/1w3j/init.sh" />
+    </jumps>
+  </component>
+  <component name="VimRegisterSettings">
+    <registers>
+      <register name="&quot;" type="4">
+        <text>}</text>
+      </register>
+      <register name="-" type="4">
+        <text>}</text>
+      </register>
+      <register name="/" type="4">
+        <text encoding="base64">XDxyZXF1ZXN0c1w+</text>
+      </register>
+      <register name="0" type="2">
+        <text encoding="base64">YnIoKTsK</text>
+      </register>
+      <register name="1" type="2">
+        <text encoding="base64">ZGVmaW5lKCdhJywxKTsK</text>
+      </register>
+      <register name="2" type="8">
+        <text>a,&quot;asd</text>
+      </register>
+      <register name="3" type="2">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name="4" type="2">
+        <text encoding="base64">YnIoKTsK</text>
+      </register>
+      <register name="5" type="2">
+        <text encoding="base64">YnIoKTsK</text>
+      </register>
+      <register name="6" type="2">
+        <text encoding="base64">ZGVjbGFyZShzdHJpY3RfdHlwZXM9MSk7Cg==</text>
+      </register>
+      <register name="7" type="2">
+        <text encoding="base64">ICoK</text>
+      </register>
+      <register name="8" type="2">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name="9" type="2">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name=":" type="4">
+        <text>action Find</text>
+      </register>
+    </registers>
+  </component>
+  <component name="VimSearchSettings">
+    <search>
+      <last-search encoding="base64">XDxyZXF1ZXN0c1w+</last-search>
+      <last-offset />
+      <last-pattern encoding="base64">XDxyZXF1ZXN0c1w+</last-pattern>
+      <last-replace>~</last-replace>
+      <last-substitute>binari</last-substitute>
+      <last-dir>1</last-dir>
+      <show-last>false</show-last>
+    </search>
+  </component>
+  <component name="VimSettings">
+    <state version="6" enabled="true" />
     <notifications>
       <idea-join enabled="false" />
       <idea-put enabled="false" />

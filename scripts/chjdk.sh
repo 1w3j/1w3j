@@ -15,7 +15,7 @@ msg "Using JDK folder path: ${JDK_PATH}"
 print_usage() {
     cat <<EOF
 
-Usage: ${0} [-l|--list] [number]
+Usage: ${0##*/} [-l|--list] [number]
 Link the java* executable binary file located at JDK_PATH/{release}/{version}/bin to JAVA_BIN_PATH, this script was
 necessary since Arch Linux repositories does not provide fully implement JDK releases, thus the need to download
 compressed archives from the official Oracle website, after that, a \`tar xvzf -C /opt/jdk\` would be executed. However,
@@ -28,7 +28,7 @@ EOF
 }
 
 list_jdks(){
-    msg "These jdk were detected:"
+    msg "These jdks were detected:"
     for jdk in ${JDK_PATH}/*; do
         number=$((number+1)) #increment by one
         echo "${number}) ${jdk}"
@@ -45,14 +45,14 @@ chjdk(){
                 for jdk in ${JDK_PATH}/*; do
                     jdks=("${jdks[@]}" "${jdk}");
                 done
-                # Checking if ${number} has actually a numeric value and that 'number' passed is actually in the list
+                # Checking if ${number} has actually a numeric value and that the 'number' passed is actually in the list
                 if [[ "${1}" =~ ^[0-9]+$ ]] && [[ "${1}" -le ${#jdks[@]} ]]; then
                     selected_jdk=${jdks[$((${1}-1))]}
                     full_jdk_bin_path_array=("${selected_jdk}"/*/bin/java) # the array () expands the glob
                     full_jdk_bin_path="$(printf "%s" ${full_jdk_bin_path_array[*]})"
                     [[ -e ${JAVA_BIN_PATH} ]] && warn "Removing ${JAVA_BIN_PATH}" && sudo rm -i ${JAVA_BIN_PATH}
-                    [[ -e /opt/defaultjdk && ( ${1} = "-d" || ${2} = "-d" || ${3} = "-d" ) ]] && warn "Removing /opt/defaultjdk" && sudo rm -i /opt/defaultjdk
-                    # if sudo rm -i was successful or JAVA_BIN_PATH already removed externally, then proceed
+                    [[ -e /opt/defaultjdk]] && warn "Removing /opt/defaultjdk" && sudo rm -i /opt/defaultjdk
+                    # if sudo rm -i was successful or JAVA_BIN_PATH was already externally removed, then proceed
                     if [[ "$?" -eq 0 ]] || [[ ! -e ${JAVA_BIN_PATH} ]]; then
                         warn "${JAVA_BIN_PATH} was removed"
                         msg Linking \""${full_jdk_bin_path}"\" to \"${JAVA_BIN_PATH}\"
@@ -61,7 +61,7 @@ chjdk(){
                         sudo ln -fs ${selected_jdk}/*/ /opt/defaultjdk
                         msg "Job Finished"
                     else
-                        err "Get to know that you must grant sudo access to completely run this script"
+                        err "Must grant sudo access OR remove the symbolic link to completely run this script"
                     fi
                 else
                     err "You must choose a number from the list -l --list"

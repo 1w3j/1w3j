@@ -3,8 +3,6 @@
     <option name="ACTIVATE_MRU_EDITOR_ON_CLOSE" value="true" />
     <option name="MOVE_MOUSE_ON_DEFAULT_BUTTON" value="true" />
     <option name="PRESENTATION_MODE_FONT_SIZE" value="20" />
-    <option name="SHOW_MEMORY_INDICATOR" value="true" />
-    <option name="smoothScrolling" value="true" />
     <option name="CONTRAST_SCROLLBARS" value="true" />
     <option name="USE_SMALL_LABELS_ON_TABS" value="true" />
   </component>
