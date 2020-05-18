@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern="Xresources" type="Bash" />
       <mapping pattern="profile" type="Bash" />
+      <mapping ext="gradle.kts" type="Kotlin" />
       <mapping ext="mp3" type="Native" />
       <mapping pattern="artisan" type="PHP" />
       <mapping pattern=".inxi_info" type="PLAIN_TEXT" />
@@ -18,7 +19,6 @@
       <removed_mapping pattern="vimrc" approved="true" type="vimrc" />
       <removed_mapping pattern="vimrc,.vimrc" approved="true" type="vimrc" />
       <removed_mapping pattern="config" approved="true" type="Bash" />
-      <mapping ext="gradle.kts" type="Kotlin" />
     </extensionMap>
   </component>
 </application>
