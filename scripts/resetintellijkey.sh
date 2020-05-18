@@ -4,25 +4,28 @@
 
 source ~/1w3j/functions.sh;
 
-INTELLIJ_HOME=${XDG_CONFIG_HOME}/JetBrains
+INTELLIJ_HOME=/opt
 
-CHARM=charm; #usage => $ resetintellijkey charm
-CHARM_CONFIG=${INTELLIJ_HOME}/PyCharm;
+PYCHARM=pycharm; #usage => $ resetintellijkey charm
+PYCHARM_CONFIG=${INTELLIJ_HOME}/pycharm;
 
 IDEA=idea; #usage => $ resetintellijkey idea
-IDEA_CONFIG=${INTELLIJ_HOME}/IntelliJIdea;
+IDEA_CONFIG=${INTELLIJ_HOME}/idea;
 
 CLION=clion #usage => $ resetintellijkey clion
-CLION_CONFIG=${INTELLIJ_HOME}/CLion;
+CLION_CONFIG=${INTELLIJ_HOME}/clion;
 
 GOLAND=goland; #usage => $ resetintellijkey goland
-GOLAND_CONFIG=${INTELLIJ_HOME}/GoLand;
+GOLAND_CONFIG=${INTELLIJ_HOME}/goland;
 
 WEBSTORM=webstorm; #usage => $ resetintellijkey webstorm
-WEBSTORM_CONFIG=${INTELLIJ_HOME}/WebStorm;
+WEBSTORM_CONFIG=${INTELLIJ_HOME}/webstorm;
+
+PHPSTORM=phpstorm
+PHPSTORM_CONFIG=${INTELLIJ_HOME}/phpstorm;
 
 DATAGRIP=datagrip
-DATAGRIP_CONFIG=${INTELLIJ_HOME}/DataGrip;
+DATAGRIP_CONFIG=${INTELLIJ_HOME}/datagrip;
 
 reset_keys(){
     IDE=${1};
@@ -53,8 +56,8 @@ reset_keys(){
 
 handle_config_path_params(){
     case "${1}" in
-        "${CHARM}")
-            IDE=${CHARM};
+        "${PYCHARM}")
+            IDE=${PYCHARM};
             ;;
         "${IDEA}")
             IDE=${IDEA};
@@ -64,6 +67,9 @@ handle_config_path_params(){
             ;;
         "${GOLAND}")
             IDE=${GOLAND};
+            ;;
+        "${PHPSTORM}")
+            IDE=${PHPSTORM};
             ;;
         "${WEBSTORM}")
             IDE=${WEBSTORM};
@@ -97,8 +103,8 @@ resetintellijkey(){
             ;;
         --help)
             ;;
-        ${CHARM})
-            IDE=${CHARM};
+        ${PYCHARM})
+            IDE=${PYCHARM};
             ;;
         ${IDEA})
             IDE=${IDEA};
@@ -108,6 +114,9 @@ resetintellijkey(){
             ;;
         ${GOLAND})
             IDE=${GOLAND};
+            ;;
+        ${PHPSTORM})
+            IDE=${PHPSTORM};
             ;;
         ${WEBSTORM})
             IDE=${WEBSTORM};
@@ -124,7 +133,8 @@ resetintellijkey(){
 
     UPPERCASE_IDE=$(echo ${IDE} | awk '{print toupper($0)}');
     IDE_CONFIG=$(eval echo '$'"${UPPERCASE_IDE}_CONFIG");
-    IDE_CONFIG=$(find ${IDE_CONFIG}* -type d | head -1);
+    #IDE_CONFIG=$(find ${IDE_CONFIG}* -type d | head -1);
+    IDE_CONFIG=$(find ${IDE_CONFIG} -type d | head -1);
 
     case "${1}" in
         --help|-h)
