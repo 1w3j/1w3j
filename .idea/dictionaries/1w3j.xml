@@ -7,8 +7,10 @@
       <w>acpibat</w>
       <w>afff</w>
       <w>agnoster</w>
+      <w>allitebooks</w>
       <w>alnum</w>
       <w>amphour</w>
+      <w>annoyingtations</w>
       <w>answerback</w>
       <w>archflags</w>
       <w>autohint</w>
@@ -57,6 +59,7 @@
       <w>esac</w>
       <w>evalsprt</w>
       <w>evlsprt</w>
+      <w>exiftcmd</w>
       <w>exifterr</w>
       <w>exiftool</w>
       <w>exiftout</w>
@@ -68,7 +71,10 @@
       <w>foldmethod</w>
       <w>foldnestmax</w>
       <w>fontname</w>
+      <w>freepdf</w>
       <w>ghostscript</w>
+      <w>globbed</w>
+      <w>goland</w>
       <w>gpakosz</w>
       <w>gsub</w>
       <w>guifont</w>
@@ -86,6 +92,7 @@
       <w>isdirectory</w>
       <w>isize</w>
       <w>istole</w>
+      <w>itbookshub</w>
       <w>jdkfoldername</w>
       <w>jdks</w>
       <w>jetbrains</w>
@@ -152,6 +159,7 @@
       <w>rars</w>
       <w>recompressing</w>
       <w>resetintellijkey</w>
+      <w>rmanno</w>
       <w>robbyrussell</w>
       <w>rtorrent</w>
       <w>rwxr</w>
