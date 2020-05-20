@@ -274,6 +274,7 @@ for_window [class="Typora"] floating enable
 for_window [class="calibre"] floating enable
 for_window [class="wechat.exe"] floating enable
 for_window [class="krename"] floating enable
+for_window [class="G560gui"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

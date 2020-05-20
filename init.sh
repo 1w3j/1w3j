@@ -66,22 +66,17 @@ link_scripts() {
 		# concatenating the SCRIPTS_PATH "path string", a "/" slash, and the current file string "globbed"
 		FILE=${SCRIPTS_PATH}/${FIEL}
 		echo -e "\t${FILE}"
-		# append that string to the FILES array
-		FILES=("${FILE}" "${FILES[@]}")
-		# echo "FILES: " "${FILES[@]}";
+
+		FILES=("${FILE}" "${FILES[@]}") # append that string to the FILES array
 	done
 	msg "Started linking:"
-	# iterating over all files in the array
-	for f in "${FILES[@]}"; do
+	for f in "${FILES[@]}"; do # iterating over all files in the array
 		from=${f}
-		# getting the basename of the script file
-		to_basename=$(basename ${f})
-		# trimming out the extension
-		to=${BIN_PATH}/${to_basename%.*}
+		to_basename=$(basename ${f}) # getting the basename of the script file
+		to=${BIN_PATH}/${to_basename%.*} # trimming out the extension
 		echo -e "\t\033[31m${from}\033[m ==>> \033[31m${to}\033[m"
 		rm -f "${to}"
-		# shellcheck disable=SC2086
-		ln -s "${from}" ${to}
+		ln -s "${from}" "${to}"
 	done
 	echo -e "\r"
 }
@@ -96,7 +91,7 @@ link_config_files() {
 			for ide in ${MY_INTELLIJ_IDES[*]}; do
 				source ~/1w3j/scripts/resetintellijkey.sh --just-get-configpath ${ide}
 				CURRENT_IDE_CONFIG=${IDE_CONFIG}
-				msg "Soft linking config files for ${IDE} "
+				msg "Soft linking config files for ${IDE}"
 				if [[ -d ${CURRENT_IDE_CONFIG} ]]; then
 					msg ${CURRENT_IDE_CONFIG} "Config folder detected for ${ide}"
 					msg "Recursively copying into" ${CURRENT_IDE_CONFIG} "with '-s' flag"
