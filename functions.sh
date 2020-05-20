@@ -4,18 +4,19 @@ US3R="?"
 
 err(){
     eval "$(cat ~/1w3j/handle_funcname.inc.sh)"
-    echo >&2 -e "`tput bold; tput setaf 1`[-] ${FUNCTIONS[1]} ERROR: ${*}"`tput sgr0`
+    # shellcheck disable=SC2006
+    echo >&2 -e "$(tput bold; tput setaf 1)[-] ${FUNCTIONS[1]} ERROR: ${*}$(tput sgr0)"
     exit 163
 }
 
 warn(){
     eval "$(cat ~/1w3j/handle_funcname.inc.sh)"
-    echo >&2 -e "`tput bold; tput setaf 3`[!] ${FUNCTIONS[1]} WARNING: ${*}"`tput sgr0`
+    echo >&2 -e "$(tput bold; tput setaf 3)[!] ${FUNCTIONS[1]} WARNING: ${*}$(tput sgr0)"
 }
 
 msg(){
     eval "$(cat ~/1w3j/handle_funcname.inc.sh)"
-    echo -e "`tput bold; tput setaf 2`[+] ${FUNCTIONS[$CURRENT_FUNCTION_NAME_INDEX]}: ${*}"`tput sgr0`
+    echo -e "$(tput bold; tput setaf 2)[+] ${FUNCTIONS[$CURRENT_FUNCTION_NAME_INDEX]}: ${*}$(tput sgr0)"
 }
 
 check_root(){
@@ -56,7 +57,7 @@ us3r_exists() {
 
 create_us3r() {
     echo -n 'Type your UNIX username: '
-    read US3R
+    read -r US3R
     echo "${US3R}" 1> ~/1w3j/us3r && msg "${US3R}" successfully changed
 }
 
@@ -71,7 +72,7 @@ detect_us3r() {
 }
 
 functions() {
-    US3R=`cat ~/1w3j/us3r 2>/dev/null`
+    US3R=$(cat ~/1w3j/us3r 2>/dev/null)
     case "${1}" in
         --create-us3r)
             create_us3r

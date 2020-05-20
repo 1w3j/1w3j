@@ -2,22 +2,19 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python">
-<<<<<<< HEAD
       <configuration sdkName="" />
-=======
-      <configuration sdkName="Python 3.8" />
->>>>>>> 53797aab6a65f615402251da5b3fe5987a0e1da4
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.8" jdkType="Python SDK" />
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/scripts" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/config" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/wallpapers" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/bin" type="java-resource" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.8 (1w3j)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-<<<<<<< HEAD
-=======
     <orderEntry type="library" name="Python 3.8 interpreter library" level="application" />
->>>>>>> 53797aab6a65f615402251da5b3fe5987a0e1da4
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_FOLDERS">

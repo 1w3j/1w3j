@@ -1,7 +1,7 @@
 #@IgnoreInspection BashAddShebang
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export JAVA_HOME=/opt/defaultjdk/bin
+export JAVA_HOME=/opt/defaultjdk
 #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre/
 export IDEA_JDK=${JAVA_HOME}
 export JDK_HOME=${JAVA_HOME}

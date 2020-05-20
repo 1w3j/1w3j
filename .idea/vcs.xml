@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/config/oh-my-zsh/custom/plugins/zsh-completions" vcs="Git" />
   </component>
 </project>

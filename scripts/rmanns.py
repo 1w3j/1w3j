@@ -25,24 +25,21 @@ def clean(file_name):
     """
     Correcting name of file for pdftk.
     """
-    file_name = file_name.replace(' ', '_') \
+    return file_name.replace(' ', '_') \
         .replace('(', '') \
         .replace(')', '') \
         .replace(',', '') \
         .replace('-', '-') \
         .replace('!', '')
 
-    return file_name
-
 
 def rename(path):
     """
-    Rename file.
+    Rename a file.
     """
     for file in os.listdir(path):
-        if file.endswith(PDF):
-            if ' ' in file:
-                os.rename(file, clean(file))
+        if file.endswith(PDF) and ' ' in file:
+            os.rename(file, clean(file))
 
 
 def finalize(file):
@@ -64,7 +61,7 @@ def finalize(file):
 
 def remove_annots(path):
     """
-    Remove annotations from file.
+    Remove annotations from a file.
     """
     rename(path)
 

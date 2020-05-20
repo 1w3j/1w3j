@@ -4,7 +4,7 @@
 # 3. Check if you need the -f flag for the cp command, enabled by default in the link_config_files function, this will overwrite existing config files in $HOME
 
 check_if_currently_on_home() {
-	echo 'Checking if the repo was cloned in your $HOME path...'
+	echo 'Checking if the repo was cloned in your HOME path...'
 	two_dirs_up=$(dirname "$(dirname "$(realpath ${0})")")
 	if [[ ! ${HOME} = "${two_dirs_up}" ]]; then
 		echo "Please run the following command: \`mv $(dirname "$(realpath ${0})") ${HOME}\`"
@@ -79,8 +79,9 @@ link_scripts() {
 		# trimming out the extension
 		to=${BIN_PATH}/${to_basename%.*}
 		echo -e "\t\033[31m${from}\033[m ==>> \033[31m${to}\033[m"
-		rm -f ${to}
-		ln -s ${from} ${to}
+		rm -f "${to}"
+		# shellcheck disable=SC2086
+		ln -s "${from}" ${to}
 	done
 	echo -e "\r"
 }
