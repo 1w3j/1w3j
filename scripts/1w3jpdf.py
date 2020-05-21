@@ -33,6 +33,16 @@ PARSER.add_argument('--dry-mode', '-D',
                     help='Sort of \'dry run mode\', prints out which commands are going to be used for updating the '
                          'pdfs '
                     )
+PARSER.add_argument('--strict', '-s',
+                    action="store_true",
+                    help='Strict mode for pdf-unstamper.jar, considers text areas as watermarks (annotations) and '
+                         'remove them only if the content strictly equals one of the keywords'
+                    )
+PARSER.add_argument('--clear', '-c',
+                    action="store_true",
+                    help='Clear all annotations in pages which contains the target textual watermark(s), '
+                         'if you encounter bordered frame issues, enable this switch '
+                    )
 PARSER.add_argument('--do-not-remove-annotations', '-A',
                     action="store_true",
                     help='Do no perform sed trimming of those annoying tags or annotations from free downloading '
@@ -76,9 +86,12 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('Download at Boykma.Com') + \
                   add_keyword('Download at WoweBook.com') + \
                   add_keyword('boykma.com') + \
+                  add_keyword('ebookee.org') + \
+                  add_keyword('ebook3000.com') + \
                   add_keyword('Download from Wow! eBook <www.wowebook.com>') + \
                   add_keyword('wow! ebook') + \
                   add_keyword('wow ebook') + \
+                  add_keyword('https://sci101web.wordpress.com') + \
                   add_keyword('v@v')
 # _e('s/\/URI//')
 
@@ -140,9 +153,14 @@ for file in ACTUAL_FILES:
     COUNT += 1
     filename = os.path.splitext(os.path.basename(file))[0]  # getting the basename without the extension (.pdf)
     exiftcmd = ["exiftool", "-Title=" + filename, file]  # put filename to title
-    unstamp_cmd = ['java', '-jar',
-                   os.getenv('HOME') + '/1w3j/bin/pdf-unstamper.jar',
-                   '-c'] + ANNOYINGTATIONS + ['-d', '-i', file]
+    unstamp_cmd = ['java', '-jar', os.getenv('HOME')
+                   + '/1w3j/bin/pdf-unstamper.jar'] \
+                  + (['-c'] if ARGS.clear else ['']) \
+                  + (['-s'] if ARGS.strict else ['']) \
+                  + ANNOYINGTATIONS \
+                  + ['-d', '-i', file]  # direct output onto file
+    unstamp_cmd = [param for param in unstamp_cmd if param]  # cleaning empty elements like ['']
+    print(unstamp_cmd)
     exiftool = None
 
     if not ARGS.dry_mode:
