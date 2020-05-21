@@ -78,20 +78,22 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('http://freepdf-books.com') + \
                   add_keyword('www.freepdf-books.com') + \
                   add_keyword('www.ebook777.com') + \
+                  add_keyword('WWW.EBOOK777.COM') + \
                   add_keyword('http://www.itbookshub.com') + \
                   add_keyword('http://itbookshub.com') + \
                   add_keyword('www.itbookshub.com') + \
                   add_keyword('itbookshub.com') + \
                   add_keyword('www.it-ebooks.directory') + \
                   add_keyword('it-ebooks.director') + \
+                  add_keyword('Licensed to   <null>') + \
                   add_keyword('Download at Boykma.Com') + \
                   add_keyword('Download at WoweBook.com') + \
                   add_keyword('boykma.com') + \
                   add_keyword('ebookee.org') + \
                   add_keyword('ebook3000.com') + \
                   add_keyword('Download from Wow! eBook <www.wowebook.com>') + \
-                  add_keyword('wow! ebook') + \
-                  add_keyword('wow ebook') + \
+                  add_keyword('Wow! eBook') + \
+                  add_keyword('Wow eBook') + \
                   add_keyword('https://sci101web.wordpress.com') + \
                   add_keyword('v@v')
 # _e('s/\/URI//')
@@ -171,6 +173,7 @@ for file in ACTUAL_FILES:
         if not ARGS.do_not_remove_annotations and exiftool.wait() == 0:
             print(colored(str(COUNT) + ") Removing annotations on '" + filename[0:80] + "'...", "yellow"))
             unstamp = subprocess.call(unstamp_cmd, stdout=DEVNULL)
+            remove_previous_line()
 
             if unstamp != 0:
                 print(colored("Error on removing annotations with exit code " + str(unstamp), "red"))
