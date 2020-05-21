@@ -3,6 +3,7 @@
 1w3j's PDF management tool:
 TODO:
     - Fix v@v tags not being removed, needs testing
+    - Detect TruePDFs vs converted PDFs
 """
 import os
 import subprocess
@@ -160,7 +161,6 @@ for file in ACTUAL_FILES:
                   + ANNOYINGTATIONS \
                   + ['-d', '-i', file]  # direct output onto file
     unstamp_cmd = [param for param in unstamp_cmd if param]  # cleaning empty elements like ['']
-    print(unstamp_cmd)
     exiftool = None
 
     if not ARGS.dry_mode:
