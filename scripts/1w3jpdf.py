@@ -57,7 +57,7 @@ PARSER.add_argument('-o', '--output',
 
 def remove_previous_line():
     """Try to wipe the first 150 characters above from the current cursor's position"""
-    print("\033[A" + " " * 150 + "\033[A")
+    print("\033[A" + " " * 120 + "\033[A")
 
 
 def add_keyword(url):
@@ -71,6 +71,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('www.allitebooks.org') + \
                   add_keyword('www.it-ebooks.info/') + \
                   add_keyword('www.it-ebooks.info') + \
+                  add_keyword('www.ebook3000.com') + \
                   add_keyword('it-ebooks.info') + \
                   add_keyword('free ebooks ==>   www.ebook777.com') + \
                   add_keyword("free ebooks ==>") + \
@@ -79,6 +80,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('www.freepdf-books.com') + \
                   add_keyword('www.ebook777.com') + \
                   add_keyword('WWW.EBOOK777.COM') + \
+                  add_keyword('www.Ebook777.com') + \
                   add_keyword('http://www.itbookshub.com') + \
                   add_keyword('http://itbookshub.com') + \
                   add_keyword('www.itbookshub.com') + \
@@ -95,6 +97,9 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('Wow! eBook') + \
                   add_keyword('Wow eBook') + \
                   add_keyword('https://sci101web.wordpress.com') + \
+                  add_keyword('Download from Join eBook (www.joinebook.com)') + \
+                  add_keyword(':: Collected by PhaKaKrong ::') + \
+                  add_keyword(':: Cllected by PhaKaKrong ::') + \
                   add_keyword('v@v')
 # _e('s/\/URI//')
 
@@ -169,6 +174,7 @@ for file in ACTUAL_FILES:
         exiftool = subprocess.Popen(exiftcmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)  # shell=True
         exiftout, exifterr = exiftool.communicate()
         had_warnings = bytes.decode(exifterr).startswith("Warning:")
+        remove_previous_line()
 
         if not ARGS.do_not_remove_annotations and exiftool.wait() == 0:
             print(colored(str(COUNT) + ") Removing annotations on '" + filename[0:80] + "'...", "yellow"))
