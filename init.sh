@@ -18,6 +18,7 @@ source "$(dirname "$0")/functions.sh"
 SCRIPTS_PATH=~/bin
 CONFIG_PATH=~/1w3j/config
 BIN_PATH=~/bin
+PROJECTS_PATH=~/Projects
 
 check_if_important_folders_exists() {
 	msg "Checking if ${BIN_PATH} exists..."
@@ -25,17 +26,27 @@ check_if_important_folders_exists() {
 		warn "Creating ${BIN_PATH} for you..."
 		mkdir ${BIN_PATH}
 	fi
+	msg "Checking if ${PROJECTS_PATH} exists..."
+	if [[ ! -d ${PROJECTS_PATH} ]]; then
+		warn "Creating ${PROJECTS_PATH} for you..."
+		mkdir ${PROJECTS_PATH}
+	fi
 }
 check_if_important_folders_exists
 
 # Don't change these values, just comment/uncomment according to your setup
 MY_INTELLIJ_IDES=(
-	    idea
-	    webstorm
-	    pycharm
-	    datagrip
-		phpstorm
-	#    clion
+	idea
+	webstorm
+	pycharm
+	datagrip
+	phpstorm
+#    clion
+)
+
+MY_PROJECTS=(
+	sh/chjdk
+
 )
 
 link_ides_scripts() {

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Open Kindle for PC app and links the book in 'My Kindle Content' to the original path, in order to save space
+# Open the Kindle for PC app and links the book in 'My Kindle Content' to the original absolute path in order to save space
 # usage: $ kindle "/path/to/book.pdf"
 
 KINDLE_APP_PATH=~/.wine/drive_c/Program\ Files\ \(x86\)/Amazon/Kindle/Kindle.exe
