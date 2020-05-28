@@ -351,4 +351,4 @@ init_sh() {
 }
 
 # After a reboot all customizations should be displayed
-init_sh "$@"
+init_sh "${@}"
