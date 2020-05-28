@@ -68,16 +68,45 @@ MY_PROJECTS=(
 )
 
 MY_GTK_THEMES=(
-	oomox-1w3j-dark # ${CONFIG_PATH}/oomox-1w3j-dark/
+	oomox-1w3j-dark # ${CONFIG_PATH}/.themes/oomox-1w3j-dark/
 )
 
 MY_GTK_ICONS=(
-	oomox-1w3j-dark
+	oomox-1w3j-dark # ${CONFIG_PATH}/.icons/oomox-1w3j-dark/
 )
+
+# After generating a new theme we need to upload the theme folder (usually on ~/.theme -> GTK_THEMES_PATH) and compress
+# it to GTK_ICONS_PATH to a tarball
+upload_themes_and_icons() {
+	for theme in ${MY_GTK_THEMES[@]}; do
+    	rm -i ${CONFIG_PATH}/themes/${theme}.tar.gz
+		msg "Compressing ${GTK_THEMES_PATH}/${theme} to ${CONFIG_PATH}/themes/${theme}.tar.gz"
+		cd ${GTK_THEMES_PATH} && tar czf ${CONFIG_PATH}/themes/${theme}.tar.gz ${theme} && cd -
+	done
+	for icon_theme in ${MY_GTK_ICONS[@]}; do
+		rm -i ${CONFIG_PATH}/icons/${icon_theme}.tar.gz
+		msg "Compressing ${GTK_ICONS_PATH}/${icon_theme} to ${CONFIG_PATH}/icons/${icon_theme}.tar.gz"
+		cd ${GTK_ICONS_PATH} && tar czf ${CONFIG_PATH}/icons/${icon_theme}.tar.gz ${icon_theme} && cd -
+	done
+}
+
+unload_themes() {
+	for theme in ${MY_GTK_THEMES[@]}; do
+		msg "Extracting ${CONFIG_PATH}/themes/${theme}.tar.gz to ${GTK_THEMES_PATH}"
+		tar xzf ${CONFIG_PATH}/themes/${theme}.tar.gz -C ${GTK_THEMES_PATH}
+	done
+}
+
+unload_icons() {
+	for icon_theme in ${MY_GTK_ICONS[@]}; do
+		msg "Extracting ${CONFIG_PATH}/icons/${icon_theme}.tar.gz to ${GTK_ICONS_PATH}"
+		tar xzf ${CONFIG_PATH}/icons/${icon_theme}.tar.gz -C ${GTK_ICONS_PATH}
+	done
+}
 
 link_ides_scripts() {
 	warn "If some IDE script is missing, first check jetbrains-toolbox configuration and set 'shell scripts location' to ${SCRIPTS_PATH}"
-	for ide in ${MY_INTELLIJ_IDES[*]}; do
+	for ide in ${MY_INTELLIJ_IDES[@]}; do
 		ide_script=${SCRIPTS_PATH}/${ide}
 		if [[ -f ${ide_script} ]]; then
 			from=${ide_script}
@@ -188,11 +217,13 @@ link_config_files() {
                 consider running init.sh again before 'restarting your IDE'. This 'may' be due to the plugin version \
                 displayed in material_theme.xml. Always update the Material Theme UI Plugin on your IDEs"
 			;;
+		themes)
+			msg "GTK themes folder detected \"${c}\""
+			unload_themes
+		;;
 		icons)
-			msg "GTK icons folder detected \"${GTK_ICONS_PATH}\""
-			if [[ -f ${c}/ ]]; then
-
-			fi
+			msg "GTK icons folder detected \"${c}\""
+			unload_icons
 			;;
 		*)
 			from="${c}"
@@ -223,10 +254,12 @@ print_usage() {
 
 Usage: ${0##*/} [--do-not-install-anything | -dnia ]
 Options:
-        --do-not-install-anything, -dnia            Just link your config files without installing packages
-                                                    listed in ~/1w3j/pkgnames
+        --do-not-install-anything, -dnia            Just link your config files without installing packages listed in \
+~/1w3j/pkgnames
         -rc,--rc,--reload-config-files              Link dotfiles, themes, color schemes, etc
         -rs,--rs,--reload-scripts                   Link scripts/* files to ~/bin
+        -uti,--uti,--upload-themes-icons            Compress all theme and icon folders located at GTK_THEMES_PATH and \
+GTK_ICONS_PATH respectively preparing it for repo updates
 EOF
         ;;
     esac
@@ -259,9 +292,16 @@ reload_themes() {
     xrdb ~/.Xresources
     msg "i3-msg reload"
     i3-msg reload
-    warn "Linking gtk themes and icons requires root privileges, Continue?" && read
-    sudo ln -sf ~/1w3j/config/themes/* /usr/share/themes
-    sudo ln -sf ~/1w3j/config/icons/* /usr/share/icons
+    warn "Linking gtk themes and icons to /usr/share requires root privileges, Continue?" && read
+	for theme in ${MY_GTK_THEMES[@]}; do
+		msg "Linking ${GTK_THEMES_PATH}/${theme} to /usr/share/themes"
+		sudo ln -sf ${GTK_THEMES_PATH}/${theme} /usr/share/themes
+
+	done
+	for icon_theme in ${MY_GTK_ICONS[@]}; do
+		msg "Linking ${GTK_ICONS_PATH}/${icon_theme} to /usr/share/icons"
+		sudo ln -sf ${GTK_ICONS_PATH}/${icon_theme} /usr/share/icons
+	done
 }
 
 init_sh() {
@@ -270,7 +310,7 @@ init_sh() {
             print_usage
             exit 0
             ;;
-        --dnia|--do-not-install-anything)
+        -dnia|--dnia|--do-not-install-anything)
             check_zsh
 			clean_binpath
 			link_projects
@@ -280,6 +320,9 @@ init_sh() {
             link_config_files
             reload_themes
             ;;
+		-uti|--uti|--upload-themes-icons)
+			upload_themes_and_icons
+			;;
         -rs|--rs|--reload-scripts)
             check_zsh
         	clean_binpath
