@@ -25,7 +25,7 @@ check_root() {
     fi
 }
 
-append() {
+append_if_not_exists() {
     # ${1} -> string to be appended
     # ${2} -> file path to append to
     if [[ -z $(grep "\<${1}\>" ${2}) ]]; then echo "${1}" >> ${2}; fi

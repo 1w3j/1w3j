@@ -153,7 +153,7 @@ link_projects() {
 			echo -e "\t\033[31m↳\033[m${PROJECTS_PATH}/${project}/${project##*/}.sh\033[31m ==>> \033[m${SCRIPTS_PATH}/${project##*/}.sh"
 			cp -sf ${PROJECTS_PATH}/${project}/${project##*/}.sh ${SCRIPTS_PATH}
 			echo -e "\t\t\033[31m↳\033[m Appending to .gitignore"
-			append $(basename ${SCRIPTS_PATH})/${project##*/}.sh ~/1w3j/.gitignore
+			append_if_not_exists $(basename ${SCRIPTS_PATH})/${project##*/}.sh ~/1w3j/.gitignore
 			;;
 		vb)
 			;;
