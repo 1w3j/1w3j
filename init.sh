@@ -51,6 +51,7 @@ MY_INTELLIJ_IDES=(
 # bat, c, c++, dotnet, electron, gradle, java, js, matlab, php, py, rb, sh, vb
 MY_PROJECTS=(
 	sh/chjdk # ~/Projects/sh/chjdk/
+	py/1w3jpdf
 #	bat/...
 #	c/...
 #	c++/...
@@ -145,6 +146,11 @@ link_projects() {
 		php)
 			;;
 		py)
+			echo -e "\tMain python script on ${PROJECTS_PATH}/${project}/${project##*/}.py"
+			echo -e "\t\033[31m↳\033[m${PROJECTS_PATH}/${project}/${project##*/}.py\033[31m ==>> \033[m${SCRIPTS_PATH}/${project##*/}.py"
+			cp -sf ${PROJECTS_PATH}/${project}/${project##*/}.py ${SCRIPTS_PATH}
+			echo -e "\t\t\033[31m↳\033[m Appending to .gitignore"
+			append_if_not_exists $(basename ${SCRIPTS_PATH})/${project##*/}.py ~/1w3j/.gitignore
 			;;
 		rb)
 			;;

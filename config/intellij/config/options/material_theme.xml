@@ -23,10 +23,10 @@
     <option name="treeFontSize" value="11" />
     <option name="indicatorThickness" value="1" />
     <option name="tabsHeight" value="21" />
-    <option name="accentColor" value="5a1512" />
+    <option name="accentColor" value="dc282e" />
     <option name="secondAccentColor" value="f44336" />
     <option name="highlightColor" value="d1292d" />
-    <option name="selectedTheme" value="NATIVE" />
+    <option name="selectedTheme" value="CUSTOM" />
     <option name="userId" value="34a26c0b:17226fb8ad5:-8000" />
     <option name="version" value="5.2.0" />
   </component>
