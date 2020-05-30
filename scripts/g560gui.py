@@ -148,7 +148,7 @@ class WidgetHelpers:
 
     def put_led_profile(profile, data):
         try:
-            with open(os.environ['HOME']+'/.config/g560/profilesettings.json', 'r+') as profiles:
+            with open(os.environ['HOME']+'/.config/g560/profilesettings.json', 'r+') as profiles:  # Check if r+ generates bugs
                 loaded_profile = json.load(profiles)
                 loaded_profile['profiles'][profile] = data
 

@@ -122,6 +122,7 @@ link_ides_scripts() {
 }
 
 link_projects() {
+	# in order to avoid .gitignore problems, first move the script to PROJECTS_PATH, then run git add * and commit
 	msg "Found these project files:"
 	for project in "${MY_PROJECTS[@]}"; do
 		case ${project%%/*} in # extracting the leading part of the string before the first parentheses
