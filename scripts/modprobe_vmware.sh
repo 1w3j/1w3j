@@ -19,7 +19,7 @@
 # - Run sudo vmware-patch -fvk
 # - Run sudo vmware-modconfig --console --install-all
 # - Run this script
-# - sudo /etc/init.d/vmware start
+# - sudo /etc/init.d/vmware start OR restart
 
 modprobe vmw_vmci
 modprobe vmmon

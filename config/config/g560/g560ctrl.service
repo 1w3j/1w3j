@@ -1,13 +1,14 @@
 [Unit]
-Description=Logitech G560 LED Controller, RPC Service.
+Description=Logitech G560 speaker led controller daemon
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/g560d
+ExecStart=/home/iqbal/bin/g560d
+Type=simple
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=G560_LED
+
 [Install]
 WantedBy=multi-user.target
-
