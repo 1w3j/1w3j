@@ -67,8 +67,8 @@ exec --no-startup-id pa-applet
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 #
 #Volume controls
-bindsym XF86AudioRaiseVolume exec amixer sset PCM 1%+;exec notify-send -t 300 "Volume $(~/1w3j/scripts/currentvolume.sh)"
-bindsym XF86AudioLowerVolume exec amixer sset PCM 1%-;exec notify-send -t 300 "Volume $(~/1w3j/scripts/currentvolume.sh)"
+bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+;exec notify-send -t 300 "Volume $(~/1w3j/scripts/currentvolume.sh)"
+bindsym XF86AudioLowerVolume exec amixer sset Master 1%-;exec notify-send -t 300 "Volume $(~/1w3j/scripts/currentvolume.sh)"
 bindsym XF86AudioMute exec amixer sset PCM toggle
 
 # Start Applications

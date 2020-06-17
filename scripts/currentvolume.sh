@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-awk -F "[][]" '/dB/ { print $2 }' <( amixer sget PCM ) | tail -n-1
+awk -F "[][]" '/dB/ { print $2 }' <( amixer sget Master ) | tail -n-1
