@@ -12,7 +12,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export GRADLE_HOME=/opt/gradle/gradle-5.4.1
 export CATALINA_HOME=/usr/share/tomcat8
 export CATALINA_BASE=/var/lib/tomcat8
-export NODE_MODULES=$HOME/.npm-global
+export NODE_MODULES=$HOME/.node_modules
+export NODE_PATH=$NODE_MODULES/lib/node_modules
 export COMPOSER_HOME=$HOME/.config/composer/vendor
 export PATH=$PATH:~/bin:${GRADLE_HOME}/bin:${JAVA_HOME}/bin:${NODE_MODULES}/bin:$HOME/.cargo/bin:${COMPOSER_HOME}/bin:${HUB_HOME}/bin:${UPSOURCE_HOME}/bin:${TEAMCITY_HOME}/bin
 #https://github.com/dotnet/core/issues/973 - segfault caused by dotnet

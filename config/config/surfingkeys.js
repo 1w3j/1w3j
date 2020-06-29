@@ -3,6 +3,9 @@ mapkey('<Ctrl-y>', 'Show me the money', function() {
     Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
 });
 
+addSearchAlias("git", "github", "https://github.com/search?q=");
+addSearchAlias("mam", "myanonamouse", "https://www.myanonamouse.net/tor/browse.php?action=search&tor%5BsrchIn%5D=1&tor%5Btext%5D=");
+
 // an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
 map('gt', 'T');
 
