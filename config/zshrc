@@ -92,7 +92,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-completions)
+plugins=(git zsh-completions fzf)
 
 autoload -U compinit && compinit
 
@@ -140,3 +140,10 @@ alias journal="journalctl -fu"
 vw(){
     /usr/bin/which --skip-alias --skip-functions "${1}" && vim `which "${1}"`
 }
+# fzf plugin
+# Set fzf installation directory path
+export FZF_BASE=/usr/share/fzf
+# Uncomment the following line to disable fuzzy completion
+# export DISABLE_FZF_AUTO_COMPLETION="true"
+# Uncomment the following line to disable key bindings (CTRL-T, CTRL-R, ALT-C)
+# export DISABLE_FZF_KEY_BINDINGS="true"

@@ -102,3 +102,10 @@ similarly Ctrl+v ENTER will display the escape sequence for the Enter key: ^M
  Ctrl + Z   Send the signal SIGTSTP to the current task, which suspends it.
             To return to it later enter fg 'process name' (foreground).
 ```
+
+## New commands:
+
+```
+ Ctrl + T	Open fuzzy file search
+ '**' > Ctrl + T	Call fzf command completion, example: > cd ** , then type Ctrl + T
+```

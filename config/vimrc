@@ -21,6 +21,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'ajh17/vimcompletesme'
 Plugin 'lilydjwg/colorizer'
 Plugin 'dylanaraps/wal.vim'
+Plugin 'junegunn/fzf.vim'
 " PLUGINS GO BEFORE HERE
 
 call vundle#end()            " required
