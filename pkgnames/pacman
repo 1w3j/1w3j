@@ -112,3 +112,5 @@ libusb
 vbindiff
 kronometer
 yapf
+python-pygments
+httpie

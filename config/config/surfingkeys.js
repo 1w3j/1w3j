@@ -3,9 +3,16 @@ mapkey('<Ctrl-y>', 'Show me the money', function() {
     Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
 });
 
-addSearchAlias("git", "github", "https://github.com/search?q=");
+addSearchAlias("git", "github", "https://github.com/search?q=", "https://api.github.com/search/repositories?sort=stars&order=desc&q=", (response) => JSON.parse(response.text).items.map((s) => {
+    let prefix = ""
+    if (s.stargazers_count) {
+        prefix += `[★${s.stargazers_count}] `
+    }
+    return createURLItem(prefix + s.full_name, s.html_url)
+}));
 addSearchAlias("mam", "myanonamouse", "https://www.myanonamouse.net/tor/browse.php?action=search&tor%5BsrchIn%5D=1&tor%5Btext%5D=");
 addSearchAlias("lib", "libgen", "https://libgen.is/search.php?req=");
+addSearchAlias("a", "amazon", "https://www.amazon.com/s?k=", "https://completion.amazon.com/search/complete?method=completion&mkt=1&search-alias=aps&q=", (response) => JSON.parse(response.text)[1]);
 
 // an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
 map('gt', 'T');
