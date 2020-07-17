@@ -70,7 +70,7 @@ exec --no-startup-id pa-applet
 #Volume controls
 bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+;exec notify-send -t 300 "Volume $(~/1w3j/scripts/currentvolume.sh)"
 bindsym XF86AudioLowerVolume exec amixer sset Master 1%-;exec notify-send -t 300 "Volume $(~/1w3j/scripts/currentvolume.sh)"
-bindsym XF86AudioMute exec amixer sset PCM toggle
+bindsym XF86AudioMute exec amixer sset Master toggle
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu';exec notify-send 'Start bmenu'
@@ -280,7 +280,6 @@ for_window [class="calibre"] floating enable
 for_window [class="wechat.exe"] floating enable
 for_window [class="krename"] floating enable
 for_window [class="G560gui"] floating enable
-for_window [title="^DevTools*"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

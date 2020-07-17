@@ -10,7 +10,7 @@ EXCLUDED_WORDS="pdf\|zip\|epub\|azw3\|azw4\|chm\|video\|1st\|3rd\|2nd\|s\|First\
 \|making\|create\|using\|driven\|drive\|straight\|fascinating\|fantastic\|awesome\|bundle\|books\|book\|pc\|1\|2\|3\|4\|5\|6\|7\|8\|9\|10\|11\|12\|13\|14\|15\|16\|17\|18\|19\|20\|handbook\|practices\|practice\
 \|volume\|best\|engineers\|engineer\|top\|set\|power\|server\|press\|recipes\|reference\|learn\|technology\|tech\|development\|programming\|solutions\|information\|course\|integrated\|intermediate\|basic\|website\
 \|advanced\|basic\|visual\|version\|power\|stack\|startup\|side\|secure\|training\|monitoring\|scope\|scalable\|sectors\|sector\|scratch\|X\|world\|algorithmic\|mastering\|admin\|ultimate\|understanding\|understand\
-\|2018\|2017\|couple\|tricks\|tips\|last\|primary\|primer\|novice\|evil\|genius\|projects"
+\|2018\|2017\|couple\|tricks\|tips\|last\|primary\|primer\|novice\|evil\|genius\|projects\|powerful\|Essentials\|real\|help\|0\|Develop\|building\|Master\|platform\|machine\|features\|games"
 
 topwords() {
     if [[ -n "${FOLDER}" ]]; then

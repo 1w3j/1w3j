@@ -1,5 +1,5 @@
 ```
-Usage: init.sh [--do-not-install-anything | -dnia ]
+Usage: init.sh [ -dnia | -rc | -rs | -uti ]
 Options:
         --do-not-install-anything, -dnia            Just link your config files without installing packages listed in ~/1w3j/pkgnames
         -rc,--rc,--reload-config-files              Link dotfiles, themes, color schemes, etc
