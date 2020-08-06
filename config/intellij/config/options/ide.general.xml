@@ -7,5 +7,7 @@
   <component name="Registry">
     <entry key="async.project.view.collapse.tree.path.recursively" value="false" />
     <entry key="ide.tree.collapse.recursively" value="false" />
+    <entry key="ide.settings.move.mouse.on.default.button" value="true" />
+    <entry key="ide.balloon.shadow.size" value="0" />
   </component>
 </application>

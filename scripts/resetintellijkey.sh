@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Usage: resetintellijkey 'idea' && resetintellijkey 'clion' && resetintellijkey 'goland'
+# NOTE:
+# To reset plugin expiration, remove the respective '${IDE_CONFIG}/config/eval/*.evaluation.key' file
 
 source ~/1w3j/functions.sh;
 
@@ -89,9 +91,11 @@ print_usage() {
 Usage: ${0##*/} {IDE} [--just-get-configpath {IDE}]
 Options:
         {IDE}                                     The IDE name as in the scripts created by the
-                                                Jetbrains Toolbox app, must be lowercase, and only
-                                                one name per runtime
+                                                  Jetbrains Toolbox app, must be lowercase, and only
+                                                  one name per runtime
         --just-get-configpath                     Just output the config folder of IDE
+Note:
+ To reset plugin expiration, remove the respective 'IDE_CONFIG/config/eval/*.evaluation.key file
 EOF
         ;;
     esac
