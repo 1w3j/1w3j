@@ -15,4 +15,7 @@
     <option name="IS_BLOCK_CURSOR" value="true" />
   </component>
   <component name="LiveEditOptions" chromeUpdateJSOnChanges="true" restartIfHotSwapFailed="true" updateFilesToCompile="true" useJBChromeExtension="true" />
+  <component name="XmlEditorOptions">
+    <option name="tagTreeHighlightingOpacity" value="0" />
+  </component>
 </application>

@@ -54,6 +54,9 @@ reset_keys(){
     msg "Touching files";
     find "${IDE_CONFIG}" -type d -exec touch -t "$(date +"%Y%m%d%H%M")" {} +;
     find "${IDE_CONFIG}" -type f -exec touch -t "$(date +"%Y%m%d%H%M")" {} +;
+
+    msg "Resetting plugins";
+    rm -f ${IDE_CONFIG}/config/eval/plg_*.evaluation.key
 }
 
 handle_config_path_params(){
