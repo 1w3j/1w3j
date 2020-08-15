@@ -178,7 +178,7 @@ set $mon1 "HDMI-0"
 set $mon2 "eDP-1-1"
 
 workspace $ws1 output $mon1
-workspace $ws2 output $mon2
+workspace $ws2 output $mon1
 workspace $ws3 output $mon1
 workspace $ws4 output $mon1
 workspace $ws5 output $mon2
@@ -231,6 +231,7 @@ assign [class="jetbrains-pycharm"] $ws3
 assign [class="jetbrains-datagrip"] $ws3
 assign [class="jetbrains-phpstorm"] $ws3
 assign [class="jetbrains-webstorm"] $ws3
+assign [class="okular"] $ws5
 assign [class="Hexchat"] $ws8
 assign [class="Thunderbird"] $ws8
 assign [class="URxvt" instance="cmus"] $ws9
@@ -285,7 +286,7 @@ for_window [class="guiscrscpy"] floating enable
 for_window [class="Mousepad"] floating enable
 for_window [class="Gthumb"] floating enable
 for_window [class="Xarchiver"] floating enable
-for_window [class="okular"] floating enable
+#for_window [class="okular"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Typora"] floating enable
 for_window [class="calibre"] floating enable
