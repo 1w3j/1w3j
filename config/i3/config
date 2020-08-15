@@ -39,8 +39,8 @@ font xft:Source Code Pro for Powerline 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
-bindsym $mod+Shift+Return exec terminal -name floating
+bindsym $mod+Return exec prime-run terminal
+bindsym $mod+Shift+Return exec prime-run terminal -name floating
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -174,6 +174,19 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 
+set $mon1 "HDMI-0"
+set $mon2 "eDP-1-1"
+
+workspace $ws1 output $mon1
+workspace $ws2 output $mon2
+workspace $ws3 output $mon1
+workspace $ws4 output $mon1
+workspace $ws5 output $mon2
+workspace $ws6 output $mon1
+workspace $ws7 output $mon1
+workspace $ws8 output $mon1
+workspace $ws9 output $mon1
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -240,7 +253,6 @@ for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
@@ -340,7 +352,7 @@ bindsym $mod+Ctrl+l exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --set-zoom-fill ~/1w3j/wallpapers/nitrogen/OMEN_by_HP.jpg; sleep 1; compton -b
+exec --no-startup-id nitrogen --set-zoom-fill ~/1w3j/wallpapers/nitrogen/*; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager

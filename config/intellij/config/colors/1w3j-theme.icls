@@ -4,7 +4,7 @@
     <property name="created">2020-03-08T01:55:55</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2019.3.3.0.0</property>
-    <property name="modified">2020-05-21T00:53:41</property>
+    <property name="modified">2020-08-08T00:54:00</property>
     <property name="originalScheme">_@user_Material Darker</property>
   </metaInfo>
   <option name="LINE_SPACING" value="1.2" />
@@ -2783,7 +2783,7 @@
     <option name="SEARCH_RESULT_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="a0807" />
-        <option name="BACKGROUND" value="e0a4a4" />
+        <option name="BACKGROUND" value="e77070" />
       </value>
     </option>
     <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
@@ -3121,7 +3121,7 @@
     <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="150202" />
-        <option name="BACKGROUND" value="d19899" />
+        <option name="BACKGROUND" value="e77070" />
         <option name="EFFECT_COLOR" value="dc0202" />
         <option name="ERROR_STRIPE_COLOR" value="ae1914" />
       </value>
@@ -3202,7 +3202,7 @@
     <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="1e0202" />
-        <option name="BACKGROUND" value="f6b3b4" />
+        <option name="BACKGROUND" value="e77070" />
         <option name="ERROR_STRIPE_COLOR" value="c55450" />
       </value>
     </option>
