@@ -4,7 +4,8 @@
 source ~/1w3j/functions.sh
 
 MUSIC_FOLDER=/storage/5D42-7A0D/Music
-SONGS_LIST_FOLDER=~/.config/cmus/playlists
+#SONGS_LIST_FOLDER=~/.config/cmus/playlists
+SONGS_LIST_FOLDER=~/liststest
 M3U_OUTPUT_FILE_PATH="$(pwd)"
 
 list_song_lists() {
@@ -105,11 +106,11 @@ print_not_available_songs_from_file() {
         selected_song_list="$(get_song_list "${1}")"
         while IFS=$'\n' read -r song; do
             if [[ "${4}" != "-v" ]]; then # -v for inVert
-                if ! grep -Fx "${song}" "${SONGS_LIST_FOLDER}/${selected_song_list}"; then
+                if ! grep -qFx "${song}" "${SONGS_LIST_FOLDER}/${selected_song_list}"; then
                     echo -e "${song}"
                 fi
             else
-                if grep -Fx "${song}" "${SONGS_LIST_FOLDER}/${selected_song_list}"; then
+                if grep -qFx "${song}" "${SONGS_LIST_FOLDER}/${selected_song_list}"; then
                     echo -e "${song}"
                 fi
             fi
@@ -141,17 +142,23 @@ generate_m3u() {
     while IFS=$'\n' read -r song; do
         counter=$((counter+1))
         song_metadata="$(mutagen-inspect "${song}")"
-        song_seconds="$(echo "${song_metadata}" | grep -e '^-\s'| perl -pe 's/.*\s(?=[0-9]+\.[0-9]*\sseconds)//' | perl -pe 's/(?=seconds).*//' | sed -e 's/\..*$//' | tr -d ' ')"
+        if ! grep -qe '^- Unknown file type' <<< "${song_metadata}"; then
+            song_seconds="$(echo "${song_metadata}" | grep -e '^-\s'| perl -pe 's/.*\s(?=[0-9]+\.[0-9]*\sseconds)//' | perl -pe 's/(?=seconds).*//' | sed -e 's/\..*$//' | tr -d ' ')"
+        else
+            msg "[${counter}] ${song} -- skipping unknown file type"
+            continue
+        fi
         if [[ ! "${song_seconds}" =~ ^[0-9]+$ ]]; then
             err "Bad parsing of music file metadata -> 'seconds'. Needs debugging.\n\nFile: ${song}\n\nmutagen output:\n${song_metadata}\n\n'seconds' variable result: ${song_seconds}\n\nCounter: ${counter}"
         fi
         if [[ ${selected_song_list_line_count} -eq ${counter} ]]; then
-            m3u_content="${m3u_content}#EXTINF:${song_seconds},$(basename "${song}")\n${song}"
+            m3u_content="${m3u_content}#EXTINF:${song_seconds},$(basename "${song}" | sed -e 's/\..*$//')\n${song}"
         else
-            m3u_content="${m3u_content}#EXTINF:${song_seconds},$(basename "${song}")\n${song}\n"
+            m3u_content="${m3u_content}#EXTINF:${song_seconds},$(basename "${song}" | sed -e 's/\..*$//')\n${song}\n"
         fi
     done < "${SONGS_LIST_FOLDER}/${selected_song_list}"
-    echo -e "${m3u_content}" > "${M3U_OUTPUT_FILE_PATH}/${selected_song_list}.m3u"
+#    echo -e "${m3u_content}" > "${M3U_OUTPUT_FILE_PATH}/${selected_song_list}.m3u"
+    echo -e "${m3u_content}"
 }
 
 print_usage() {
