@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # How to install VMware Workstation 15.5.1 on Arch Linux
-# - Install linux-headers with the same version as system kernel
+# - Install linux-headers with the same version as the current system kernel
 #  version (uname -r)
 # - Read and follow the Arch Linux Guide for VMware
 # - Edit /etc/init.d/vmware, each mod='something' must assign mod=vmw_vmci,

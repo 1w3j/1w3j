@@ -182,10 +182,10 @@ workspace $ws2 output $mon1
 workspace $ws3 output $mon1
 workspace $ws4 output $mon1
 workspace $ws5 output $mon2
-workspace $ws6 output $mon1
+workspace $ws6 output $mon2
 workspace $ws7 output $mon1
 workspace $ws8 output $mon1
-workspace $ws9 output $mon1
+workspace $ws9 output $mon2
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -514,4 +514,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-

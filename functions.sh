@@ -28,7 +28,7 @@ check_root() {
 append_if_not_exists() {
     # ${1} -> string to be appended
     # ${2} -> file path to append to
-    if [[ -z $(grep "\<${1}\>" ${2}) ]]; then echo "${1}" >> ${2}; fi
+    if [[ -z $(grep "\<${1}\>" "${2}") ]]; then echo "${1}" >> "${2}"; fi
 }
 
 replace_us3r_in_file(){
@@ -70,7 +70,7 @@ create_us3r() {
 detect_us3r() {
     if us3r_exists; then
         if [[ ! "${1}" = "--quiet" ]]; then
-            msg "UNIX user ${US3R} detected!!"
+            msg "UNIX user ► ${US3R}"
         fi
     else
         create_us3r
