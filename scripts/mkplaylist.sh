@@ -67,32 +67,32 @@ print_dupes() {
 }
 
 remove_songs_from_another_list() {
-    if [[ -n "${1}" ]] && [[ -e "${2}" ]]; then
+    if [[ -n ${1} ]] && [[ -e ${2} ]]; then
         check_song_list_number "${1}"
         local line_numbers selected_song_list
         selected_song_list="$(get_song_list "${1}")"
         while IFS=$'\n' read -r song; do
             line_numbers="${line_numbers}$(echo "${song}" | cut -d: -f 1)d;"
-            if [[ "${3}" = "-print" ]]; then
+            if [[ ${3} == "-print" ]]; then
                 echo -e "${song}"
             fi
         done <<< "$(while IFS=$'\n' read -r song; do
-                        grep -Fxn "${song}" "${SONGS_LIST_FOLDER}/${selected_song_list}" | head -n+1
-                    done < "${2}")" # head -n+1 because we just need to grep the first entry in case a duped entry exists
-        if [[ ! "${3}" = "-print" ]] && [[ "${line_numbers}" != "d;" ]]; then
+            grep -Fxn "${song}" "${SONGS_LIST_FOLDER}/${selected_song_list}" | head -n+1
+        done < "${2}")" # head -n+1 because we just need to grep the first entry in case a duped entry exists
+        if [[ ${3} != "-print" ]] && [[ ${line_numbers} != "d;" ]]; then
             echo "sed -i -e ${line_numbers} ${SONGS_LIST_FOLDER}/${selected_song_list}"
             read -r -p "$(msg "Proceed to clean the playlist from these duplicates? (Press ENTER)")"
             sed -i -e "${line_numbers}" "${SONGS_LIST_FOLDER}/${selected_song_list}"
         else
-            if [[ "${line_numbers}" == "d;" ]]; then
+            if [[ ${line_numbers} == "d;" ]]; then
                 msg "Couldn't match any song. Nothing to do here."
             fi
         fi
     else
-        if [[ -z "${1}" ]]; then
+        if [[ -z ${1} ]]; then
             err "Please enter a song list number"
         else
-            if [[ ! -e "${2}" ]]; then
+            if [[ ! -e ${2} ]]; then
                 err "'${2}': File does not exist"
             fi
         fi
@@ -100,12 +100,12 @@ remove_songs_from_another_list() {
 }
 
 print_not_available_songs_from_file() {
-    if [[ -n "${1}" ]] && [[ -e "${2}" ]]; then
+    if [[ -n ${1} ]] && [[ -e ${2} ]]; then
         check_song_list_number "${1}"
         local line_numbers selected_song_list
         selected_song_list="$(get_song_list "${1}")"
         while IFS=$'\n' read -r song; do
-            if [[ "${4}" != "-v" ]]; then # -v for inVert
+            if [[ ${4} != "-v" ]]; then # -v for inVert
                 if ! grep -qFx "${song}" "${SONGS_LIST_FOLDER}/${selected_song_list}"; then
                     echo -e "${song}"
                 fi
@@ -116,10 +116,10 @@ print_not_available_songs_from_file() {
             fi
         done < "${2}"
     else
-        if [[ -z "${1}" ]]; then
+        if [[ -z ${1} ]]; then
             err "Please enter a song list number"
         else
-            if [[ ! -e "${2}" ]]; then
+            if [[ ! -e ${2} ]]; then
                 err "'${2}': File does not exist"
             fi
         fi
@@ -140,15 +140,15 @@ generate_m3u() {
     selected_song_list_line_count=$(wc -l < "${SONGS_LIST_FOLDER}/${selected_song_list}")
     m3u_content="#EXTM3U\n"
     while IFS=$'\n' read -r song; do
-        counter=$((counter+1))
+        counter=$((counter + 1))
         song_metadata="$(mutagen-inspect "${song}")"
         if ! grep -qe '^- Unknown file type' <<< "${song_metadata}"; then
-            song_seconds="$(echo "${song_metadata}" | grep -e '^-\s'| perl -pe 's/.*\s(?=[0-9]+\.[0-9]*\sseconds)//' | perl -pe 's/(?=seconds).*//' | sed -e 's/\..*$//' | tr -d ' ')"
+            song_seconds="$(echo "${song_metadata}" | grep -e '^-\s' | perl -pe 's/.*\s(?=[0-9]+\.[0-9]*\sseconds)//' | perl -pe 's/(?=seconds).*//' | sed -e 's/\..*$//' | tr -d ' ')"
         else
             msg "[${counter}] ${song} -- skipping unknown file type"
             continue
         fi
-        if [[ ! "${song_seconds}" =~ ^[0-9]+$ ]]; then
+        if [[ ! ${song_seconds} =~ ^[0-9]+$ ]]; then
             err "Bad parsing of music file metadata -> 'seconds'. Needs debugging.\n\nFile: ${song}\n\nmutagen output:\n${song_metadata}\n\n'seconds' variable result: ${song_seconds}\n\nCounter: ${counter}"
         fi
         if [[ ${selected_song_list_line_count} -eq ${counter} ]]; then
@@ -157,8 +157,8 @@ generate_m3u() {
             m3u_content="${m3u_content}#EXTINF:${song_seconds},$(basename "${song}" | sed -e 's/\..*$//')\n${song}\n"
         fi
     done < "${SONGS_LIST_FOLDER}/${selected_song_list}"
-#    echo -e "${m3u_content}" > "${M3U_OUTPUT_FILE_PATH}/${selected_song_list}.m3u"
-    echo -e "${m3u_content}"
+    echo -e "${m3u_content}" > "${M3U_OUTPUT_FILE_PATH}/${selected_song_list}.m3u"
+    #    echo -e "${m3u_content}"
 }
 
 print_usage() {
