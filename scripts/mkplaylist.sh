@@ -5,7 +5,7 @@ source ~/1w3j/functions.sh
 
 MUSIC_FOLDER=/storage/5D42-7A0D/Music
 SONGS_LIST_FOLDER=~/.config/cmus/playlists
-OUTPUT_M3U_FILE="$(pwd)"
+M3U_OUTPUT_FILE_PATH="$(pwd)"
 
 list_song_lists() {
     msg "These are the files that can generate m3u playlist files"
@@ -104,18 +104,16 @@ print_not_available_songs_from_file() {
         local line_numbers selected_song_list
         selected_song_list="$(get_song_list "${1}")"
         while IFS=$'\n' read -r song; do
-            line_numbers="${line_numbers}$(echo "${song}" | cut -d: -f 1)d;"
-            if [[ "${3}" = "-print" ]]; then
-                echo -e "${song}"
+            if [[ "${4}" != "-v" ]]; then # -v for inVert
+                if ! grep -Fx "${song}" "${SONGS_LIST_FOLDER}/${selected_song_list}"; then
+                    echo -e "${song}"
+                fi
+            else
+                if grep -Fx "${song}" "${SONGS_LIST_FOLDER}/${selected_song_list}"; then
+                    echo -e "${song}"
+                fi
             fi
-        done <<< "$(while IFS=$'\n' read -r song; do
-                        grep -Fxn "${song}" "${SONGS_LIST_FOLDER}/${selected_song_list}" | head -n+1
-                    done < "${2}")" # head -n+1 because we just need to grep the first entry in case a duped entry exists
-        if [[ ! "${3}" = "-print" ]]; then
-            echo "sed -i -e ${line_numbers} ${SONGS_LIST_FOLDER}/${selected_song_list}"
-            read -r -p "$(msg "Proceed to clean the playlist from these duplicates? (Press ENTER)")"
-            sed -i -e "${line_numbers}" "${SONGS_LIST_FOLDER}/${selected_song_list}"
-        fi
+        done < "${2}"
     else
         if [[ -z "${1}" ]]; then
             err "Please enter a song list number"
@@ -127,19 +125,46 @@ print_not_available_songs_from_file() {
     fi
 }
 
+# m3u files content order is as follows:
+# #EXTM3U
+# #EXTINF:<seconds>,<file_name>
+# #<path_to_song>
+# #EXTINF:<seconds>,<file_name>
+# #<path_to_song>
+# ...
 generate_m3u() {
-    echo generate
+    check_song_list_number "${1}"
+    local song_metadata song_seconds m3u_content counter selected_song_list song selected_song_list_line_count
+    selected_song_list="$(get_song_list "${1}")"
+    selected_song_list_line_count=$(wc -l < "${SONGS_LIST_FOLDER}/${selected_song_list}")
+    m3u_content="#EXTM3U\n"
+    while IFS=$'\n' read -r song; do
+        counter=$((counter+1))
+        song_metadata="$(mutagen-inspect "${song}")"
+        song_seconds="$(echo "${song_metadata}" | grep -e '^-\s'| perl -pe 's/.*\s(?=[0-9]+\.[0-9]*\sseconds)//' | perl -pe 's/(?=seconds).*//' | sed -e 's/\..*$//' | tr -d ' ')"
+        if [[ ! "${song_seconds}" =~ ^[0-9]+$ ]]; then
+            err "Bad parsing of music file metadata -> 'seconds'. Needs debugging.\n\nFile: ${song}\n\nmutagen output:\n${song_metadata}\n\n'seconds' variable result: ${song_seconds}\n\nCounter: ${counter}"
+        fi
+        if [[ ${selected_song_list_line_count} -eq ${counter} ]]; then
+            m3u_content="${m3u_content}#EXTINF:${song_seconds},$(basename "${song}")\n${song}"
+        else
+            m3u_content="${m3u_content}#EXTINF:${song_seconds},$(basename "${song}")\n${song}\n"
+        fi
+    done < "${SONGS_LIST_FOLDER}/${selected_song_list}"
+    echo -e "${m3u_content}" > "${M3U_OUTPUT_FILE_PATH}/${selected_song_list}.m3u"
 }
 
 print_usage() {
     cat << EOF
-Usage: ${0##*/} <song_list_number> [-pd|-rd] | -ls | -rff <song_list_number> SONGS_LIST_FILE [-print]
+Usage: ${0##*/} { <song_list_number> [-pd [-n]|-rd|-ls] } | { [-rff|-pnaff|-paff] <song_list_number> SONGS_LIST_FILE [-print] }
 Options:
-    song_list_number        An integer listed on the list-songlist command or -ls representing the file to be parsed
+    song_list_number        An integer listed on the list-songlist command or -ls representing the file to be parsed, if used without any other flag, then it will generate a m3u playlist file
     --list-songlists,-ls    List a numbered list of the files that can be parsed into m3u's playlists
     --print-dupes,-pd       Prints all duplicated entries inside the song list, use '-n' after this argument to output the respective line number of each entry
-    --remove-dupes,-rd      Cleans the song list from duplicated entries
-    --remove-from-file,-rff Uses SONGS_LIST_FILE entries and greps them in order to remove each one from the actual selected song list, the file must contain only file paths of songs on each line. Use the optional
+    --remove-dupes,-rd      Cleans the selected song list from duplicated entries
+    --remove-from-file,-rff Uses SONGS_LIST_FILE entries and greps them in order to remove each one from the actual selected song list, the file must contain only file paths of songs on each line. Use the optional -print flag to just print all entries that would be deleted and not to perform deletion
+    --non-available,-pnaff  Look for each entry in SONG_LIST_FILE and prints those that didn't match any entry inside the selected song list
+    --print-available,-paff Look for each entry in SONG_LIST_FILE and prints those that DID match the respective entry inside the selected song list
     --help,-h               Show this message
 EOF
 }
@@ -163,6 +188,12 @@ mkplaylist() {
             ;;
         --remove-from-file | -rff)
             remove_songs_from_another_list "${2}" "${3}" "${4}"
+            ;;
+        --non-available | -pnaff)
+            print_not_available_songs_from_file "${2}" "${3}" "${4}"
+            ;;
+        --print-available | -paff)
+            print_not_available_songs_from_file "${2}" "${3}" "${4}" -v
             ;;
         [0-9] | [0-9][0-9])
             case "${2}" in
