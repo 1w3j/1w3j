@@ -92,6 +92,9 @@ bindsym $mod+Ctrl+k exec typora ~/1w3j/wallpapers/bash-shortcuts.md;exec notify-
 #bindsym $mod+Ctrl+x --release exec --no-startup-id xkill;exec notify-send 'xkill'
 
 focus_follows_mouse no
+mouse_warping none
+focus_wrapping no
+focus_on_window_activation urgent
 
 # change focus
 bindsym $mod+j focus left
@@ -232,6 +235,7 @@ assign [class="jetbrains-datagrip"] $ws3
 assign [class="jetbrains-phpstorm"] $ws3
 assign [class="jetbrains-webstorm"] $ws3
 assign [class="okular"] $ws5
+assign [class="calibre"] $ws5
 assign [class="Hexchat"] $ws8
 assign [class="Thunderbird"] $ws8
 assign [class="URxvt" instance="cmus"] $ws9
@@ -378,6 +382,7 @@ exec --no-startup-id megasync
 exec --no-startup-id ~/bin/g560gui
 exec --no-startup-id jetbrains-toolbox
 exec --no-startup-id i3-msg "workspace $ws1; layout stacking"
+exec --no-startup-id ~/.screenlayout/default.sh
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

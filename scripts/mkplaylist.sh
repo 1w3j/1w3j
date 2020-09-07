@@ -3,9 +3,8 @@
 # shellcheck disable=SC1090
 source ~/1w3j/functions.sh
 
-MUSIC_FOLDER=/storage/5D42-7A0D/Music
 #SONGS_LIST_FOLDER=~/.config/cmus/playlists
-SONGS_LIST_FOLDER=~/liststest
+SONGS_LIST_FOLDER=~/.config/cmus/playlists
 M3U_OUTPUT_FILE_PATH="$(pwd)"
 
 list_song_lists() {
@@ -141,6 +140,7 @@ generate_m3u() {
     m3u_content="#EXTM3U\n"
     while IFS=$'\n' read -r song; do
         counter=$((counter + 1))
+#        echo ${counter}
         song_metadata="$(mutagen-inspect "${song}")"
         if ! grep -qe '^- Unknown file type' <<< "${song_metadata}"; then
             song_seconds="$(echo "${song_metadata}" | grep -e '^-\s' | perl -pe 's/.*\s(?=[0-9]+\.[0-9]*\sseconds)//' | perl -pe 's/(?=seconds).*//' | sed -e 's/\..*$//' | tr -d ' ')"

@@ -115,7 +115,7 @@ link_ides_scripts() {
         if [[ -f ${ide_script} ]]; then
             from=${ide_script}
             to=${BIN_PATH}/$(basename "${ide_script}")
-            echo -e "\t\033[31m${from}\033[m ==>> \033[31m${to}\033[m"
+            echo -e "\t\033[31m${from}\033[m → \033[31m${to}\033[m"
             rm -f "${to}"
             ln -s "${from}" "${to}"
         else
@@ -150,8 +150,8 @@ link_projects() {
             php) ;;
 
             py)
-                echo -e "\tMain python script on ${PROJECTS_PATH}/${project}/${project##*/}.py"
-                echo -e "\t\033[31m↳\033[m${PROJECTS_PATH}/${project}/${project##*/}.py\033[31m ==>> \033[m${SCRIPTS_PATH}/${project##*/}.py"
+                echo -e "\t⚫Main python script on ${PROJECTS_PATH}/${project}/${project##*/}.py"
+                echo -e "\t\033[31m↳\033[m${PROJECTS_PATH}/${project}/${project##*/}.py\033[31m → \033[m${SCRIPTS_PATH}/${project##*/}.py"
                 cp -sf "${PROJECTS_PATH}/${project}/${project##*/}.py" ${SCRIPTS_PATH}
                 echo -e "\t\t\033[31m↳\033[m Appending to .gitignore"
                 append_if_not_exists "$(basename ${SCRIPTS_PATH})/${project##*/}.py" ~/1w3j/.gitignore
@@ -159,8 +159,8 @@ link_projects() {
             rb) ;;
 
             sh)
-                echo -e "\tMain bash script on ${PROJECTS_PATH}/${project}/${project##*/}.sh"
-                echo -e "\t\033[31m↳\033[m${PROJECTS_PATH}/${project}/${project##*/}.sh\033[31m ==>> \033[m${SCRIPTS_PATH}/${project##*/}.sh"
+                echo -e "\t⚫Main bash script on ${PROJECTS_PATH}/${project}/${project##*/}.sh"
+                echo -e "\t\033[31m↳\033[m${PROJECTS_PATH}/${project}/${project##*/}.sh\033[31m → \033[m${SCRIPTS_PATH}/${project##*/}.sh"
                 cp -sf "${PROJECTS_PATH}/${project}/${project##*/}.sh" ${SCRIPTS_PATH}
                 echo -e "\t\t\033[31m↳\033[m Appending to .gitignore"
                 append_if_not_exists "$(basename ${SCRIPTS_PATH})/${project##*/}.sh" ~/1w3j/.gitignore
@@ -197,7 +197,7 @@ link_scripts() {
         from=${f}
         to_basename=$(basename "${f}")   # getting the basename of the script file
         to=${BIN_PATH}/${to_basename%.*} # trimming out the extension
-        echo -e "\t\033[31m${from}\033[m ==>> \033[31m${to}\033[m"
+        echo -e "\t\033[31m${from}\033[m → \033[31m${to}\033[m"
         ln -s "${from}" "${to}"
     done
     echo -e "\r"
@@ -240,9 +240,9 @@ link_config_files() {
                 from="${c}"
                 to=~/."$(basename "${c}")"
                 if [[ -d ${c} ]]; then
-                    cp -rsf "${from}"/* "${to}" && echo -e "\t\033[31m${from}/*\033[m ==>> \033[31m${to}/\033[m"
+                    cp -rsf "${from}"/* "${to}" && echo -e "\t\033[31m${from}/*\033[m → \033[31m${to}/\033[m"
                 else
-                    cp -sf "${c}" "${to}" && echo -e "\t\033[31m${from}\033[m ==>> \033[31m${to}\033[m"
+                    cp -sf "${c}" "${to}" && echo -e "\t\033[31m${from}\033[m → \033[31m${to}\033[m"
                 fi
                 ;;
         esac

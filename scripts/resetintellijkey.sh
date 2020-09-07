@@ -9,24 +9,31 @@ source ~/1w3j/functions.sh;
 INTELLIJ_HOME=/opt
 
 PYCHARM=pycharm; #usage => $ resetintellijkey charm
+# shellcheck disable=SC2034
 PYCHARM_CONFIG=${INTELLIJ_HOME}/pycharm;
 
 IDEA=idea; #usage => $ resetintellijkey idea
+# shellcheck disable=SC2034
 IDEA_CONFIG=${INTELLIJ_HOME}/idea;
 
 CLION=clion #usage => $ resetintellijkey clion
+# shellcheck disable=SC2034
 CLION_CONFIG=${INTELLIJ_HOME}/clion;
 
 GOLAND=goland; #usage => $ resetintellijkey goland
+# shellcheck disable=SC2034
 GOLAND_CONFIG=${INTELLIJ_HOME}/goland;
 
 WEBSTORM=webstorm; #usage => $ resetintellijkey webstorm
+# shellcheck disable=SC2034
 WEBSTORM_CONFIG=${INTELLIJ_HOME}/webstorm;
 
 PHPSTORM=phpstorm
+# shellcheck disable=SC2034
 PHPSTORM_CONFIG=${INTELLIJ_HOME}/phpstorm;
 
 DATAGRIP=datagrip
+# shellcheck disable=SC2034
 DATAGRIP_CONFIG=${INTELLIJ_HOME}/datagrip;
 
 reset_keys(){
@@ -56,7 +63,7 @@ reset_keys(){
     find "${IDE_CONFIG}" -type f -exec touch -t "$(date +"%Y%m%d%H%M")" {} +;
 
     msg "Resetting plugins";
-    rm -f ${IDE_CONFIG}/config/eval/plg_*.evaluation.key
+    rm -f "${IDE_CONFIG}"/config/eval/plg_*.evaluation.key
 }
 
 handle_config_path_params(){
@@ -105,30 +112,31 @@ EOF
 }
 
 resetintellijkey(){
+    local UPPERCASE_IDE
     case "${1}" in
         -h)
             ;;
         --help)
             ;;
-        ${PYCHARM})
+        "${PYCHARM}")
             IDE=${PYCHARM};
             ;;
-        ${IDEA})
+        "${IDEA}")
             IDE=${IDEA};
             ;;
-        ${CLION})
+        "${CLION}")
             IDE=${CLION};
             ;;
-        ${GOLAND})
+        "${GOLAND}")
             IDE=${GOLAND};
             ;;
-        ${PHPSTORM})
+        "${PHPSTORM}")
             IDE=${PHPSTORM};
             ;;
-        ${WEBSTORM})
+        "${WEBSTORM}")
             IDE=${WEBSTORM};
             ;;
-        ${DATAGRIP})
+        "${DATAGRIP}")
             IDE=${DATAGRIP};
             ;;
         --just-get-configpath)
@@ -141,7 +149,7 @@ resetintellijkey(){
     UPPERCASE_IDE=$(echo ${IDE} | awk '{print toupper($0)}');
     IDE_CONFIG=$(eval echo '$'"${UPPERCASE_IDE}_CONFIG");
     #IDE_CONFIG=$(find ${IDE_CONFIG}* -type d | head -1);
-    IDE_CONFIG=$(find ${IDE_CONFIG} -type d | head -1);
+    IDE_CONFIG=$(find "${IDE_CONFIG}" -type d | head -1);
 
     case "${1}" in
         --help|-h)
