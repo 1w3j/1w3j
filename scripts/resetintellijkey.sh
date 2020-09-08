@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Usage: resetintellijkey 'idea' && resetintellijkey 'clion' && resetintellijkey 'goland'
 # NOTE:
-# To reset plugin expiration, remove the respective '${IDE_CONFIG}/config/eval/*.evaluation.key' file
+# To reset plugins expiration, remove the respective '${IDE_CONFIG}/config/eval/*.evaluation.key' file
 
+# shellcheck disable=SC1090
 source ~/1w3j/functions.sh;
 
 INTELLIJ_HOME=/opt
@@ -56,7 +57,7 @@ reset_keys(){
     rm -f "${IDE_CONFIG}/config/options/eval";
 
     msg "Deleting ${IDE} user prefs folder";
-    rm -rf "${HOME}/.java/userPrefs/jetbrains/${IDE}";
+    rm -rf "${HOME}/.java/.userPrefs/jetbrains/${IDE}";
 
     msg "Touching files";
     find "${IDE_CONFIG}" -type d -exec touch -t "$(date +"%Y%m%d%H%M")" {} +;
@@ -64,6 +65,21 @@ reset_keys(){
 
     msg "Resetting plugins";
     rm -f "${IDE_CONFIG}"/config/eval/plg_*.evaluation.key
+    for folder in "${HOME}"/.java/.userPrefs/jetbrains/p*; do
+        local folder_name
+        folder_name="$(basename "${folder}")"
+        case "${folder_name}" in
+            # because these folders start with the letter 'p', these will be mistakenly deleted.
+            # TODO: catch 'pycharm community' and 'pycharm edu'
+            phpstorm|pycharm|prefs.xml)
+                ;;
+            *)
+                msg " ✔ ${folder_name##p}" # Removing trailing p
+                rm -rf "${folder}"
+                ;;
+        esac
+    done
+
 }
 
 handle_config_path_params(){

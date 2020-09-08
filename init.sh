@@ -237,6 +237,7 @@ link_config_files() {
                 unload_icons
                 ;;
             *)
+                local from to
                 from="${c}"
                 to=~/."$(basename "${c}")"
                 if [[ -d ${c} ]]; then
