@@ -9,8 +9,12 @@
 #  create a global variable mod=vmw_vmci then delete all "mod=...", so 
 #  practically vmwareRealModName() should not be used in the whole script
 #  also leave vmciNode=vmci as it is
+# VMware 15.5.1:
 # - tar -xzf workstation-15.5.1.tar.gz
 # - cd vmware-host-modules-workstation-15.5.1
+# VMware 16.0.0:
+# - unzip ~/1w3j/bin/vmware-host-modules-workstation-16.0.0.zip
+# - cd vmware-host-modules-workstation-16.0.0
 # - make
 # - sudo make install
 # 
