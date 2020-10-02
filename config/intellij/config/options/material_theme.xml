@@ -17,9 +17,6 @@
     <option name="isHighContrast" value="true" />
     <option name="isWizardShown" value="true" />
     <option name="pristineConfig" value="false" />
-    <option name="upperCaseTabs" value="true" />
-    <option name="useColoredDirectories" value="false" />
-    <option name="indicatorStyle" value="Dot" />
     <option name="tabOpacity" value="86" />
     <option name="treeFontSize" value="11" />
     <option name="indicatorThickness" value="1" />

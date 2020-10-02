@@ -12,6 +12,7 @@
   <component name="EditorSettings">
     <option name="USE_SOFT_WRAPS" value="MAIN_EDITOR" />
     <option name="SOFT_WRAP_FILE_MASKS" value="*.md; *.txt; *.rst; *.adoc;*.tex;*.text;*.txt;*.ind;*.cls;*.sty;*.shl;*.pdf" />
+    <option name="SHOW_QUICK_DOC_ON_MOUSE_OVER_ELEMENT" value="false" />
     <option name="IS_BLOCK_CURSOR" value="true" />
   </component>
   <component name="InlayHintsSettings">
