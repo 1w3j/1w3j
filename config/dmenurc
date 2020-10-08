@@ -4,7 +4,7 @@
 
 ## define the font for dmenu to be used
 #DMENU_FN="Noto-10.5"
-DMENU_FN="SourceCodePro-9"
+DMENU_FN="SourceCodePro-12"
 
 ## background colour for unselected menu-items
 DMENU_NB="#0C0909"
@@ -18,8 +18,14 @@ DMENU_SB="#630F0D"
 ## textcolour for selected menu-items
 DMENU_SF="#E99499"
 
+DMENU_OFFSET_X=600
+DMENU_OFFSET_Y=320
+DMENU_HEIGHT=20
+DMENU_WIDTH=800
+DMENU_LINES=15
+
 ## command for the terminal application to be used:
 TERMINAL_CMD="terminal -e"
 
 ## export our variables
-DMENU_OPTIONS="-fn $DMENU_FN -nb $DMENU_NB -nf $DMENU_NF -sf $DMENU_SF -sb $DMENU_SB"
+DMENU_OPTIONS="-i -fn $DMENU_FN -nb $DMENU_NB -nf $DMENU_NF -sf $DMENU_SF -sb $DMENU_SB -x $DMENU_OFFSET_X -y $DMENU_OFFSET_Y -h $DMENU_HEIGHT -w $DMENU_WIDTH -l $DMENU_LINES"
