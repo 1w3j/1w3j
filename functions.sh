@@ -25,6 +25,21 @@ check_root() {
     fi
 }
 
+is_wsl() {
+    [[ -n ${WSL_DISTRO_NAME} ]]
+}
+
+check_tools() {
+    tools=(
+        git
+        sh
+        curl
+        )
+    for tool in ${tools[*]}; do
+        type ${tool} &>/dev/null || err "You need to install ${tool} first"
+    done
+}
+
 append_if_not_exists() {
     # ${1} -> string to be appended
     # ${2} -> file path to append to

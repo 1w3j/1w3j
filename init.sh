@@ -4,6 +4,8 @@
 # 3. Check if you need the -f flag for the cp command, enabled by default in the link_config_files function, this will overwrite existing config files in $HOME
 # TODO:
 # - Detect broken links an remove them
+# - Detect oh-my-zsh installation
+# - Detect vim plugins
 
 check_if_currently_on_home() {
     echo 'Checking if the repo was cloned in your HOME path...'
@@ -14,6 +16,7 @@ check_if_currently_on_home() {
 }
 
 check_if_currently_on_home
+check_tools
 # shellcheck disable=SC1090
 source "$(dirname "$0")/functions.sh"
 
@@ -95,17 +98,21 @@ upload_themes_and_icons() {
 }
 
 unload_themes() {
-    for theme in "${MY_GTK_THEMES[@]}"; do
-        msg "Extracting ${CONFIG_PATH}/themes/${theme}.tar.gz to ${GTK_THEMES_PATH}"
-        tar xzf "${CONFIG_PATH}/themes/${theme}.tar.gz" -C ${GTK_THEMES_PATH}
-    done
+    if [[ ! is_wsl ]]; then
+        for theme in "${MY_GTK_THEMES[@]}"; do
+            msg "Extracting ${CONFIG_PATH}/themes/${theme}.tar.gz to ${GTK_THEMES_PATH}"
+            tar xzf "${CONFIG_PATH}/themes/${theme}.tar.gz" -C ${GTK_THEMES_PATH}
+        done
+    fi
 }
 
 unload_icons() {
-    for icon_theme in "${MY_GTK_ICONS[@]}"; do
-        msg "Extracting ${CONFIG_PATH}/icons/${icon_theme}.tar.gz to ${GTK_ICONS_PATH}"
-        tar xzf "${CONFIG_PATH}/icons/${icon_theme}.tar.gz" -C ${GTK_ICONS_PATH}
-    done
+    if [[ ! is_wsl ]]; then
+        for icon_theme in "${MY_GTK_ICONS[@]}"; do
+            msg "Extracting ${CONFIG_PATH}/icons/${icon_theme}.tar.gz to ${GTK_ICONS_PATH}"
+            tar xzf "${CONFIG_PATH}/icons/${icon_theme}.tar.gz" -C ${GTK_ICONS_PATH}
+        done
+    fi
 }
 
 link_ides_scripts() {
@@ -205,6 +212,14 @@ link_scripts() {
 
 link_config_files() {
     msg "Started linking config files"
+    msg "Checking for oh-my-zsh installation..."
+    if [[ ! -d ${CONFIG_PATH}/oh-my-zsh ]];then
+        ZSH="${CONFIG_PATH}/oh-my-zsh" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=${CONFIG_PATH}/oh-my-zsh/custom}/plugins/zsh-completions
+    fi
+    if [[ ! -d ${CONFIG_PATH}/vim ]]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git ${CONFIG_PATH}/vim
+    fi
     read -r -p "$(warn "WARNING: force -f flag was activated on cp commands, Continue? (Press ENTER)")"
     for c in "${CONFIG_PATH}"/*; do
         case "$(basename "${c}")" in
@@ -241,6 +256,10 @@ link_config_files() {
                 from="${c}"
                 to=~/."$(basename "${c}")"
                 if [[ -d ${c} ]]; then
+                    if [[ ! -d ${to} ]]; then
+                        warn "${to} folder didn't exist. Using mkdir -p ${to}"
+                        mkdir -p ${to}
+                    fi
                     cp -rsf "${from}"/* "${to}" && echo -e "\t\033[31m${from}/*\033[m → \033[31m${to}/\033[m"
                 else
                     cp -sf "${c}" "${to}" && echo -e "\t\033[31m${from}\033[m → \033[31m${to}\033[m"
@@ -288,20 +307,20 @@ install_packages() {
     # All these dotfiles work best with the manjaro-i3 distro
     sudo pacman -Syyu
     msg "Performing pacman pkgs installation"
-    sudo pacman -S "${pacman_pkgs}"
+    sudo pacman -S $(echo "${pacman_pkgs}")
     msg "Starting yaourt pkgs installation"
-    pacaur -S "${yaourt_pkgs}"
+    pacaur -S $(echo "${yaourt_pkgs}")
     msg "Starting pip modules installation"
     sudo pip install -r ~/1w3j/${pkgdir}/pip
-    msg "Starting mhwd -i bumblebee"
-    sudo mhwd -i pci video-hybrid-intel-nvidia-bumblebee
+    #msg "Starting mhwd -i bumblebee"
+    #sudo mhwd -i pci video-hybrid-intel-nvidia-bumblebee
     msg "Bootstrapping BlackArch repo"
     sh -c "$(curl -fSsL https://blackarch.org/strap.sh)"
 }
 
 reload_themes() {
     #wal -i ~/1w3j/wallpapers/OMEN_by_HP.jpg -nst
-    msg "rxrdb ~/.Xresources"
+    msg "xrdb ~/.Xresources"
     xrdb ~/.Xresources
     msg "i3-msg reload"
     i3-msg reload
@@ -331,7 +350,9 @@ init_sh() {
             link_scripts "py"
             link_ides_scripts
             link_config_files
-            reload_themes
+            if [[ ! is_wsl ]]; then
+                reload_themes
+            fi
             ;;
         -uti | --uti | --upload-themes-icons)
             upload_themes_and_icons
@@ -347,7 +368,9 @@ init_sh() {
         -rc | --rc | --reload-config-files)
             check_zsh
             link_config_files
-            reload_themes
+            if [[ ! is_wsl ]]; then
+                reload_themes
+            fi
             ;;
         *)
             check_zsh
