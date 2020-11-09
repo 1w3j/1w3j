@@ -61,7 +61,7 @@ Xcursor.size:           0
 
 !! Search font names with fc-match -a, agnoster needs Nerd Fonts symbols and Powerline, just Powerline seems not to work
 !! "\ " backslashes for in between spaces are not needed
-#define pixel_size    14
+#define pixel_size    13
 !!URxvt.font:         xft:TerminessTTFNerdFontMono:medium:size=12:antialias=true
 !!URxvt.font:         xft:Source Code Pro for Powerline:medium:size=11:antialias=true
 *font:           xft:Source Code Pro for Powerline:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:TerminessTTFNerdFontMono:medium:pixelsize=pixel_size:autohint=true:antialias=true,xft:DejaVuSansMono Nerd Font Mono:medium:pixelsize=pixel_size:autohint=true:antialias=true

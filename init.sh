@@ -30,13 +30,19 @@ GTK_ICONS_PATH=~/.icons
 check_if_important_folders_exists() {
     msg "Checking if ${BIN_PATH} exists..."
     if [[ ! -d ${BIN_PATH} ]]; then
-        warn "Creating ${BIN_PATH} for you..."
-        mkdir ${BIN_PATH}
+        warn "Creating ${BIN_PATH} for you..." && mkdir ${BIN_PATH}
     fi
     msg "Checking if ${PROJECTS_PATH} exists..."
     if [[ ! -d ${PROJECTS_PATH} ]]; then
-        warn "Creating ${PROJECTS_PATH} for you..."
-        mkdir ${PROJECTS_PATH}
+        warn "Creating ${PROJECTS_PATH} for you..." && mkdir ${PROJECTS_PATH}
+    fi
+    msg "Checking if ${GTK_THEMES_PATH} exists"
+    if [[ ! -d ${GTK_THEMES_PATH} ]]; then
+        warn "Creating ${GTK_THEMES_PATH} for you..." && mkdir ${GTK_THEMES_PATH}
+    fi
+    msg "Checking if ${GTK_ICONS_PATH} exists"
+    if [[ ! -d ${GTK_ICONS_PATH} ]]; then
+        warn "Creating ${GTK_ICONS_PATH} for you..." && mkdir ${GTK_ICONS_PATH}
     fi
 }
 check_if_important_folders_exists
@@ -44,12 +50,12 @@ check_if_important_folders_exists
 # Don't change these values, just comment/uncomment according to your setup
 # idea, webstorm, pycharm, datagrip, phpstorm, clion
 MY_INTELLIJ_IDES=(
-    idea
-    webstorm
+    #   idea
+    #   webstorm
     pycharm
-    datagrip
-    phpstorm
-    #    clion
+    #   datagrip
+    #   phpstorm
+    #   clion
 )
 
 # Allowed platforms:
@@ -98,7 +104,7 @@ upload_themes_and_icons() {
 }
 
 unload_themes() {
-    if [[ ! is_wsl ]]; then
+    if [[ is_not_wsl ]]; then
         for theme in "${MY_GTK_THEMES[@]}"; do
             msg "Extracting ${CONFIG_PATH}/themes/${theme}.tar.gz to ${GTK_THEMES_PATH}"
             tar xzf "${CONFIG_PATH}/themes/${theme}.tar.gz" -C ${GTK_THEMES_PATH}
@@ -107,7 +113,7 @@ unload_themes() {
 }
 
 unload_icons() {
-    if [[ ! is_wsl ]]; then
+    if [[ is_not_wsl ]]; then
         for icon_theme in "${MY_GTK_ICONS[@]}"; do
             msg "Extracting ${CONFIG_PATH}/icons/${icon_theme}.tar.gz to ${GTK_ICONS_PATH}"
             tar xzf "${CONFIG_PATH}/icons/${icon_theme}.tar.gz" -C ${GTK_ICONS_PATH}
@@ -116,7 +122,7 @@ unload_icons() {
 }
 
 link_ides_scripts() {
-    warn "If some IDE script is missing, first check jetbrains-toolbox configuration and set 'shell scripts location' to ${SCRIPTS_PATH}"
+    warn "If some IDE scripts are missing, first check jetbrains-toolbox configuration and set 'shell scripts location' to ${SCRIPTS_PATH}"
     for ide in "${MY_INTELLIJ_IDES[@]}"; do
         local ide_script=${SCRIPTS_PATH}/${ide} from to
         if [[ -f ${ide_script} ]]; then
@@ -213,7 +219,7 @@ link_scripts() {
 link_config_files() {
     msg "Started linking config files"
     msg "Checking for oh-my-zsh installation..."
-    if [[ ! -d ${CONFIG_PATH}/oh-my-zsh ]];then
+    if [[ ! -d ${CONFIG_PATH}/oh-my-zsh ]]; then
         ZSH="${CONFIG_PATH}/oh-my-zsh" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=${CONFIG_PATH}/oh-my-zsh/custom}/plugins/zsh-completions
     fi
@@ -239,17 +245,19 @@ link_config_files() {
                     fi
                 done
                 msg "++++++++++++++ IMPORTANT NOTE +++++++++++++++"
-                msg "You may now want to run your IDEs right now, if color scheme default resets (or awfully displayed),\
-                consider running init.sh again before 'restarting your IDE'. This 'may' be due to the plugin version \
-                displayed in material_theme.xml. Always update the Material Theme UI Plugin on your IDEs"
+                msg "You may now want to run your IDEs right now, if color scheme default resets (or awfully displayed), consider running init.sh again before 'restarting your IDE'. This 'may' be due to the plugin version displayed in material_theme.xml. Always update the Material Theme UI Plugin on your IDEs"
                 ;;
             themes)
-                msg "GTK themes folder detected \"${c}\""
-                unload_themes
+                if [[ is_not_wsl ]]; then
+                    msg "GTK themes folder detected \"${c}\""
+                    unload_themes
+                fi
                 ;;
             icons)
-                msg "GTK icons folder detected \"${c}\""
-                unload_icons
+                if [[ is_not_wsl ]]; then
+                    msg "GTK icons folder detected \"${c}\""
+                    unload_icons
+                fi
                 ;;
             *)
                 local from to
@@ -267,6 +275,9 @@ link_config_files() {
                 ;;
         esac
     done
+    if [[ is_not_wsl ]]; then
+        reload_themes
+    fi
 }
 
 check_zsh() {
@@ -315,7 +326,11 @@ install_packages() {
     #msg "Starting mhwd -i bumblebee"
     #sudo mhwd -i pci video-hybrid-intel-nvidia-bumblebee
     msg "Bootstrapping BlackArch repo"
-    sh -c "$(curl -fSsL https://blackarch.org/strap.sh)"
+    if ! pacman -Qi blackarch-keyring; then
+        sudo sh -c "$(curl -fSsL https://blackarch.org/strap.sh)"
+    else
+        warn "Blackarch keyring detected, no need for bootstrapping"
+    fi
 }
 
 reload_themes() {
@@ -350,9 +365,6 @@ init_sh() {
             link_scripts "py"
             link_ides_scripts
             link_config_files
-            if [[ ! is_wsl ]]; then
-                reload_themes
-            fi
             ;;
         -uti | --uti | --upload-themes-icons)
             upload_themes_and_icons
@@ -368,9 +380,6 @@ init_sh() {
         -rc | --rc | --reload-config-files)
             check_zsh
             link_config_files
-            if [[ ! is_wsl ]]; then
-                reload_themes
-            fi
             ;;
         *)
             check_zsh
@@ -381,7 +390,6 @@ init_sh() {
             link_ides_scripts
             link_config_files
             install_packages
-            reload_themes
             ;;
     esac
 }

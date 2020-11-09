@@ -1,10 +1,10 @@
 {
     "profiles": {
         "current": {
-            "right_primary": "a40000",
-            "left_primary": "a40000",
-            "right_secondary": "a40000",
-            "left_secondary": "a40000"
+            "right_primary": "cc0000",
+            "left_primary": "cc0000",
+            "right_secondary": "cc0000",
+            "left_secondary": "cc0000"
         },
         "default": {
             "right_primary": "784da5",

@@ -2,6 +2,8 @@
   <component name="CodeInsightSettings">
     <option name="SHOW_PARAMETER_NAME_HINTS_ON_COMPLETION" value="true" />
     <option name="SHOW_FULL_SIGNATURES_IN_PARAMETER_INFO" value="true" />
+    <option name="REFORMAT_ON_PASTE" value="1" />
+    <option name="INDENT_TO_CARET_ON_PASTE" value="true" />
   </component>
   <component name="DefaultFont">
     <option name="FONT_SIZE" value="14" />

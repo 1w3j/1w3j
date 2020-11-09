@@ -3,7 +3,7 @@ Description=Logitech G560 speaker led controller daemon
 After=multi-user.target
 
 [Service]
-ExecStart=/home/iqbal/bin/g560d
+ExecStart=/home/j3w1/bin/g560d
 Type=simple
 Restart=always
 StandardOutput=syslog

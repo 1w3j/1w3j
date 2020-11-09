@@ -25,7 +25,7 @@ check_root() {
     fi
 }
 
-is_wsl() {
+is_not_wsl() {
     [[ -n ${WSL_DISTRO_NAME} ]]
 }
 

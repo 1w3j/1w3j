@@ -103,8 +103,6 @@ cmake
 yarn
 gtk-chtheme
 bcprov
-java-common-lang
-bcprov
 java-commons-lang
 bind-tools
 pacaur
@@ -117,3 +115,4 @@ httpie
 xorg-xev
 python-mutagen
 which
+powerline-fonts

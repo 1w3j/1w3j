@@ -1,12 +1,12 @@
 <application>
   <component name="FileTypeManager" version="17">
+    <ignoreFiles list="*$py.class;*.hprof;*.pyc;*.pyo;*.rbc;*.yarb;*~;.DS_Store;.git;.hg;.svn;CVS;__pycache__;_svn;vssver.scc;vssver2.scc;" />
     <extensionMap>
-      <mapping ext="gradle.kts" type="Kotlin" />
       <mapping ext="mp3" type="Native" />
       <mapping pattern="artisan" type="PHP" />
+      <mapping pattern=".ideavimrc" type="PLAIN_TEXT" />
       <mapping pattern=".inxi_info" type="PLAIN_TEXT" />
       <mapping pattern=".netbeans_update_resources" type="PLAIN_TEXT" />
-      <mapping pattern=".ideavimrc" type="PLAIN_TEXT" />
       <mapping pattern=".netbeans_automatic_build" type="PLAIN_TEXT" />
       <mapping pattern="443e886731824f8baa44b06972d97fc8-0" type="PLAIN_TEXT" />
       <mapping pattern="offline-27375167jpg" type="PLAIN_TEXT" />
@@ -19,6 +19,7 @@
       <removed_mapping pattern="vimrc" approved="true" type="vimrc" />
       <removed_mapping pattern="vimrc,.vimrc" approved="true" type="vimrc" />
       <removed_mapping pattern="config" approved="true" type="Bash" />
+      <mapping ext="gradle.kts" type="Kotlin" />
       <mapping pattern="Xresources" type="Bash" />
       <mapping pattern="profile" type="Bash" />
     </extensionMap>

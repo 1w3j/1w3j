@@ -25,7 +25,7 @@ bindsym $mod+n border normal;exec notify-send 'Border set to normal'
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 #font pango:Hack 9
-font xft:Source Code Pro for Powerline 9
+font xft:Source Code Pro for Powerline 12
 #font pango:Hack 9, Font Awesome 5
 #font xft:URWGothic-Book 9
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -387,7 +387,7 @@ exec --no-startup-id chromium
 exec --no-startup-id thunderbird
 exec --no-startup-id jetbrains-toolbox
 exec --no-startup-id i3-msg "workspace $ws1; layout stacking"
-exec --no-startup-id ~/.screenlayout/default.sh
+exec --no-startup-id ~/.screenlayout/1w3j.sh
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
