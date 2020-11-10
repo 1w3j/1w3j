@@ -177,8 +177,9 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 
-set $mon1 "HDMI-0"
-set $mon2 "eDP-1-1"
+set $mon1 "DP-0"
+set $mon2 "DP-4"
+set $mon3 "HDMI-2"
 
 workspace $ws1 output $mon1
 workspace $ws2 output $mon1
@@ -186,9 +187,9 @@ workspace $ws3 output $mon1
 workspace $ws4 output $mon1
 workspace $ws5 output $mon2
 workspace $ws6 output $mon2
-workspace $ws7 output $mon1
-workspace $ws8 output $mon1
-workspace $ws9 output $mon2
+workspace $ws7 output $mon3
+workspace $ws8 output $mon3
+workspace $ws9 output $mon3
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -228,14 +229,14 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
-assign [class="Chromium"] $ws2
-assign [class="jetbrains-idea"] $ws3
-assign [class="jetbrains-pycharm"] $ws3
-assign [class="jetbrains-datagrip"] $ws3
-assign [class="jetbrains-phpstorm"] $ws3
-assign [class="jetbrains-webstorm"] $ws3
-assign [class="okular"] $ws5
-assign [class="calibre"] $ws5
+assign [class="Chromium"] $ws5
+assign [class="jetbrains-idea"] $ws1
+assign [class="jetbrains-pycharm"] $ws1
+assign [class="jetbrains-datagrip"] $ws1
+assign [class="jetbrains-phpstorm"] $ws1
+assign [class="jetbrains-webstorm"] $ws1
+assign [class="okular"] $ws7
+assign [class="calibre" instance="calibre-ebook-viewer"] $ws7
 assign [class="Hexchat"] $ws8
 assign [class="Thunderbird"] $ws8
 assign [class="URxvt" instance="cmus"] $ws9
@@ -294,6 +295,7 @@ for_window [class="Xarchiver"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Typora"] floating enable
 for_window [class="calibre"] floating enable
+for_window [class="calibre" instance="calibre-ebook-viewer"] floating disable
 for_window [class="wechat.exe"] floating enable
 for_window [class="krename"] floating enable
 for_window [class="G560gui"] floating enable
@@ -381,13 +383,11 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id qbittorrent
 exec --no-startup-id hexchat
 exec --no-startup-id terminal -name cmus -e cmus
-exec --no-startup-id megasync
 exec --no-startup-id ~/bin/g560gui
 exec --no-startup-id chromium
-exec --no-startup-id thunderbird
 exec --no-startup-id jetbrains-toolbox
 exec --no-startup-id i3-msg "workspace $ws1; layout stacking"
-exec --no-startup-id ~/.screenlayout/1w3j.sh
+exec --no-startup-id ~/.screenlayout/j3w1.sh
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
