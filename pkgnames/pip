@@ -9,4 +9,4 @@ img2pdf
 PyPDF2
 pdf-bookmark
 rpyc
-usb
+pyusb
