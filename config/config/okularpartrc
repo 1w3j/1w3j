@@ -18,7 +18,7 @@ SwitchToTabIfOpen=true
 
 [Main View]
 ShowBottomBar=true
-SplitterSizes=271,1643
+SplitterSizes=265,809
 
 [Nav Panel]
 SidebarIconSize=32

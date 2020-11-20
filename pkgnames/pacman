@@ -116,3 +116,7 @@ xorg-xev
 python-mutagen
 which
 powerline-fonts
+adobe-source-han-sans-cn-fonts
+fcitx
+fcitx-googlepinyin
+fcitx-configtool

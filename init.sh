@@ -50,7 +50,7 @@ check_if_important_folders_exists
 # Don't change these values, just comment/uncomment according to your setup
 # idea, webstorm, pycharm, datagrip, phpstorm, clion
 MY_INTELLIJ_IDES=(
-    #   idea
+    idea
     #   webstorm
     pycharm
     #   datagrip

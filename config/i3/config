@@ -81,9 +81,11 @@ bindsym $mod+Shift+F3 exec pkexec terminal -e ranger;exec notify-send 'Start ran
 bindsym $mod+t exec --no-startup-id pkill compton;exec notify-send 'Kill compton'
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b;exec notify-send 'Start compton daemon'
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'";exec notify-send 'Killall dunst and restart it'
-bindsym XF86AudioPause exec cmus-remote --pause
-bindsym XF86AudioNext exec cmus-remote --next
-bindsym XF86AudioPrev exec cmus-remote --prev
+#bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 bindsym Print exec gnome-screenshot -i
 #bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 #bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
@@ -368,6 +370,7 @@ exec --no-startup-id nitrogen --set-zoom-fill ~/1w3j/wallpapers/nitrogen/*; slee
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
+exec --no-startup-id polychromatic-tray-applet
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
@@ -388,6 +391,7 @@ exec --no-startup-id chromium
 exec --no-startup-id jetbrains-toolbox
 exec --no-startup-id i3-msg "workspace $ws1; layout stacking"
 exec --no-startup-id ~/.screenlayout/j3w1.sh
+exec --no-startup-id systemctl --user start nfancurve.service
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
