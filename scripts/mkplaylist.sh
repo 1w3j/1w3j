@@ -165,7 +165,7 @@ print_usage() {
     cat << EOF
 Usage: ${0##*/} { <song_list_number> [-pd [-n]|-rd|-ls] } | { [-rff|-pnaff|-paff] <song_list_number> SONGS_LIST_FILE [-print] }
 Options:
-    song_list_number        An integer listed on the list-songlist command or -ls representing the file to be parsed, if used without any other flag, then it will generate a m3u playlist file
+    song_list_number        An integer, listed on the list-songlist command or -ls representing the file to be parsed, if used without any other flag, then it will generate a m3u playlist file
     --list-songlists,-ls    List a numbered list of the files that can be parsed into m3u's playlists
     --print-dupes,-pd       Prints all duplicated entries inside the song list, use '-n' after this argument to output the respective line number of each entry
     --remove-dupes,-rd      Cleans the selected song list from duplicated entries

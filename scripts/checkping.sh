@@ -5,8 +5,8 @@
 # Usage:
 # checkping [qbit]
 
-IP='192.168.11.1';
-WIFI_NAME="305";
+IP='192.168.2.1';
+WIFI_NAME="LVSANG";
 
 RED=$(tput sgr0 && tput setaf 1 && tput bold);
 GREEN=$(tput sgr0 && tput setaf 2 && tput bold);

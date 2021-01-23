@@ -179,9 +179,9 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 
-set $mon1 "DP-0"
-set $mon2 "DP-4"
-set $mon3 "HDMI-2"
+set $mon1 "DP-2"
+set $mon2 "DP-0"
+set $mon3 "HDMI-0"
 
 workspace $ws1 output $mon1
 workspace $ws2 output $mon1
@@ -390,7 +390,7 @@ exec --no-startup-id ~/bin/g560gui
 exec --no-startup-id chromium
 exec --no-startup-id jetbrains-toolbox
 exec --no-startup-id i3-msg "workspace $ws1; layout stacking"
-exec --no-startup-id ~/.screenlayout/j3w1.sh
+exec --no-startup-id ~/.screenlayout/j3w1-one.sh
 exec --no-startup-id systemctl --user start nfancurve.service
 
 # Color palette used for the terminal ( ~/.Xresources file )
