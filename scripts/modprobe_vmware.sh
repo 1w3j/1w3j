@@ -17,6 +17,10 @@
 # - cd vmware-host-modules-workstation-16.0.0
 # - make
 # - sudo make install
+# VMware any-version:
+# - For example, when installing version 16.1.1, use the following command to download the tar.gz
+# - wget https://github.com/mkubecek/vmware-host-modules/archive/workstation-16.1.1.tar.gz
+# - Then proceed as before
 # 
 # if for some reason still isn't completed continue with the following:
 # - Install vmware-patch from AUR
@@ -24,6 +28,12 @@
 # - Run sudo vmware-modconfig --console --install-all
 # - Run this script
 # - sudo /etc/init.d/vmware start OR restart
+
+# NOTES:
+# ==> Before using VMware, you need to reboot or load vmw_vmci and vmmon kernel modules (in a terminal on root: modprobe -a vmw_vmci vmmon)
+# ==> You may also need to enable some of these services:
+# - vmware-networks.service: to have network access inside VMs
+# - vmware-usbarbitrator.service: to connect USB devices inside VMs
 
 modprobe vmw_vmci
 modprobe vmmon

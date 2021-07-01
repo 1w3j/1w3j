@@ -39,8 +39,8 @@ font xft:Source Code Pro for Powerline 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec prime-run terminal
-bindsym $mod+Shift+Return exec prime-run terminal -name floating
+bindsym $mod+Return exec terminal
+bindsym $mod+Shift+Return exec terminal -name floating
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -179,9 +179,9 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 
-set $mon1 "DP-2"
-set $mon2 "DP-0"
-set $mon3 "HDMI-0"
+set $mon1 "DP-0"
+set $mon2 "DP-4"
+set $mon3 "HDMI-2"
 
 workspace $ws1 output $mon1
 workspace $ws2 output $mon1
@@ -365,7 +365,6 @@ bindsym $mod+Shift+a exec gnome-screenshot -c -a --display=:0
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --set-zoom-fill ~/1w3j/wallpapers/nitrogen/*; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -380,6 +379,7 @@ exec --no-startup-id xautolock -time 60 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id setxkbmap -layout us,es -option 'grp:alt_shift_toggle'
+exec --no-startup-id nitrogen --set-zoom-fill ~/1w3j/wallpapers/nitrogen/*; sleep 1; compton -b
 #exec --no-startup-id gxkb
 exec --no-startup-id fcitx -d
 exec --no-startup-id redshift-gtk
@@ -388,10 +388,11 @@ exec --no-startup-id hexchat
 exec --no-startup-id terminal -name cmus -e cmus
 exec --no-startup-id ~/bin/g560gui
 exec --no-startup-id chromium
-exec --no-startup-id jetbrains-toolbox
+exec --no-startup-id /opt/jetbrains-toolbox/jetbrains-toolbox
 exec --no-startup-id i3-msg "workspace $ws1; layout stacking"
-exec --no-startup-id ~/.screenlayout/j3w1-one.sh
+exec --no-startup-id ~/.screenlayout/j3w1-obsidian.sh
 exec --no-startup-id systemctl --user start nfancurve.service
+exec --no-startup-id xrdb ~/.Xresources
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

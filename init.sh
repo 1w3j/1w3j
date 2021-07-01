@@ -54,7 +54,7 @@ MY_INTELLIJ_IDES=(
     #   webstorm
     pycharm
     #   datagrip
-    #   phpstorm
+    phpstorm
     #   clion
 )
 
@@ -307,20 +307,24 @@ EOF
     esac
 }
 
+get_pkgnames() {
+    comm -12 <(pacman -Slq | sort) <(sort ~/1w3j/${pkgdir}/"${1}")
+}
+
 install_packages() {
     local pkgdir pacman_pkgs yaourt_pkgs
     pkgdir="pkgnames"
-    pacman_pkgs=$(tr '\n' ' ' < ~/1w3j/${pkgdir}/pacman)
-    yaourt_pkgs=$(tr '\n' ' ' < ~/1w3j/${pkgdir}/yaourt)
+    pacman_pkgs=$(get_pkgnames "pacman")
+    yaourt_pkgs=$(get_pkgnames "yaourt")
     msg "Starting pacman sync"
     # Deprecated message:
     # msg "DON'T forget to select number 3) when installing 'i3' -> i3blocks";
     # All these dotfiles work best with the manjaro-i3 distro
     sudo pacman -Syyu
     msg "Performing pacman pkgs installation"
-    sudo pacman -S $(echo "${pacman_pkgs}")
+    sudo pacman -S --needed $(echo "${pacman_pkgs}")
     msg "Starting yaourt pkgs installation"
-    pacaur -S $(echo "${yaourt_pkgs}")
+    pacaur -S --needed $(echo "${yaourt_pkgs}")
     msg "Starting pip modules installation"
     sudo pip install -r ~/1w3j/${pkgdir}/pip
     #msg "Starting mhwd -i bumblebee"
