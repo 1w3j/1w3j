@@ -1,5 +1,24 @@
+const {
+    aceVimMap,
+    mapkey,
+    imap,
+    imapkey,
+    getClickableElements,
+    vmapkey,
+    map,
+    cmap,
+    addSearchAlias,
+    removeSearchAlias,
+    tabOpenLink,
+    readText,
+    Clipboard,
+    Front,
+    Hints,
+    Visual,
+    RUNTIME
+} = api;
 // an example to create a new mapping `ctrl-y`
-api.mapkey('<Ctrl-y>', 'Show me the money', function() {
+mapkey('<Ctrl-y>', 'Show me the money', function() {
     Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
 });
 
