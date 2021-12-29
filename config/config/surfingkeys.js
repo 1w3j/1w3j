@@ -15,6 +15,7 @@ const {
     Front,
     Hints,
     Visual,
+    unmapAllExcept,
     RUNTIME
 } = api;
 // an example to create a new mapping `ctrl-y`
